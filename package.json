@@ -1,9 +1,9 @@
 {
-  "name": "rockagainstthetpp",
+  "name": "2017pledge",
   "version": "0.2.0",
   "license": "GPL-3.0",
   "description": "Website for the Rock Against the TPP concert series",
-  "repo": "fightforthefuture/rockagainstthetpp",
+  "repo": "fightforthefuture/2017Pledge",
   "cacheDirectories": [
     "node_modules",
     "./vendor"

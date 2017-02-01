@@ -188,7 +188,7 @@ module.exports = function (grunt) {
             var
               stamp = Date.now();
             if (url[0] === '/') {
-              return 'https://' + env.get('aws_s3_bucket') + '/rockagainstthetpp' + url + '?' + stamp;
+              return 'https://' + env.get('aws_s3_bucket') + '/2017pledge' + url + '?' + stamp;
             } else {
               return url;
             }
@@ -228,8 +228,8 @@ module.exports = function (grunt) {
         'copy:deploy'
       ],
       deploy2: [
-        'uglify:deploy',
-        'cdnify:deploy'
+        'uglify:deploy'
+        /* 'cdnify:deploy' */
       ]
     },
 
