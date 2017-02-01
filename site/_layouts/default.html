@@ -104,27 +104,29 @@
   </section>
 </section>
 
-<h3 class="dissolve">Here's where individuals stand:</h3>
 <section id="people">
-    <section>
-      <h4>Has not signed.</h4>
-      <ul>
-        {% for person in site.data.people.unsigned %}
-        <li>
-          {{ person }}
-        </li>
-        {% endfor %}
-      </ul>
-    </section>
-    <section>
-      <h4>Has signed.</h4>
-      <ul>
-        {% for person in site.data.people.signed %}
-        <li>
-          {{ person }}
-        </li>
-        {% endfor %}
-      </ul>
+    <h3 class="dissolve">Here's where individuals stand:</h3>
+    <section class="two-column">
+      <section>
+        <h4>Has not signed.</h4>
+        <ul>
+          {% for person in site.data.people.unsigned %}
+          <li>
+            {{ person }}
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
+      <section>
+        <h4>Has signed.</h4>
+        <ul>
+          {% for person in site.data.people.signed %}
+          <li>
+            {{ person }}
+          </li>
+          {% endfor %}
+        </ul>
+      </section>
     </section>
 </section>
 
