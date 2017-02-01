@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# This follows a pattern similar to http://www.steveklabnik.com/automatically_update_github_pages_with_travis_example/
+
 cd public || exit 0;
 
 if  [ "$TRAVIS" = "true" -a "$TRAVIS_PULL_REQUEST" = "false"  -a "$TRAVIS_BRANCH" = "production" ]
