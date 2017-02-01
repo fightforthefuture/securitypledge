@@ -43,7 +43,7 @@
         <li><a href="/#companies">Companies</a></li>
         <li><a href="/#people">People</a></li>
         <li><a href="/#orgs">Orgs</a></li>
-        <li><a href="/#faq-more">FAQ</a></li>
+        <li><a href="/#faq">FAQ</a></li>
       </ul>
     </nav>
   </section>
@@ -74,44 +74,58 @@
   {% endif %}
 </header>
 
-<section class="countdown dissolve">
-  <p>It's been <strong><span id="days-since"></span></strong> since the pledge launched. <strong><span id="days-remaining"></span> left.</strong></p>
-  <h3>Here's where companies stand:</h3>
-</section>
-
 <section id="companies">
-  <ul>
-    <li>Slack</li>
-    <li>Apple</li>
-    <li>Facebook</li>
-    <li>YouTube</li>
-    <li>Flipboard</li>
-    <li>Skype</li>
-  </ul>
-  <ul>
-    <li>FFTF</li>
-  </ul>
+  <section class="countdown dissolve">
+    <h4>It's been <strong><span id="days-since"></span></strong> since the pledge launched. <strong><span id="days-remaining"></span> left.</strong></h4>
+    <h3>Here's where companies stand:</h3>
+  </section>
+
+  <section class="two-column">
+    <section>
+      <h4>Has not yet signed.</h4>
+      <ul>
+        {% for company in site.data.companies.unsigned %}
+        <li>
+          {{ company }}
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    <section>
+      <h4>Has signed.</h4>
+      <ul>
+        {% for company in site.data.companies.signed %}
+        <li>
+          {{ company }}
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+  </section>
 </section>
 
 <h3 class="dissolve">Here's where individuals stand:</h3>
 <section id="people">
-  <ul>
-    <li>Mark Zuckerberg</li>
-    <li>Sergey Brin</li>
-    <li>Tim Cook</li>
-    <li>Marissa Mayer</li>
-    <li>Elon Musk</li>
-    <li>Peter Thiel</li>
-  </ul>
-  <ul>
-    <li>Tim Berners-Lee</li>
-    <li>Jennifer Grannick</li>
-    <li>Susan Crawford</li>
-    <li>Evangaline Lily</li>
-    <li>Jimmy Wales</li>
-    <li>Bruce Scheiner</li>
-    <li>Naomi Klein</li>
-  </ul>
+    <section>
+      <h4>Has not signed.</h4>
+      <ul>
+        {% for person in site.data.people.unsigned %}
+        <li>
+          {{ person }}
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    <section>
+      <h4>Has signed.</h4>
+      <ul>
+        {% for person in site.data.people.signed %}
+        <li>
+          {{ person }}
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
 </section>
 
 <main>
@@ -130,10 +144,9 @@
 </section>
 -->
 
-<section>
-  <h2 id="support-orgs">Supporting organizations:</h2>
+<section id="orgs" class="dissolve">
+  <h2>Supporting organizations:</h2>
 
-  <!--
   <ul class="org-logos">
     {% for org in site.data.affiliated_orgs.support %}
     <li class="logo {{ org | slugify }}">
@@ -142,7 +155,6 @@
     </li>
     {% endfor %}
   </ul>
-  -->
 </section>
 
 <section>
@@ -161,49 +173,6 @@
     <li>{{ org }}</li>
     {% endfor %}
   </ul>
-
-{% if page.city contains 'Seattle' %}
-  <h2 class="local-support">
-        Local Support:
-  </h2>
-<ul id="endorsements" class="two-column-list">
-    <li> Washington Alliance for Retired Americans-Education Fund</li> 
-    <li>WA YELL</li>
-    <li>Sierra Club Washington State Chapter</li>
-    <li>Community Alliance for Global Justice</li>
-    <li>Martin Luther King Central Labor Council</li>
-    <li>IAM District 160 </li>
-    <li>IAM District 160 Young Machinists </li>
-    <li>ILWU Local 23</li>
-    <li>350 Seattle</li>
-    <li>South Sound Jobs with Justice</li>
-    <li>UFCW Local 21</li>
-    <li>WAmend/Yes on 735</li>
-    <li>Teamsters Joint Council 28</li>
-    <li>Ten Thousand Villages Seattle</li>
-    <li>Backbone Campaign</li>
-    <li>A Touch of Wanderlust</li>
-    <li>IAM 751</li>
-    <li>SPEEA</li>
-    <li>Pierce County Central Labor Council</li>
-    <li>SeaSol</li>
-    <li>Stop Veolia Seattle</li>
-    <li>API-Chaya</li>
-    <li>Thurston-Mason-Lewis Central Labor Council</li>
-    <li>Northwest Corner Coalition in honor of Dianne Foster</li>
-    <li>Puget Sound Sage</li>
-    <li>BAYAN PNW</li>
-    <li>Community to Community Development</li>
-    <li>IBEW Local 46</li>
-    <li>Pacific Northwest Regional Council of Carpenters</li>
-    <li>AWPPW</li>
-    <li>Washington State Central Labor Council AFL-CIO</li>
-    <li>Food and Water Watch</li>
-    <li>Seattle Against Slavery </li>
-  </ul>
-
-  {% endif %}
-
 
   <p>
     Does your organization want to join? <a href="mailto:team@fightforthefuture.org">Email us</a>.

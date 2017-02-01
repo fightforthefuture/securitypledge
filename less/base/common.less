@@ -15,22 +15,29 @@ body {
   color: @white;
   font-family: @body-font;
   font-size: 1.6rem;
+  font-weight: 400;
   position: relative;
   text-align: center;
 }
 
 h2, h3, h4, h5, h6 {
-  font-weight: bold;
+  font-family: @heading-font;
   line-height: 1.1;
   margin-bottom: 0.75em;
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 h3 {
-  font-size: 3.2rem;
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 3rem;
+  font-weight: 400;
 }
 
 a {
@@ -77,8 +84,9 @@ strong {
   background-color: @black;
   background-clip: content-box;
   border-style: solid;
-  border-width: 10rem 0;
+  border-width: 2rem 0;
   border-image-source: url('/images/dissolve.png');
   border-image-width: 10rem 0;
   border-image-slice: 30% 0;
+  border-image-outset: 8rem 0;
 }

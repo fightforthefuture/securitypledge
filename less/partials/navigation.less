@@ -10,7 +10,7 @@ nav {
 
   ul {
     background-color: fade(@black, 90%);
-    font-family: @heading-font;
+    font-family: @body-font;
     font-size: 2rem;
     font-weight: 100;
     overflow: auto;
@@ -94,9 +94,10 @@ nav {
 
   a {
     display: block;
-    margin: 0 0 0 3px;
+    margin: 0 0 0 1rem;
     padding: 2rem 0;
     transition: transform 200ms;
+    font-weight: 700;
 
     &:hover, &:active, &:focus {
       @media screen and (min-width: @large-phone) {

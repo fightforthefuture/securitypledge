@@ -1,0 +1,10 @@
+unsigned:
+  - Slack
+  - Apple
+  - Facebook
+  - YouTube
+  - Flipboard
+  - Skype
+
+signed:
+  - FFTF

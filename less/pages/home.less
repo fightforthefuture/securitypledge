@@ -3,237 +3,6 @@
   letter-spacing: 0.1rem;
 }
 
-.artists {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  font-family: @heading-font-bold;
-  margin: 0 auto;
-  max-width: 88rem;
-  text-align: center;
-  text-transform: uppercase;
-
-  @media screen and (min-width: @large-phone) {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-}
-
-.artist, .featured-artist {
-  a {
-    text-decoration: none;
-  }
-
-  img {
-    border: none;
-  }
-}
-
-.featured-artist {
-  box-shadow: -3px 3px 0 0 @grey-200;
-  font-size: 3rem;
-  margin: 2rem;
-  margin-bottom: 6rem;
-  max-width: 88rem;
-  order: 1;
-  position: relative;
-  width: ~'calc(100% - 4rem)';
-
-  @media screen and (min-width: @large-phone) {
-    height: 29.1rem;
-    margin-bottom: auto;
-  }
-
-  img {
-    display: block;
-
-    @media screen and (min-width: @small-phone) {
-      width: 65rem;
-    }
-
-    @media screen and (min-width: @large-phone) {
-      max-width: 100%;
-      position: static;
-      width: auto;
-    }
-  }
-
-  .artist-name {
-    line-height: 1;
-    margin: 0;
-    position: absolute;
-    right: 0;
-    bottom: -4rem;
-    left: 0;
-    text-shadow: 0 0 1rem black;
-    vertical-align: middle;
-
-    @media screen and (min-width: @large-phone) {
-      height: 0;
-      top: 2px;
-      left: 2px;
-    }
-
-    @media screen and (min-width: @small-tablet) {
-      top: 1rem;
-      left: 1rem;
-    }
-  }
-
-  .artist-bio {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-}
-
-.artist {
-  display: flex;
-  flex-direction: column;
-  font-size: 1.7rem;
-  justify-content: flex-start;
-  height: ~'calc(51.875vw + 14.8rem)';
-  line-height: 1;
-  margin: 2rem 0 2rem;
-  max-height: ~'calc(51.875vw + 14.8rem)';
-  max-width: 27rem;
-  order: 2;
-  overflow: hidden;
-  transition: max-height 800ms;
-  width: 63vw;
-
-  @media screen and (min-width: @small-phone) {
-    height: 38rem;
-    max-height: 38rem;
-  }
-
-  @media screen and (min-width: @large-phone) {
-    font-size: 1.8rem;
-    width: 44%;
-  }
-
-  @media screen and (min-width: @small-tablet) {
-    width: 30%;
-  }
-
-  img {
-    position: relative;
-    left: -1px;
-    right: -1px;
-    max-width: none;
-    width: 101%;
-  }
-
-  .artist-name {
-    margin: 1rem 0 0;
-  }
-
-  &.end {
-    order: 3;
-  }
-
-  &.concealed {
-    margin: 0;
-    max-height: 0;
-  }
-}
-
-.artist-photo {
-  max-height: 100%;
-  position: relative;
-}
-
-.featured-artist .artist-photo {
-     overflow: hidden;
-}
-
-.artist-bio {
-  background: fade(@black, 60%);
-  font-family: @body-font;
-  font-size: 1.8rem;
-  opacity: 0;
-  padding: 3rem 3rem;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: left;
-  text-transform: initial;
-  transition: opacity 200ms;
-
-  &:hover {
-    @media screen and (min-width: @large-phone) {
-      opacity: 1;
-    }
-  }
-}
-
-.artist-name {
-  text-align: left;
-}
-
-.artist-website {
-  font-variant: small-caps;
-  position: absolute;
-  right: 2rem;
-  bottom: 2rem;
-  text-decoration: underline;
-}
-
-.dates {
-  display: flex;
-  flex-wrap: wrap;
-  font-size: ~'calc(4vw + 3px)';
-  margin: 0 auto;
-  max-width: 60rem;
-
-
-  @media screen and (min-width: @large-phone) {
-    font-size: 3rem;
-  }
-
-  dd, dt {
-    border-top: solid 1px fade(@white, 20%);
-    width: 50%;
-    padding: 1rem;
-  }
-
-  dt {
-    color: @red-800;
-    text-align: right;
-
-    &::after {
-      content: ': ';
-    }
-  }
-
-  dd {
-    text-align: left;
-  }
-
-  a {
-    color: inherit;
-  }
-
-  .button {
-    font-size: 1.1rem;
-    margin: 0;
-    padding: 0.3rem 0.6rem;
-
-    @media screen and (min-width: @small-phone) {
-      font-size: 1.4rem;
-      padding: 0.7rem 1.2rem;
-    }
-
-    @media screen and (min-width: @large-phone) {
-      font-size: 1.6rem;
-      padding: 1rem 2rem;
-    }
-  }
-}
-
 .announcement {
   display: flex;
   flex-wrap: wrap;
@@ -451,21 +220,19 @@
   color: @red-800;
 }
 
-#companies, #people {
+.two-column, #people {
   display: flex;
   max-width: 90ch;
 }
 
-#companies ul {
+.two-column section {
   width: 50%;
   padding: 5rem;
-  display: flex;
-  flex-wrap: wrap;
 }
 
-#people ul {
-  width: 50%;
-  padding: 5rem;
+.two-column ul {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #companies ul li {
