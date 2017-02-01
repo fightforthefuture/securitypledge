@@ -207,9 +207,9 @@ module.exports = function (grunt) {
           dest: '<%= site.dist %>'
         }, {
           expand: true,
-          cwd: '<%= site.assets %>',
+          cwd: '<%= site.dist %>',
           src: '**/*.css',
-          dest: '<%= site.assets %>'
+          dest: '<%= site.dist %>'
         }]
       },
       deploy: {
