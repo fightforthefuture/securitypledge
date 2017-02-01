@@ -5,6 +5,7 @@ Habitat.load('.env');
 
 var
   env = new Habitat('', {
+    site: 'www.fightforthefuture.org',
     aws_s3_bucket: 's3.fightforthefuture.org',
     port: '9292'
   });
@@ -174,6 +175,11 @@ module.exports = function (grunt) {
         check: 'gzip',
         preserveComments: saveLicense
       },
+      server: {
+        files: {
+          '<%= site.dist %>/js/core.js': '<%= site.dist %>/js/core.js'
+        }
+      },
       deploy: {
         files: {
           '<%= site.assets %>/js/core.js': '<%= site.assets %>/js/core.js'
@@ -182,6 +188,25 @@ module.exports = function (grunt) {
     },
 
     cdnify: {
+      server: {
+        options: {
+          rewriter: function (url) {
+            var
+              stamp = Date.now();
+            if (url[0] === '/') {
+              return 'https://' + env.get('site') + '/2017Pledge' + url + '?' + stamp;
+            } else {
+              return url;
+            }
+          }
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= site.dist %>',
+          src: '**/*.html',
+          dest: '<%= site.dist %>'
+        }]
+      },
       deploy: {
         options: {
           rewriter: function (url) {
@@ -223,13 +248,13 @@ module.exports = function (grunt) {
       ],
       deploy1: [
         'jekyll:build',
-        'less:deploy',
-        'concat:deploy',
-        'copy:deploy'
+        'less:server',
+        'concat:server',
+        'copy:server'
       ],
       deploy2: [
-        'uglify:deploy'
-        /* 'cdnify:deploy' */
+        'uglify:server',
+        'cdnify:server'
       ]
     },
 
