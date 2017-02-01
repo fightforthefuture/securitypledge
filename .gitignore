@@ -1,0 +1,6 @@
+assets/
+node_modules/
+public/
+_site/
+.env
+.jekyll-metadata

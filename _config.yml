@@ -1,0 +1,74 @@
+#################################################
+# Config: Development                           #
+#################################################
+# (production settings go in _config.build.yml) #
+
+#############
+# Meta info #
+#############
+
+name: Rock Against the TPP!
+description: "A nationwide tour to stop the biggest corporate power grab in history: the Trans-Pacific Partnership. Organized by Fight for the Future and Rage Against the Machine guitarist Tom Morello’s new label, Firebrand Records."
+
+social_title: 'Rock Against the TPP!'
+social_description: 'Your favorite artists are teaming up to stop the corporate takeover known as the Trans-Pacific Partnership.'
+share_image: home.png
+share_image_dims: 1200 x 630
+twittertext: "Your favorite artists are teaming up to #RockAgainstTheTPP! Stop the #TPP corporate takeover RockAgainstTheTPP.org https://pic.twitter.com/WBcVsTO9yv"
+signup_button_text: Sign & RSVP
+
+url: "www.rockagainstthetpp.org"
+favicon: '/favicon.ico'
+source: site
+
+timezone: America/New_York
+googleanalytics: UA-26576645-30
+
+author:
+  googleid: 102356128596404327231
+  twitterid: 382376904
+  twitter: fightfortheftr
+
+#############
+# Authoring #
+#############
+
+future: true
+show_drafts: true
+permalink: /:title/
+
+defaults:
+  - scope:
+      path: ''
+    values:
+      layout: 'default'
+  - scope:
+      path: '_shows'
+    values:
+      layout: 'event'
+  - scope:
+      path: '_media'
+    values:
+      layout: 'media'
+
+collections:
+  shows:
+    output: true
+    permalink: /:path/
+  media:
+    output: true
+    permalink: /:path/media/
+
+#############
+# Compiling #
+#############
+
+keep_files: ['images', 'css', 'js']
+
+highlighter: rouge
+
+gems: ['jekyll-redirect-from']
+markdown: kramdown
+kramdown:
+  input: GFM
+  smart_quotes: ["apos", "apos", "quot", "quot"]

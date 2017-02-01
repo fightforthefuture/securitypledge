@@ -1,0 +1,476 @@
+#lineup, #whats-going-on, #tour-dates {
+  font-family: @heading-font;
+  letter-spacing: 0.1rem;
+}
+
+.artists {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: @heading-font-bold;
+  margin: 0 auto;
+  max-width: 88rem;
+  text-align: center;
+  text-transform: uppercase;
+
+  @media screen and (min-width: @large-phone) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
+
+.artist, .featured-artist {
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    border: none;
+  }
+}
+
+.featured-artist {
+  box-shadow: -3px 3px 0 0 @grey-200;
+  font-size: 3rem;
+  margin: 2rem;
+  margin-bottom: 6rem;
+  max-width: 88rem;
+  order: 1;
+  position: relative;
+  width: ~'calc(100% - 4rem)';
+
+  @media screen and (min-width: @large-phone) {
+    height: 29.1rem;
+    margin-bottom: auto;
+  }
+
+  img {
+    display: block;
+
+    @media screen and (min-width: @small-phone) {
+      width: 65rem;
+    }
+
+    @media screen and (min-width: @large-phone) {
+      max-width: 100%;
+      position: static;
+      width: auto;
+    }
+  }
+
+  .artist-name {
+    line-height: 1;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    bottom: -4rem;
+    left: 0;
+    text-shadow: 0 0 1rem black;
+    vertical-align: middle;
+
+    @media screen and (min-width: @large-phone) {
+      height: 0;
+      top: 2px;
+      left: 2px;
+    }
+
+    @media screen and (min-width: @small-tablet) {
+      top: 1rem;
+      left: 1rem;
+    }
+  }
+
+  .artist-bio {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}
+
+.artist {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.7rem;
+  justify-content: flex-start;
+  height: ~'calc(51.875vw + 14.8rem)';
+  line-height: 1;
+  margin: 2rem 0 2rem;
+  max-height: ~'calc(51.875vw + 14.8rem)';
+  max-width: 27rem;
+  order: 2;
+  overflow: hidden;
+  transition: max-height 800ms;
+  width: 63vw;
+
+  @media screen and (min-width: @small-phone) {
+    height: 38rem;
+    max-height: 38rem;
+  }
+
+  @media screen and (min-width: @large-phone) {
+    font-size: 1.8rem;
+    width: 44%;
+  }
+
+  @media screen and (min-width: @small-tablet) {
+    width: 30%;
+  }
+
+  img {
+    position: relative;
+    left: -1px;
+    right: -1px;
+    max-width: none;
+    width: 101%;
+  }
+
+  .artist-name {
+    margin: 1rem 0 0;
+  }
+
+  &.end {
+    order: 3;
+  }
+
+  &.concealed {
+    margin: 0;
+    max-height: 0;
+  }
+}
+
+.artist-photo {
+  max-height: 100%;
+  position: relative;
+}
+
+.featured-artist .artist-photo {
+     overflow: hidden;
+}
+
+.artist-bio {
+  background: fade(@black, 60%);
+  font-family: @body-font;
+  font-size: 1.8rem;
+  opacity: 0;
+  padding: 3rem 3rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  text-transform: initial;
+  transition: opacity 200ms;
+
+  &:hover {
+    @media screen and (min-width: @large-phone) {
+      opacity: 1;
+    }
+  }
+}
+
+.artist-name {
+  text-align: left;
+}
+
+.artist-website {
+  font-variant: small-caps;
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  text-decoration: underline;
+}
+
+.dates {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: ~'calc(4vw + 3px)';
+  margin: 0 auto;
+  max-width: 60rem;
+
+
+  @media screen and (min-width: @large-phone) {
+    font-size: 3rem;
+  }
+
+  dd, dt {
+    border-top: solid 1px fade(@white, 20%);
+    width: 50%;
+    padding: 1rem;
+  }
+
+  dt {
+    color: @red-800;
+    text-align: right;
+
+    &::after {
+      content: ': ';
+    }
+  }
+
+  dd {
+    text-align: left;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .button {
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 0.3rem 0.6rem;
+
+    @media screen and (min-width: @small-phone) {
+      font-size: 1.4rem;
+      padding: 0.7rem 1.2rem;
+    }
+
+    @media screen and (min-width: @large-phone) {
+      font-size: 1.6rem;
+      padding: 1rem 2rem;
+    }
+  }
+}
+
+.announcement {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: ~'calc(4vw + 3px)';
+  text-transform: uppercase;
+  margin: 0 auto;
+
+  @media screen and (min-width: @large-phone) {
+    font-size: 3rem;
+  }
+
+  dd, dt {
+    text-align: center;
+  }
+
+  dt {
+    color: @white;
+    width: 65%;
+  }
+
+  dd {
+    width: 35%;
+    margin-top: -.5rem;
+
+  }
+
+  a {
+    color: @white;
+  }
+
+  .button {
+    background-color: @grey-200;
+    border: 1px solid @black;
+    border-radius:.5rem;
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 0.3rem 0.6rem;
+
+    &:hover {
+    background-color: @grey-100;
+    }
+
+    @media screen and (min-width: @small-phone) {
+      font-size: 1.4rem;
+      padding: 0.7rem 1.2rem;
+       margin-top: 0;
+    }
+
+    @media screen and (min-width: @large-phone) {
+      font-size: 1.6rem;
+      padding: .5rem 2rem;
+    }
+  }
+}
+
+.view-more {
+  font-size: 1.4rem;
+  font-style: italic;
+  max-width: 64rem;
+  text-align: center;
+  margin: 1rem;
+}
+.view-more a {
+  color:#696969;
+}
+
+.organized-by {
+  align-items: center;
+  color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media screen and (min-width: @large-phone) {
+    flex-direction: row;
+  }
+
+  li {
+    background: center center no-repeat;
+    background-size: contain;
+    margin: 1rem;
+    max-width: 100%;
+    width: 30rem;
+
+    @media screen and (min-width: @large-tablet) {
+      margin: 2rem;
+      width: 40rem;
+    }
+
+    @media screen and (min-width: @large-laptop) {
+      width: 51.2rem;
+    }
+  }
+
+  .fight-for-the-future {
+    background-image: url('/images/fight-for-the-future.png');
+    height: 3.9rem;
+
+    @media screen and (min-width: @large-phone) {
+      bottom: -1.7rem;
+      position: relative;
+    }
+
+    @media screen and (min-width: @large-tablet) {
+      bottom: -2.3rem;
+      height: 5.2rem;
+    }
+
+    @media screen and (min-width: @large-laptop) {
+      height: 6.6rem;
+    }
+  }
+
+  .firebrand-records {
+    background-image: url('/images/firebrand-records.png');
+    height: 11rem;
+
+    @media screen and (min-width: @large-tablet) {
+      height: 14.3rem;
+    }
+
+    @media screen and (min-width: @large-laptop) {
+      height: 18.3rem;
+    }
+  }
+}
+
+.org-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.logo {
+  background-color: @white;
+  border-radius: 4px;
+  color: transparent;
+  height: 8rem;
+  margin: 2rem;
+  overflow: hidden;
+  position: relative;
+  text-indent: 100%;
+  white-space: nowrap;
+  width: 20rem;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+
+  .action_bar {
+    bottom: 0;
+    left: 0;
+    display:none;
+    padding: 0.3rem 0.1rem 0.4rem 0.1rem;
+    position: fixed;
+    width: 100%;
+    border-top: 1rem solid #791017;
+    background: #ab151e;
+    z-index: 9001;
+    font-weight: 600;
+    text-align: center;
+  }
+  .action_bar a {    
+    text-decoration: none;
+  }
+  .action_bar .close-modal:hover {
+    background: #791017;
+  }
+  .underline h3 { 
+    border-bottom: 5px solid #000;
+  }
+    .phone {
+    width:80px;
+    padding-top:10px;
+  }
+  .sub-info {
+    color:black;
+    font-style: italic;
+  }
+   .trigger-alert {
+
+  }
+
+  .hidden-alert {
+
+  }
+
+  .toggle-alert {
+
+  }
+.close-box {
+    float: right;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: .5rem;
+  }
+.close-box a {
+  pointer:cursor;
+}
+.call {
+  padding: .5rem;
+  margin: 2rem;
+}
+
+.countdown {
+  font-size: 2rem;
+}
+
+.countdown strong {
+  color: @red-800;
+}
+
+#companies, #people {
+  display: flex;
+  max-width: 90ch;
+}
+
+#companies ul {
+  width: 50%;
+  padding: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#people ul {
+  width: 50%;
+  padding: 5rem;
+}
+
+#companies ul li {
+  width: 10rem;
+  height: 10rem;
+  margin: 1rem;
+  background-color: @grey;
+}

@@ -1,0 +1,249 @@
+#learn-more a {
+    color: @grey;
+    text-decoration: none;
+    border-bottom: 1px solid #eb212e;
+  }
+
+.fine-print() {
+  color: fade(@white, 80%);
+  font-size: 1.4rem;
+
+  a {
+    color: @white;
+    text-decoration: underline;
+    cursor:pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+main {
+  margin-top: 4rem;
+}
+
+section {
+  margin: 2.5rem auto 6rem;
+  padding: 0 1rem;
+  max-width: @large-tablet + 80px;
+
+  @media screen and (min-width: @small-phone) {
+    padding: 0 2rem;
+  }
+
+  @media screen and (min-width: @large-phone) {
+    padding: 0 5rem;
+  }
+}
+
+p {
+  &.disclaimer {
+    .disclaimer();
+  }
+}
+
+.share-this {
+  display: none;
+  position: fixed;
+  top: 40%;
+
+  @media screen and (min-width: @small-laptop) {
+    display: block;
+  }
+
+  p {
+    margin: 0 0 0.7rem;
+  }
+
+  a {
+    background-color: darken(@white, 12%);
+    border: 0;
+    color: @white;
+    font-weight: 600;
+    display: block;
+    font-size: 1.2rem;
+    height: 3rem;
+    font-variant: small-caps;
+    margin-bottom: 1.5rem;
+    padding: 0.7rem 1.5rem;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 200ms;
+
+    &.twitter {
+      background-color: @twitter-blue;
+    }
+
+    &.facebook {
+      background-color: @facebook-blue;
+    }
+
+    &:hover, &:active, &:focus {
+      text-decoration: underline;
+    }
+
+    &::after {
+      background-image: url('/images/share/share-icons.png');
+      background-repeat: no-repeat;
+      background-size: 155%;
+      border: 0;
+      border-left: none;
+      border-radius: 0 0.5rem 0.5rem 0;
+      content: ' ';
+      display: block;
+      height: 3rem;
+      position: absolute;
+      top: -0;
+      right: -2.8rem;
+      width: 2.8rem;
+    }
+
+    &.twitter::after {
+      background-color: @twitter-blue;
+      background-position: 5px center;
+    }
+
+    &.facebook::after {
+      background-color: @facebook-blue;
+      background-position: -2rem center;
+    }
+  }
+}
+
+.highlighted {
+  color: @red-800;
+}
+
+.volunteer {
+  .fine-print();
+  font-style: italic;
+  max-width: 64rem;
+  text-align: center;
+}
+
+#modal-share {
+  display: none;
+}
+
+.two-column-list {
+  list-style-position: inside;
+  list-style-type: disc;
+  margin: 1rem auto 5rem;
+  text-align: left;
+  width: 30rem;
+
+  @media screen and (min-width: @large-phone) {
+    column-count: 2;
+    width: 60rem;
+  }
+}
+
+.subheadline {
+   text-transform: uppercase;
+   color: @grey;
+   background-color: @transparent-black;
+   padding: 2.5rem;
+   font-family: @heading-font;
+   border-radius: 5px;
+   font-size: 2.5rem;
+   box-shadow: 3px 1px 1px black;
+   max-width:100%;
+   }
+
+.box {
+  background-color: @black;
+  padding: 2rem;
+  @media screen and (max-width: @small-tablet) {
+    margin: 1rem;
+
+  }
+}
+
+.announcement-box {
+  background-color: @transparent-black;
+  border: 0.1rem solid rgba(111, 111, 111, 0.68);
+  padding: 2rem;
+  width: 70%;
+  transition: background-color 250ms;
+
+  @media screen and (max-width: @small-tablet) {
+    width:90%;
+  }
+}
+
+.play-button {
+  .header-p();
+  background-color: @grey-200;
+  border: 1px solid @black;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-family: @heading-font;
+  height: 5.1rem;
+  margin-bottom: 1rem;
+  padding: 1rem 2rem;
+  text-shadow: 1px 1px 0.5rem @black;
+  text-transform: uppercase;
+  transition: background-color 250ms;
+
+  &::before {
+    background-image: url('/images/play-button.png');
+    background-size: contain;
+    content: '';
+    float: left;
+    height: 3rem;
+    margin-right: 1rem;
+    width: 3rem;
+  }
+
+  &:hover, &:active {
+    background-color: @grey-100;
+  }
+}
+
+.share-this-mobile {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 2rem auto;
+
+  a {
+    color: #fff;
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-variant: small-caps;
+    letter-spacing: 0.09rem;
+    opacity: 0.9;
+    padding: 1.4rem 0 1.4rem 2.5rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: opacity 150ms;
+    width: 100%;
+  }
+
+@media screen and (min-width: @large-phone) {
+   display: none;
+  }
+}
+
+.share-this-mobile-fb,
+.share-this-mobile-tw {
+    background-repeat: no-repeat;
+    background-position: 1rem;
+    background-size: 2.5rem auto;
+}
+.share-this-mobile-fb {
+    background-color: #3b5999;
+    background-image: url(/images/share/facebook.png);
+
+}
+.share-this-mobile-tw {
+    background-color: #55acee;
+    background-image: url(/images/share/tweet.png);
+}
+
+.local-support {
+  margin-top: 6.5rem;
+}

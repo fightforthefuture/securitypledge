@@ -1,0 +1,170 @@
+.disclaimer() {
+  .fine-print();
+  padding-top: 20px;
+  max-width: 85ch;
+}
+
+.petition-form {
+  margin: 3rem 1.5rem 0;
+  max-width: @large-tablet + 80px;
+  padding: 0 0 2px;
+  position: relative;
+
+  @media screen and (min-width: @small-tablet) {
+  }
+
+  &.submitting {
+    .input-row {
+      &::after {
+        content: 'Submitting…';
+      }
+    }
+  }
+}
+
+.input-row {
+  position: relative;
+  @media screen and (min-width: @small-tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &::after {
+    align-items: center;
+    background-color: fade(@black, 70%);
+    border-radius: 7px;
+    display: flex;
+    font-family: @heading-font;
+    font-size: 2rem;
+    justify-content: center;
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -2rem;
+    bottom: -2rem;
+  }
+}
+
+.name, .email, .zip, .country, .submit {
+  margin: 0 auto;
+  max-width: 44rem;
+}
+
+.name, .email, .zip {
+  border: none;
+  border-bottom: solid @grey-500 1px;
+  display: block;
+  font-size: 1.6rem;
+  padding: 1.5rem 1rem;
+  width: 100%;
+
+  @media screen and (min-width: @small-tablet) {
+    border-bottom: none;
+    font-size: 2.5rem;
+    max-width: 100%;
+    padding: 1rem 0 1rem 1rem;
+  }
+
+  &::placeholder {
+    font-weight: 200;
+  }
+}
+
+.name {
+  border-radius: 0.5rem 0.5rem 0 0;
+
+  @media screen and (min-width: @small-tablet) {
+    border-radius: 0.5rem 0 0 0.5rem;
+    border-right: solid 1px @grey-500;
+    width: 28%;
+  }
+}
+
+.email {
+  border-radius: 0;
+
+  @media screen and (min-width: @small-tablet) {
+    border-right: solid 1px @grey-500;
+    padding-left: 2rem;
+    width: 25%;
+  }
+}
+
+.zip {
+  border-radius: 0 0 0.5rem 0.5rem;
+
+  @media screen and (min-width: @small-tablet) {
+    border-radius: 0;
+    padding-left: 2rem;
+    width: 18%;
+  }
+}
+
+.submit {
+  appearance: none;
+  background: @red-800;
+  border-radius: 0.5rem;
+  border: none;
+  color: @white;
+  font-family: @heading-font;
+  font-size: 4rem;
+  font-weight: 900;
+  padding: 4rem;
+  position: relative;
+  text-transform: uppercase;
+  transition: top 150ms;
+  width: 100%;
+  box-shadow: 0 2rem 8rem @black;
+
+  @media screen and (min-width: @small-tablet) {
+  }
+
+  &:active, &:focus {
+    outline: none;
+    top: 1px;
+  }
+
+  &:disabled {
+    background: lighten(@red-800, 25%);
+  }
+}
+
+[for="select-country"] {
+  cursor: pointer;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+label.country {
+  color: white;
+  text-decoration: underline;
+}
+.country {
+  cursor: pointer;
+  margin: 1rem auto;
+
+  &:not(.hidden) {
+    display: block;
+  }
+
+  &:hover, &:active, &:focus {
+    text-decoration: underline;
+  }
+}
+
+.submitted::after {
+  align-items: center;
+  background-color: @black;
+  color: @white;
+  content: 'Thanks for signing up!';
+  display: flex;
+  font-size: 2rem;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: -3.5rem;
+  left: 0;
+}

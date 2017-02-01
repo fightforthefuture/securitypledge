@@ -1,0 +1,206 @@
+.modal-present {
+  overflow: hidden;
+  text-shadow: none;
+}
+
+.overlay {
+  background: fade(@black, 50%);
+  opacity: 0;
+  overflow: auto;
+  padding: 2rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: opacity 400ms ease-in-out;
+  z-index: 9001;
+
+  @media screen and (min-width: @small-phone) {
+    padding: 2rem 3rem;
+  }
+
+  @media screen and (min-width: @large-phone) {
+    padding: 2rem;
+  }
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: @white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.2rem 2rem fade(@black, 30%);
+  color: @black;
+  display: block;
+  margin: 0 auto;
+  max-height: 80vh;
+  max-width: 60rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2rem;
+  position: fixed;
+  top: 3rem;
+  right: 5%;
+  left: 5%;
+  text-align: center;
+  transition: opacity 400ms ease-in-out;
+  width: 90%;
+  z-index: 9002;
+
+  @media screen and (min-width: @large-phone) {
+    margin: 5rem auto 0;
+  }
+
+  @media screen and (min-width: @small-tablet) {
+    top: 5rem;
+  }
+
+  &.visible {
+    opacity: 1;
+  }
+
+  a {
+    color: @black;
+  }
+
+  h3 {
+    font-size: 4.5rem;
+    text-align: center;
+    color: @grey-450;
+    font-weight: 600;
+    text-shadow: none;
+    margin-bottom: 0rem;
+
+    @media screen and (min-width: @large-phone) {
+      font-size: 5rem;
+    }
+
+    @media screen and (min-width: @small-tablet) {
+      line-height: 1.4;
+    }
+  }
+
+  h4 {
+    font-size: 2.4rem;
+    text-shadow: none;
+    background: #eaeaea;
+    padding: 2rem;
+    margin: 1rem 0;
+  }
+
+  p {
+    line-height: 1.375;
+    margin-bottom: 1.5rem;
+  }
+
+  .share-this {
+    display: block;
+    position: static;
+    width: ~'calc(100% - 4rem)';
+
+    a {
+      border-radius: 0.5rem;
+
+      &::after {
+        height: 2.9rem;
+        right: -2.7rem;
+      }
+
+      &:hover, &:active, &:focus {
+        background-color: darken(@white, 12%);
+      }
+    }
+  }
+
+  .share-this-button-links {
+    margin-bottom: 1.5rem;
+  }
+
+  .disclaimer {
+    color: @black;
+
+    a {
+      &:link, &:visited, &:hover, &:active {
+        color: @black;
+      }
+    }
+  }
+
+  &.no-frame {
+    background-color: @black;
+    padding: 0;
+
+    .close-modal {
+      color: @white;
+      z-index: 100;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .share-button {
+    color: @white;
+  }
+}
+
+.close-modal {
+  background: transparent;
+  border: none;
+  color: @black;
+  cursor: pointer;
+  font-size: 2.5rem;
+  opacity: 0.4;
+  position: absolute;
+  right: 0.5rem;
+  text-decoration: none;
+  top: 0;
+
+  &:hover {
+    background-color: @white;
+    opacity: 1;
+  }
+}
+
+#phone-number-modal {
+  display: none;
+
+  &.visible {
+    display: block;
+  }
+
+  hr {
+    margin: 4rem auto;
+    width: 75%;
+  }
+}
+
+.phone {
+  font-size: 2rem;
+  padding: 1.7rem 0.8rem;
+
+  &::placeholder {
+    text-transform: uppercase;
+  }
+}
+
+.download-ticket {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #1951ca;
+    border-radius: .5rem;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    padding: 1.5rem;
+    position: relative;
+    text-transform: uppercase;
+    transition: top .15s;
+    cursor:pointer;
+    }

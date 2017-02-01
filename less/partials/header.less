@@ -1,0 +1,72 @@
+.header-p() {
+  font-size: 1.8rem;
+  line-height: 1.4;
+  max-width: 59ch;
+}
+
+body > header {
+  padding: 0 0 1rem;
+  position: relative;
+  text-align: center;
+
+  @media screen and (min-width: @large-phone) {}
+
+  h1 {
+    background-color: @black;
+    margin: 0 auto;
+    width: 600px;
+    padding: 4rem 0;
+  }
+
+  h2 {
+    color: @white;
+    line-height: 1.2em;
+  }
+
+  p {
+    .header-p();
+    
+    &.no-pad {
+      padding-bottom: 0;
+    }
+
+    &.disclaimer {
+      .disclaimer();
+    }
+  }
+
+  section {
+    margin: 2.5rem auto;
+    max-width: @large-tablet + 80px;
+    padding: 0 1rem;
+  }
+}
+
+h1 {
+  color: @white;
+  font-family: @heading-font-bold;
+  font-size: 9vw;
+  line-height: 1em;
+  margin: 2rem 0 0;
+  text-align: center;
+  position: relative;
+
+  @media screen and (min-width: @small-tablet) {
+    font-size: 9.8rem;
+    margin-bottom: 3rem;
+  }
+
+  @media screen and (min-width: @small-phone) {
+    font-size: 7.5vw;
+  }
+
+  @media screen and (min-width: @large-tablet) {
+    font-size: 7.7rem;
+  }
+}
+
+h1:after {
+  content: "";
+  position: absolute; top: 0; bottom: 0; left: 0px; right: 0px;
+  box-shadow: inset 2em -1em 5em rgba(0, 0, 0, 0.47);
+}

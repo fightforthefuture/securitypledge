@@ -1,0 +1,48 @@
+{% assign dims = page.share_image_dims | default: site.share_image_dims | split: ' x ' %}
+{% capture share_url %}https://{{ site.url }}{{ page.url }}{% endcapture %}
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>{% if page.city %}{{ page.city }} - {% unless page.collection == 'shows' %}{{ page.collection | capitalize }} - {% endunless %}Rock Against the TPP!{% else %}{{ page.title | default: site.name }}{% endif %}</title>
+<meta name="description" content="{{ page.description | default: site.description }}">
+
+<!-- *** social meta *** -->
+<!-- facebook -->
+<meta property="og:url" content="{{ page.share_url | default: share_url }}"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://s3.fightforthefuture.org/rockagainstthetpp/images/share/{{ page.share_image | default: site.share_image }}"/>
+<meta property="og:image:width" content="{{ dims[0] }}"/>
+<meta property="og:image:height" content="{{ dims[1] }}"/>
+<meta property="og:site_name" content="{{ site.name }}"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:locale:alternate" content="en_GB"/>
+<meta property="og:title" content="{{ page.social_title | default: site.social_title }}"/>
+<meta property="og:description" content="{{ page.social_description | default: site.social_description }}"/>
+
+<!-- twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="{{ site.author.twitter }}">
+<meta name="twitter:title" content="{{ page.social_title | default: site.social_title }}">
+<meta name="twitter:description" content="{{ page.social_description | default: site.social_description }}"/>
+<meta name="twitter:domain" content="{{ site.url }}">
+<meta name="twitter:account_id" content="{{ site.author.twitterid }}"/>
+<meta name="twitter:text" content="{{ page.twittertext | default: site.twittertext }}" />
+<meta name="twitter:image" content="https://s3.fightforthefuture.org/rockagainstthetpp/images/share/{{ page.share_image | default: site.share_image }}">
+
+<!-- google+ -->
+<meta itemprop="name" content="{{ page.social_title | default: site.social_title }}">
+<meta itemprop="description" content="{{ page.social_description | default: site.social_description }}">
+<meta itemprop="image" content="https://s3.fightforthefuture.org/rockagainstthetpp/images/share/{{ page.share_image | default: site.share_image }}">
+<!-- /*** social meta *** -->
+
+<link rel="publisher" href="https://plus.google.com/{{ site.author.googleid }}">
+
+<link rel="icon" type="image/png" href="https://www.rockagainstthetpp.org/favicon.ico"/>
+<link rel="canonical" href="{{ page.share_url | default: share_url }}">
+
+<link rel="stylesheet" href="/css/core.css">
+
+<script src="https://use.typekit.net/slg5fxj.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>

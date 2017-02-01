@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+<head>
+  {% include meta.html %}
+</head>
+
+{% include actionbar.html %}
+
+<body class="{{ page.collection }}">
+
+{% capture share_url %}https://{{ site.url }}{{ page.url }}{% endcapture %}
+
+<header{% unless page.page == 'home' %} class="{{ page.collection }}"{% endunless %}>
+  <section class="share-this-mobile">
+    <a class="share-this-mobile-fb facebook" href="https://facebook.com/sharer.php?u={{ page.share_url | default: share_url | cgi_escape }}">Share this</a>
+    <a class="share-this-mobile-tw twitter" href="https://twitter.com/intent/tweet?text={{ page.twittertext | default: site.twittertext | cgi_escape }}" target="_blank">Tweet this</a>
+  </section>
+  {% if page.city %}
+  {% assign city=page.city | split: ', ' %}
+  <h1>
+    <a href="{{ share.url }}">Be on the right side of history.</a>
+  </h1>
+
+{% assign start_time_minutes = page.start | date: '%M' %}
+{% assign show_time_minutes = page.show | date: '%M' %}
+{% assign end_time_minutes = page.end | date: '%M' %}
+
+  <p class="subheadline">
+    {{  city[0] }} ・ {{ page.start | date: '%B %-d' }} ・ {{ page.start | date: '%I' | times: 1 }}{% unless start_time_minutes == '00' %}{{ page.start | date: '%M' | prepend: ':' }}{% endunless %}{{ page.start | date: '%p' }}-{{ page.end | date: '%I' | times: 1 }}{% unless end_time_minutes == '00' %}{{ page.end | date: '%M' | prepend: ':' }}{% endunless %}{{ page.end | date: '%p' }}
+  </p>
+  {% else %}
+  <h1>Be on the right side of history.</h1>
+  {% endif %}
+
+  <section class="dissolve">
+    {{ page.header_content | default: '' | markdownify }}
+
+    <nav>
+      <button class="menu-expand" id="menu-expand">
+        <span class="menu-text">Menu</span>
+      </button>
+      <ul id="nav-items">
+        <li><a href="/#companies">Companies</a></li>
+        <li><a href="/#people">People</a></li>
+        <li><a href="/#orgs">Orgs</a></li>
+        <li><a href="/#faq-more">FAQ</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  {% if page.layout == 'event' %}
+    <section>
+      {% include form.html action=page.action_network_form %}
+      <p class="disclaimer no-pad">
+        You are signing <a href="https://actionnetwork.org/petitions/rock-against-the-tpp-tour-kick-off">this petition</a> telling Congress to stop the TPP.
+        <a href="https://www.fightforthefuture.org" target="_blank">Fight for the Future</a> will send you campaign updates. You can unsubscribe at any time.
+        {{ page.extra_disclosure | default: '' | markdownify | replace: '<p>', '' | replace: '</p>', '' }}
+        Ticket is required for entry but does not guarantee it. First come first serve. We suggest arriving early in case the event sells out, and to join us for a rally to stop the TPP!
+        (<a href="https://www.fightforthefuture.org/privacy">Privacy Policy</a>)
+      </p>
+    </section>
+  {% elsif page.page == 'home' %}
+    <section>
+      {% include form.html action="https://actionnetwork.org/petitions/take-action-now-to-stop-the-tpp/signatures" %}
+      <!--
+      <p class="disclaimer no-pad">
+        You are signing <a href="https://actionnetwork.org/petitions/rock-against-the-tpp-tour-kick-off">this petition</a> telling Congress to stop the TPP.
+        <a href="https://www.fightforthefuture.org" target="_blank">Fight for the Future</a> and <a href="http://www.citizenstrade.org/ctc/" target="_blank">Citizens Trade Campaign</a> will send you campaign updates. You can unsubscribe at any time.
+
+        (<a href="https://www.fightforthefuture.org/privacy">Privacy Policy</a>)
+      </p>
+      -->
+    </section>
+  {% endif %}
+</header>
+
+<section class="countdown dissolve">
+  <p>It's been <strong><span id="days-since"></span></strong> since the pledge launched. <strong><span id="days-remaining"></span> left.</strong></p>
+  <h3>Here's where companies stand:</h3>
+</section>
+
+<section id="companies">
+  <ul>
+    <li>Slack</li>
+    <li>Apple</li>
+    <li>Facebook</li>
+    <li>YouTube</li>
+    <li>Flipboard</li>
+    <li>Skype</li>
+  </ul>
+  <ul>
+    <li>FFTF</li>
+  </ul>
+</section>
+
+<h3 class="dissolve">Here's where individuals stand:</h3>
+<section id="people">
+  <ul>
+    <li>Mark Zuckerberg</li>
+    <li>Sergey Brin</li>
+    <li>Tim Cook</li>
+    <li>Marissa Mayer</li>
+    <li>Elon Musk</li>
+    <li>Peter Thiel</li>
+  </ul>
+  <ul>
+    <li>Tim Berners-Lee</li>
+    <li>Jennifer Grannick</li>
+    <li>Susan Crawford</li>
+    <li>Evangaline Lily</li>
+    <li>Jimmy Wales</li>
+    <li>Bruce Scheiner</li>
+    <li>Naomi Klein</li>
+  </ul>
+</section>
+
+<main>
+  {{ content }}
+</main>
+
+<!--
+<section>
+  <p>
+    <a id="footer-share" href="https://facebook.com/sharer.php?u={{ page.share_url | default: share_url | cgi_escape }}" class="share-button facebook" target="_blank">Share
+      this</a>
+    <a id="footer-tweet" href="https://twitter.com/intent/tweet?text={{ page.twittertext | default: site.twittertext | cgi_escape }}" class="share-button twitter" target="_blank">Tweet
+      this</a>
+    <a id="footer-donate" href="https://donate.fightforthefuture.org/campaigns/rock-against-tpp" class="share-button donate" target="_blank">Donate</a>
+  </p>
+</section>
+-->
+
+<section>
+  <h2 id="support-orgs">Supporting organizations:</h2>
+
+  <!--
+  <ul class="org-logos">
+    {% for org in site.data.affiliated_orgs.support %}
+    <li class="logo {{ org | slugify }}">
+      {{ org }}
+      <img src="/images/endorsements/{{ org | slugify }}.png" alt="{{ org }}">
+    </li>
+    {% endfor %}
+  </ul>
+  -->
+</section>
+
+<section>
+  {% assign sorted_orgs = site.data.affiliated_orgs.endorse %}
+  {% for org in site.data.affiliated_orgs.support %}
+  {% assign sorted_orgs = sorted_orgs | push: org %}
+  {% endfor %}
+  {% assign sorted_orgs = sorted_orgs | sort %}
+
+  <p>
+    <button id="toggle-list" class="link-style-button">Show all {{ sorted_orgs | size }} organizations</button>
+  </p>
+
+  <ul id="endorsements" class="two-column-list hidden">
+    {% for org in sorted_orgs %}
+    <li>{{ org }}</li>
+    {% endfor %}
+  </ul>
+
+{% if page.city contains 'Seattle' %}
+  <h2 class="local-support">
+        Local Support:
+  </h2>
+<ul id="endorsements" class="two-column-list">
+    <li> Washington Alliance for Retired Americans-Education Fund</li> 
+    <li>WA YELL</li>
+    <li>Sierra Club Washington State Chapter</li>
+    <li>Community Alliance for Global Justice</li>
+    <li>Martin Luther King Central Labor Council</li>
+    <li>IAM District 160 </li>
+    <li>IAM District 160 Young Machinists </li>
+    <li>ILWU Local 23</li>
+    <li>350 Seattle</li>
+    <li>South Sound Jobs with Justice</li>
+    <li>UFCW Local 21</li>
+    <li>WAmend/Yes on 735</li>
+    <li>Teamsters Joint Council 28</li>
+    <li>Ten Thousand Villages Seattle</li>
+    <li>Backbone Campaign</li>
+    <li>A Touch of Wanderlust</li>
+    <li>IAM 751</li>
+    <li>SPEEA</li>
+    <li>Pierce County Central Labor Council</li>
+    <li>SeaSol</li>
+    <li>Stop Veolia Seattle</li>
+    <li>API-Chaya</li>
+    <li>Thurston-Mason-Lewis Central Labor Council</li>
+    <li>Northwest Corner Coalition in honor of Dianne Foster</li>
+    <li>Puget Sound Sage</li>
+    <li>BAYAN PNW</li>
+    <li>Community to Community Development</li>
+    <li>IBEW Local 46</li>
+    <li>Pacific Northwest Regional Council of Carpenters</li>
+    <li>AWPPW</li>
+    <li>Washington State Central Labor Council AFL-CIO</li>
+    <li>Food and Water Watch</li>
+    <li>Seattle Against Slavery </li>
+  </ul>
+
+  {% endif %}
+
+
+  <p>
+    Does your organization want to join? <a href="mailto:team@fightforthefuture.org">Email us</a>.
+  </p>
+</section>
+
+{% include footer.html %}
+
+<!--
+<div id="fixed-side-social-container">
+  <a id="tweet-button" class="social-icon twitter-icon twitter" title="Tweet this" href="https://twitter.com/intent/tweet?text={{ page.twittertext | default: site.twittertext | cgi_escape }}" target="_blank">Tweet</a>
+  <a id="share-button" class="social-icon facebook-icon facebook" title="Share this" href="https://facebook.com/sharer.php?u={{ page.share_url | default: share_url | cgi_escape }}" target="_blank">Share</a>
+  <a id="share-button" class="social-icon calling-icon toggle-alert" title="Call Congress Today!" href="javascript:;">Call now!</a>
+</div>
+-->
+
+{% include scripts.html %}
+
+</body>
+</html>
