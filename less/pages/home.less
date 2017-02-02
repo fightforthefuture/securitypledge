@@ -131,8 +131,8 @@
 }
 
 .placeholder {
-  width: 6rem;
-  height: 6rem;
+  width: 4rem;
+  height: 4rem;
   margin-bottom: 0.5rem;
   background-color: @grey;
   border-radius: 10px;
@@ -153,14 +153,19 @@
   background-color: @white;
   border-radius: 4px;
   color: transparent;
-  height: 6rem;
+  width: 8rem;
+  height: 4rem;
   margin: 2rem;
   overflow: hidden;
   position: relative;
   text-indent: 100%;
   white-space: nowrap;
-  width: 12rem;
   filter: grayscale(100%);
+
+  @media screen and (min-width: @small-tablet) {
+    width: 12rem;
+    height: 6rem;
+  }
 
   img {
     position: absolute;
@@ -241,11 +246,12 @@
 .two-column {
   display: flex;
   max-width: 90ch;
+  padding: 0;
 }
 
 .two-column section {
   width: 50%;
-  padding: 0 2rem;
+  padding: 0;
   margin: 0;
 
   @media screen and (min-width: @small-tablet) {
@@ -264,7 +270,11 @@
 }
 
 #companies ul li .caption {
-  font-size: 1.4rem;
+  font-size: 1rem;
+
+  @media screen and (min-width: @small-tablet) {
+    font-size: 1.4rem;
+  }
 }
 
 #people ul li {
