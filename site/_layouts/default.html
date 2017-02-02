@@ -103,6 +103,7 @@
             {{ person }}
           </li>
           {% endfor %}
+          <li class="more"><a href="#">MORE</a></li>
         </ul>
       </section>
     </section>
@@ -111,18 +112,6 @@
 <main>
   {{ content }}
 </main>
-
-<!--
-<section>
-  <p>
-    <a id="footer-share" href="https://facebook.com/sharer.php?u={{ page.share_url | default: share_url | cgi_escape }}" class="share-button facebook" target="_blank">Share
-      this</a>
-    <a id="footer-tweet" href="https://twitter.com/intent/tweet?text={{ page.twittertext | default: site.twittertext | cgi_escape }}" class="share-button twitter" target="_blank">Tweet
-      this</a>
-    <a id="footer-donate" href="https://donate.fightforthefuture.org/campaigns/rock-against-tpp" class="share-button donate" target="_blank">Donate</a>
-  </p>
-</section>
--->
 
 <section id="orgs" class="dissolve">
   <h2>Supporting organizations:</h2>
@@ -143,20 +132,6 @@
   {% assign sorted_orgs = sorted_orgs | push: org %}
   {% endfor %}
   {% assign sorted_orgs = sorted_orgs | sort %}
-
-  <p>
-    <button id="toggle-list" class="link-style-button">Show all {{ sorted_orgs | size }} organizations</button>
-  </p>
-
-  <ul id="endorsements" class="two-column-list hidden">
-    {% for org in sorted_orgs %}
-    <li>{{ org }}</li>
-    {% endfor %}
-  </ul>
-
-  <p>
-    Does your organization want to join? <a href="mailto:team@fightforthefuture.org">Email us</a>.
-  </p>
 </section>
 
 {% include footer.html %}
