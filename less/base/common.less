@@ -10,8 +10,12 @@ html {
   background-color: @black;
   background-image: url('/images/line.png');
   background-repeat: no-repeat;
-  background-position: center 15rem;
+  background-position: center 10rem;
   background-size: 40px 100%;
+
+  @media screen and (min-width: @small-tablet) {
+      background-position: center 15rem;
+  }
 }
 
 body {
@@ -36,15 +40,23 @@ h2 {
 }
 
 h3 {
-  font-size: 2.6rem;
+  font-size: 2rem;
   line-height: 2.3rem;
   font-weight: 700;
   max-width: 42ch;
+
+  @media screen and (min-width: @small-tablet) {
+    font-size: 2.6rem;
+  }
 }
 
 h4 {
-  font-size: 2.6rem;
+  font-size: 2rem;
   font-weight: 400;
+
+  @media screen and (min-width: @small-tablet) {
+    font-size: 2.6rem;
+  }
 }
 
 h5 {
