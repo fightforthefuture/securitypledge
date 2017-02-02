@@ -55,16 +55,18 @@
 <section id="companies">
   <section class="countdown dissolve">
     <h4>It's been <strong><span id="days-since"></span></strong> since the pledge launched. <strong><span id="days-remaining"></span> left.</strong></h4>
-    <h3>Here's where companies stand:</h3>
+    <h4>Here's where companies stand:</h4>
   </section>
 
   <section class="two-column">
     <section>
       <h4>Has not yet signed.</h4>
+      <h5>1B+ users</h5>
       <ul>
         {% for company in site.data.companies.unsigned %}
         <li>
-          {{ company }}
+          <div class="placeholder"></div>
+          <div class="caption">{{ company }}</div>
         </li>
         {% endfor %}
       </ul>
@@ -83,7 +85,7 @@
 </section>
 
 <section id="people">
-    <h3 class="dissolve">Here's where individuals stand:</h3>
+    <h4 class="dissolve">Here's where individuals stand:</h4>
     <section class="two-column">
       <section>
         <h4>Has not signed.</h4>

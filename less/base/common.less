@@ -6,12 +6,15 @@ html, body {
   font-size: 62.5%;
 }
 
-body {
+html {
   background-color: @black;
   background-image: url('/images/line.png');
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: auto 100%;
+  background-position: center 15rem;
+  background-size: 40px 100%;
+}
+
+body {
   color: @white;
   font-family: @body-font;
   font-size: 1.6rem;
@@ -24,21 +27,30 @@ body {
 h2, h3, h4, h5, h6 {
   font-family: @heading-font;
   line-height: 1.1;
-  margin-bottom: 0.75em;
+  margin: 0 auto 2rem;
 }
 
 h2 {
-  font-size: 4rem;
+  font-size: 3.4rem;
+  margin: 8rem auto 3rem;
 }
 
 h3 {
-  font-size: 3rem;
-  font-weight: 400;
+  font-size: 2.6rem;
+  line-height: 2.3rem;
+  font-weight: 700;
+  max-width: 42ch;
 }
 
 h4 {
-  font-size: 3rem;
+  font-size: 2.6rem;
   font-weight: 400;
+}
+
+h5 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
 }
 
 a {
@@ -57,9 +69,12 @@ img {
 }
 
 p {
-  margin: 0 auto;
-  max-width: 70ch;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  margin: 0 auto 4rem;
+  max-width: 56ch;
   width: 100%;
+  color: @gray;
 }
 
 small {
