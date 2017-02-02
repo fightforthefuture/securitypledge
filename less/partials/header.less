@@ -1,7 +1,11 @@
 .header-p() {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   line-height: 1.4;
   max-width: 57ch;
+
+  @media screen and (min-width: @large-phone) {
+    font-size: 1.8rem;
+  }
 }
 
 body > header {
@@ -13,9 +17,14 @@ body > header {
 
   h1 {
     background-color: @black;
-    margin: 0 auto 8rem;
-    width: 600px;
-    padding: 4rem 0;
+    margin: 0 auto 4rem;
+    padding: 4rem 0 2rem;
+    max-width: 16ch;
+
+    @media screen and (min-width: @large-phone) {
+      font-size: 9vw;
+      margin-bottom: 8rem;
+    }
   }
 
   p {
@@ -40,24 +49,17 @@ body > header {
 h1 {
   color: @white;
   font-family: @heading-font-bold;
-  font-size: 9vw;
+  font-size: 12vw;
   line-height: 1em;
   margin: 2rem 0 0;
   text-align: center;
   position: relative;
 
-  @media screen and (min-width: @small-tablet) {
-    font-size: 9.8rem;
-    margin-bottom: 3rem;
-  }
+  @media screen and (min-width: @small-tablet) {}
 
-  @media screen and (min-width: @small-phone) {
-    font-size: 7.5vw;
-  }
+  @media screen and (min-width: @small-phone) {}
 
-  @media screen and (min-width: @large-tablet) {
-    font-size: 7.7rem;
-  }
+  @media screen and (min-width: @large-tablet) {}
 }
 
 h1:after {

@@ -9,22 +9,18 @@ nav {
   }
 
   ul {
-    background-color: fade(@black, 90%);
     font-family: @body-font;
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 100;
     overflow: auto;
-    padding: 5rem 0;
+    padding: 0;
+    display: flex;
+    height: auto;
+    justify-content: center;
+    align-items: center;
 
     @media screen and (min-width: @large-phone) {
-      align-items: center;
-      background-color: transparent;
-      display: flex;
       font-size: 2rem;
-      height: auto;
-      justify-content: center;
-      padding: 0;
-      position: static;
       transform: translate3d(0, 0, 0);
       transition: background-color 300ms;
     }
@@ -52,23 +48,21 @@ nav {
   }
 
   li {
-    @media screen and (min-width: @large-phone) {
-      padding: 0 1rem;
-      position: relative;
-    }
+    padding: 0 1rem;
+    position: relative;
 
-    @media screen and (min-width: @small-tablet) {
-      /* padding: 0 1rem; */
-    }
+    @media screen and (min-width: @large-phone) {}
+
+    @media screen and (min-width: @small-tablet) {}
 
     &::before {
-      @media screen and (min-width: @large-phone) {
-        color: @grey-450;
-        content: '|';
-        position: absolute;
-        top: 1.9rem;
-        left: 0;
-      }
+      color: @grey-450;
+      content: '|';
+      position: absolute;
+      top: 1.9rem;
+      left: 0;
+
+      @media screen and (min-width: @large-phone) {}
     }
 
     &:first-child {

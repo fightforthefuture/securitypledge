@@ -237,9 +237,14 @@
 }
 
 #companies ul li {
-  width: 10rem;
-  height: 10rem;
+  width: 8rem;
+  height: 8rem;
   margin: 1rem;
   background-color: @grey;
   border-radius: 10px;
+
+  @media screen and (min-width: @large-tablet) {
+    width: 10rem;
+    height: 10rem;
+  }
 }

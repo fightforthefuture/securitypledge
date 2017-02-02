@@ -3,12 +3,13 @@
 
   var since = doc.getElementById('days-since'),
     remaining = doc.getElementById('days-remaining'),
-    launch = new Date('2017-2-1'),
-    deadline = new Date('2018-1-1');
+    launch = new Date('February 1, 2017'),
+    deadline = new Date('January 1, 2018');
 
   function getTimeRemaining() {
     var since = new Date() - launch;
     var remaining = deadline - new Date();
+    console.log(launch, deadline, since, remaining);
     var remainingDays = Math.floor( remaining / (1000 * 60 * 60 * 24) );
 
     return {
@@ -33,8 +34,7 @@
     endorsements = doc.getElementById('endorsements'),
     endorsementToggle = doc.getElementById('toggle-list') || doc.createElement('button'),
     sideShareButtons = doc.getElementById('fixed-side-social-container'),
-    navigationMenu = doc.querySelector('nav'),
-    menuExpand = doc.getElementById('menu-expand');
+    navigationMenu = doc.querySelector('nav');
 
   /*
   win.addEventListener('scroll', function () {
@@ -50,10 +50,6 @@
     if (win.innerWidth >= 640) {
       navigationMenu.classList.remove('menu-open');
     }
-  });
-
-  menuExpand.addEventListener('click', function () {
-    navigationMenu.classList.toggle('menu-open');
   });
 
   doc.getElementById('nav-items').addEventListener('click', function () {
