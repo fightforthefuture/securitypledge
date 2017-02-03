@@ -5,5 +5,11 @@ unsigned:
   - YouTube
   - Flipboard
   - Skype
+  - Twitter
 
-signed:
+signed_big:
+  - WhatsApp
+
+signed_medium:
+  - Open Whisper Systems
+  - SpiderOak

@@ -58,10 +58,21 @@
     </section>
     <section>
       <h4>Has signed.</h4>
+      <h5>1B+ users</h5>
       <ul>
-        {% for company in site.data.companies.signed %}
+        {% for company in site.data.companies.signed_big %}
         <li>
-          {{ company }}
+          <div class="placeholder"></div>
+          <div class="caption">{{ company }}</div>
+        </li>
+        {% endfor %}
+      </ul>
+      <h5>1M+ users</h5>
+      <ul>
+        {% for company in site.data.companies.signed_medium %}
+        <li>
+          <div class="placeholder"></div>
+          <div class="caption">{{ company }}</div>
         </li>
         {% endfor %}
       </ul>
