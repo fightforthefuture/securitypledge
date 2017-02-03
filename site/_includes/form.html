@@ -1,16 +1,10 @@
-<form id="action-network-form" class="petition-form" accept-charset="UTF-8" action="{{ include.action }}" method="post" data-petition-id="{{ include.petition_id }}" data-mothership-tag="{{ page.tag | default: 'tpp' }}">
+<form id="action-network-form" class="petition-form dissolve" accept-charset="UTF-8" action="{{ include.action }}" method="post" data-petition-id="{{ include.petition_id }}" data-mothership-tag="{{ page.tag | default: 'tpp' }}">
   <div class="input-row">
-    <!--
-    <label class="visually-hidden" for="form-first_name">Name
-      (optional):</label>
-    <input type="text" id="form-first_name" class="name" name="signature[first_name]" placeholder="Name (optional)"/>
+    <label class="visually-hidden" for="form-first_name">Name</label>
+    <input type="text" id="form-first_name" class="name" name="signature[first_name]" placeholder="Name"/>
 
-    <label class="visually-hidden" for="form-email">Email:</label>
-    <input type="email" id="form-email" name="signature[email]" class="email" placeholder="Email" required/>
-
-    <label class="visually-hidden" for="form-zip_code">ZIP code:</label>
-    <input type="text" id="form-zip_code" name="signature[zip_code]" class="zip" placeholder="ZIP code" required/>
-    -->
+    <label class="visually-hidden" for="form-email">E-mail</label>
+    <input type="email" id="form-email" name="signature[email]" class="email" placeholder="E-mail" required/>
 
     <input type="submit" name="commit" value="{% if page.layout == 'event' %}Sign & RSVP{% else %}{{ page.signup_button_text | default: site.signup_button_text }}{% endif %}" class="submit"/>
   </div>

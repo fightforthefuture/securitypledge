@@ -137,7 +137,7 @@
   background-color: @grey;
   border-radius: 10px;
 
-  @media screen and (min-width: @small-tablet) {
+  @media screen and (min-width: @large-phone) {
     width: 10rem;
     height: 10rem;
   }
@@ -259,9 +259,11 @@
   }
 }
 
+#companies {
+  padding: 0;
+}
+
 #companies ul {
-  width: 24rem;
-  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
 }
@@ -274,7 +276,7 @@
   width: 4rem;
   font-size: 1rem;
 
-  @media screen and (min-width: @small-tablet) {
+  @media screen and (min-width: @large-phone) {
     width: 10rem;
     font-size: 1.4rem;
   }
@@ -284,7 +286,7 @@
   color: @gray;
   line-height: 3rem;
   font-size: 1.4rem;
-  border-bottom: 2px #484848 solid;
+  border-bottom: 1px #1d1d1d solid;
 
   &:last-child {
     border-bottom: none;

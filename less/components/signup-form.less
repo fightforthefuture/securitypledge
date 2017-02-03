@@ -5,9 +5,9 @@
 }
 
 .petition-form {
-  margin: 3rem auto 0;
-  max-width: @large-tablet + 80px;
-  padding: 0 0 2px;
+  background-color: @black;
+  margin: 8rem auto 6rem;
+  max-width: 44rem;
   position: relative;
 
   @media screen and (min-width: @small-tablet) {
@@ -24,6 +24,8 @@
 
 .input-row {
   position: relative;
+  margin: 0 auto;
+
   @media screen and (min-width: @small-tablet) {
     display: flex;
     flex-wrap: wrap;
@@ -48,81 +50,60 @@
 }
 
 .name, .email, .zip, .country, .submit {
-  margin: 0 auto;
-  max-width: 44rem;
+  margin: 1rem auto 0;
+  border-radius: 1rem;
 }
 
 .name, .email, .zip {
   border: none;
   border-bottom: solid @grey-500 1px;
   display: block;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  color: #767676;
   padding: 1.5rem 1rem;
   width: 100%;
+  text-transform: uppercase;
 
   @media screen and (min-width: @small-tablet) {
     border-bottom: none;
-    font-size: 2.5rem;
     max-width: 100%;
-    padding: 1rem 0 1rem 1rem;
   }
 
   &::placeholder {
-    font-weight: 200;
+    font-weight: 700;
   }
 }
 
 .name {
-  border-radius: 0.5rem 0.5rem 0 0;
-
   @media screen and (min-width: @small-tablet) {
-    border-radius: 0.5rem 0 0 0.5rem;
-    border-right: solid 1px @grey-500;
-    width: 28%;
+    width: 48%;
   }
 }
 
 .email {
-  border-radius: 0;
-
   @media screen and (min-width: @small-tablet) {
-    border-right: solid 1px @grey-500;
-    padding-left: 2rem;
-    width: 25%;
-  }
-}
-
-.zip {
-  border-radius: 0 0 0.5rem 0.5rem;
-
-  @media screen and (min-width: @small-tablet) {
-    border-radius: 0;
-    padding-left: 2rem;
-    width: 18%;
+    width: 48%;
   }
 }
 
 .submit {
-  margin: 8rem 0 6rem;
+  cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
   background: @red-800;
-  border-radius: 1rem;
   border: none;
   color: @white;
   font-family: @heading-font;
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   font-weight: 900;
-  padding: 3.5rem;
   position: relative;
   text-transform: uppercase;
   transition: top 150ms;
   box-shadow: 0 2rem 8rem @black;
+  width: 100%;
+  padding: 1.5rem;
 
-  @media screen and (min-width: @large-phone) {
-    font-size: 4rem;
-    margin: 8rem 0 12rem;
-    padding: 3.5rem;
+  @media screen and (min-width: @small-tablet) {
   }
 
   &:active, &:focus {
