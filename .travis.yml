@@ -1,6 +1,6 @@
-language: node_js
-node_js:
-- '4.1'
+language: ruby
+rvm:
+- '2.3.1'
 sudo: false
 cache:
   bundler: true
@@ -8,19 +8,13 @@ cache:
   - node_modules
   - vendor
 before_install:
-- rvm install `cat .ruby-version`
+- nvm install 6
 install:
 - npm install
 script:
 - npm run-script build
 env:
-- CXX=g++-4.8 AWS_S3_BUCKET=s3.fightforthefuture.org
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - g++-4.8
+- AWS_S3_BUCKET=s3.fightforthefuture.org
 branches:
   only:
   - production
