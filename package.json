@@ -2,7 +2,7 @@
   "name": "2017pledge",
   "version": "0.2.0",
   "license": "GPL-3.0",
-  "description": "Website for the Rock Against the TPP concert series",
+  "description": "Website for the 2017 pledge",
   "repo": "fightforthefuture/2017Pledge",
   "cacheDirectories": [
     "node_modules",
@@ -12,7 +12,8 @@
     "Aki Rose <aki@fightforthefuture.org> (https://github.com/gesa/)",
     "Jeff Lyon",
     "Vasjen Katro",
-    "Evan Greer"
+    "Evan Greer",
+    "Mike Morris"
   ],
   "private": true,
   "engines": {
