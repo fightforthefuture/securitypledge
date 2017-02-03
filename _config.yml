@@ -40,22 +40,6 @@ defaults:
       path: ''
     values:
       layout: 'default'
-  - scope:
-      path: '_shows'
-    values:
-      layout: 'event'
-  - scope:
-      path: '_media'
-    values:
-      layout: 'media'
-
-collections:
-  shows:
-    output: true
-    permalink: /:path/
-  media:
-    output: true
-    permalink: /:path/media/
 
 #############
 # Compiling #
