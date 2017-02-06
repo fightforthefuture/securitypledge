@@ -12,44 +12,35 @@
   z-index: 9001;
 
   .input-column {
-    @media screen and (min-width: @small-tablet) {
-      width: 50%;
+    flex-wrap: wrap;
+    width: 50%;
 
-      &:first-child {
-        padding-right: 1rem;
-      }
+    &:first-child {
+      padding-right: 1rem;
+    }
+
+    @media screen and (min-width: @large-tablet) {
     }
   }
 
-  @media screen and (min-width: @small-tablet) {
-  }
-
   &.stuck {
-    @media screen and (min-width: @large-phone) {
-      margin: 0;
-      max-width: 100%;
-      width: 100%;
-      position: fixed;
-      bottom: 0;
-      transition: transform 300ms;
-      border: none;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: transform 300ms;
+    border: none;
 
-      .input-row {
-        justify-content: right;
-        background-color: @black;
-        border-top: 1px #1d1d1d solid;
-      }
+    @media screen and (min-width: @small-tablet) {
+      max-width: 67rem;
+    }
 
-      .input-column {
-        width: inherit;
-        padding-right: 2rem;
-        align-items: right;
-      }
-
-      input {
-        width: 24rem;
-        margin: 0;
-      }
+    .input-row {
+      background-color: @black;
+      border-top: 1px #1d1d1d solid;
     }
   }
 
@@ -68,12 +59,13 @@
   margin: 0 auto;
   border: 1px #1d1d1d solid;
   border-radius: 1rem;
-  padding: 4rem;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 
   @media screen and (min-width: @small-tablet) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    padding: 4rem;
   }
 
   &::after {
@@ -93,25 +85,19 @@
   }
 }
 
-.name, .email, .zip, .country, .submit {
+input {
   margin: 1rem auto 0;
-  border-radius: 1rem;
-}
-
-
-.name, .email, .zip {
   border: none;
-  border-bottom: solid @grey-500 1px;
+  border-radius: 1rem;
   display: block;
   font-size: 1.4rem;
   color: #767676;
-  padding: 2rem;
+  padding: 1.5rem;
   width: 100%;
   text-transform: uppercase;
 
   @media screen and (min-width: @small-tablet) {
-    border-bottom: none;
-    max-width: 100%;
+    padding: 2rem;
   }
 
   &::placeholder {
@@ -134,9 +120,10 @@
   transition: top 150ms;
   box-shadow: 0 2rem 8rem @black;
   width: 100%;
-  padding: 1.5rem;
+  padding: 1rem;
 
   @media screen and (min-width: @small-tablet) {
+    padding: 1.5rem;
   }
 
   &:active, &:focus {
