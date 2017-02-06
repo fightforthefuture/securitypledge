@@ -29,44 +29,8 @@
   var
     i,
     form = doc.getElementById('petition-form'),
-    concealedArtists = doc.getElementsByClassName('concealed'),
-    artistsToggle = doc.getElementById('see-full-list') || doc.createElement('button'),
     endorsements = doc.getElementById('endorsements'),
-    endorsementToggle = doc.getElementById('toggle-list') || doc.createElement('button'),
-    sideShareButtons = doc.getElementById('fixed-side-social-container'),
-    navigationMenu = doc.querySelector('nav');
-
-  /*
-  win.addEventListener('scroll', function () {
-    if (win.scrollY > doc.querySelector('header > p').offsetTop) {
-      sideShareButtons.classList.add('fade-in');
-    } else {
-      sideShareButtons.classList.remove('fade-in')
-    }
-  });
-  */
-
-  win.addEventListener('resize', function () {
-    if (win.innerWidth >= 640) {
-      navigationMenu.classList.remove('menu-open');
-    }
-  });
-
-  doc.getElementById('nav-items').addEventListener('click', function () {
-    navigationMenu.classList.remove('menu-open');
-  });
-
-  artistsToggle.addEventListener('click', function (e) {
-    e.preventDefault();
-
-    i = concealedArtists.length;
-
-    while (i--) {
-      concealedArtists[i].classList.remove('concealed');
-    }
-
-    artistsToggle.remove();
-  });
+    endorsementToggle = doc.getElementById('toggle-list') || doc.createElement('button');
 
   endorsementToggle.addEventListener('click', function (e) {
     e.preventDefault();
