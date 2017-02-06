@@ -7,10 +7,40 @@
 .petition-form {
   background-color: @black;
   margin: 8rem auto 6rem;
-  max-width: 44rem;
+  max-width: 67rem;
   position: relative;
 
   @media screen and (min-width: @small-tablet) {
+  }
+
+  /*
+  &.scrolled {
+    @media screen and (min-width: @large-phone) {
+      margin: 0;
+      max-width: 100%;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      transition: transform 300ms;
+      border: none;
+
+      .input-row {
+        justify-content: right;
+        background-color: @black;
+        border-top: 1px #1d1d1d solid;
+      }
+
+      input {
+        width: 20%;
+      }
+    }
+  }
+  */
+
+  &.stuck {
+    @media screen and (min-width: @large-phone) {
+      /* transform: translate3d(0, 100%, 0); */
+    }
   }
 
   &.submitting {
@@ -23,8 +53,12 @@
 }
 
 .input-row {
+  background: #000;
   position: relative;
   margin: 0 auto;
+  border: 1px #1d1d1d solid;
+  border-radius: 1rem;
+  padding: 4rem;
 
   @media screen and (min-width: @small-tablet) {
     display: flex;
@@ -54,13 +88,24 @@
   border-radius: 1rem;
 }
 
+
+.input-column {
+  @media screen and (min-width: @small-tablet) {
+    width: 50%;
+
+    &:first-child {
+      padding-right: 1rem;
+    }
+  }
+}
+
 .name, .email, .zip {
   border: none;
   border-bottom: solid @grey-500 1px;
   display: block;
   font-size: 1.4rem;
   color: #767676;
-  padding: 1.5rem 1rem;
+  padding: 2rem;
   width: 100%;
   text-transform: uppercase;
 
@@ -71,18 +116,6 @@
 
   &::placeholder {
     font-weight: 700;
-  }
-}
-
-.name {
-  @media screen and (min-width: @small-tablet) {
-    width: 48%;
-  }
-}
-
-.email {
-  @media screen and (min-width: @small-tablet) {
-    width: 48%;
   }
 }
 
