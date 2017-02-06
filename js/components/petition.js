@@ -50,7 +50,7 @@
     formData.append('an_petition', actionNetworkForm.action.replace(/\/signatures\/?/, ''));
     formData.append('member[first_name]', actionNetworkForm['signature[first_name]'].value);
     formData.append('member[email]', actionNetworkForm['signature[email]'].value);
-    formData.append('member[postcode]', actionNetworkForm['signature[zip_code]'].value);
+    // formData.append('member[postcode]', actionNetworkForm['signature[zip_code]'].value);
     formData.append('member[country]', 'US');
 
     if (actionNetworkForm['member[phone_number]'] && actionNetworkForm['member[phone_number]'].value !== '') {
@@ -163,10 +163,12 @@
     var
       submission = new XMLHttpRequest();
 
+    /*
     if (actionNetworkForm['signature[zip_code]'].value === '') {
       // Since iOS Safari doesn’t do its goddamn job.
       return;
     }
+    */
 
     if (!actionNetworkForm['member[phone_number]'] || actionNetworkForm['member[phone_number]'].value === '') {
       preSubmit();
