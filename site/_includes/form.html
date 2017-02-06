@@ -15,7 +15,7 @@
   <input type="hidden" name="authenticity_token" value="0T4Obtb0NSc88GcP+W4S67iTV1B9UhTVWbk6UjKj7+o="/>
   <input type="hidden" name="signature[country]" value="US" id="hidden-country"/>
   <input type="hidden" name="subscription[sub_group_id]" value="13162">
-  <input type="hidden" name="subscription[http_referer]" value="https://www.fightforthefuture.org/2017Pledge/{{ page.url | remove: 'index.html' }}"/>
+  <input type="hidden" name="subscription[http_referer]" value="{{ site.url }}/{{ page.url | remove: 'index.html' }}"/>
   <input type="hidden" name="subscription[source]" value="rockagainstthetpp"/>
   <input type="hidden" name="signature[tag_list]" value='["ttp", "tpp-rockagainst"]'/>
 </form>
