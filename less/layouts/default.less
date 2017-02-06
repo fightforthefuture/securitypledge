@@ -4,20 +4,6 @@
     border-bottom: 1px solid #eb212e;
   }
 
-.fine-print() {
-  color: fade(@white, 80%);
-  font-size: 1.4rem;
-
-  a {
-    color: @white;
-    text-decoration: underline;
-    cursor:pointer;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-
 main {
   max-width: @large-tablet + 80px;
   margin: 4rem auto 0;
@@ -34,12 +20,6 @@ section {
 
   @media screen and (min-width: @large-phone) {
     /* padding: 0 5rem; */
-  }
-}
-
-p {
-  &.disclaimer {
-    .disclaimer();
   }
 }
 
@@ -114,13 +94,6 @@ p {
 
 .highlighted {
   color: @red-800;
-}
-
-.volunteer {
-  .fine-print();
-  font-style: italic;
-  max-width: 64rem;
-  text-align: center;
 }
 
 #modal-share {

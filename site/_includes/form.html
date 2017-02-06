@@ -1,4 +1,4 @@
-<form id="action-network-form" class="petition-form dissolve" accept-charset="UTF-8" action="{{ include.action }}" method="post" data-petition-id="{{ include.petition_id }}" data-mothership-tag="{{ page.tag | default: 'tpp' }}">
+<form id="action-network-form" class="petition-form dissolve" accept-charset="UTF-8" action="{{ include.action }}" method="post" data-petition-id="{{ include.petition_id }}" data-mothership-tag="tpp">
   <div class="input-row">
     <div class="input-column">
       <label class="visually-hidden" for="form-first_name">Name</label>
@@ -15,7 +15,7 @@
   <input type="hidden" name="authenticity_token" value="0T4Obtb0NSc88GcP+W4S67iTV1B9UhTVWbk6UjKj7+o="/>
   <input type="hidden" name="signature[country]" value="US" id="hidden-country"/>
   <input type="hidden" name="subscription[sub_group_id]" value="13162">
-  <input type="hidden" name="subscription[http_referer]" value="https://www.rockagainstthetpp.org/{{ page.url | remove: 'index.html' }}"/>
+  <input type="hidden" name="subscription[http_referer]" value="https://www.fightforthefuture.org/2017Pledge/{{ page.url | remove: 'index.html' }}"/>
   <input type="hidden" name="subscription[source]" value="rockagainstthetpp"/>
-  <input type="hidden" name="signature[tag_list]" value='["ttp", "tpp-rockagainst"{% if page.tag %}, "{{ page.tag }}"{% endif %}]'/>
+  <input type="hidden" name="signature[tag_list]" value='["ttp", "tpp-rockagainst"]'/>
 </form>
