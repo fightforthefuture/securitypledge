@@ -1,27 +1,15 @@
 (function (doc, win) {
   var
     form = doc.getElementById('action-network-form'),
-    prevTop = 0;
+    formBottom = form.offsetTop + form.clientHeight;
 
   win.addEventListener('scroll', function () {
-    var
-      currentTop = win.scrollY;
+    var currentTop = win.scrollY;
 
-    if (currentTop < prevTop) {
-      if (currentTop > 0 && form.classList.contains('scrolled')) {
+    if (currentTop > formBottom) {
         form.classList.add('stuck');
-      } else {
-        form.classList.remove('stuck', 'scrolled');
-      }
     } else {
-
       form.classList.remove('stuck');
-
-      if (currentTop > form.clientHeight) {
-        form.classList.add('scrolled')
-      }
     }
-
-    prevTop = currentTop;
   });
 }(document, window));
