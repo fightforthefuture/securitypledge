@@ -1,23 +1,10 @@
 nav {
-  @media screen and (min-width: @large-phone) {
-    background-color: transparent;
-  }
-
-  ul, li {
-    margin: 0;
-    padding: 0;
-  }
-
   ul {
     font-family: @body-font;
-    font-size: 1.6rem;
-    font-weight: 100;
-    overflow: auto;
-    padding: 0;
+    font-size: 1.4rem;
     display: flex;
     height: auto;
     justify-content: center;
-    align-items: center;
 
     @media screen and (min-width: @large-phone) {
       font-size: 1.8rem;
@@ -26,17 +13,9 @@ nav {
     }
   }
 
-  &.menu-open ul {
-    transform: translateY(0);
-  }
-
   li {
     padding: 0 1rem;
     position: relative;
-
-    @media screen and (min-width: @large-phone) {}
-
-    @media screen and (min-width: @small-tablet) {}
 
     &::before {
       color: @grey-450;
@@ -44,29 +23,15 @@ nav {
       position: absolute;
       top: 1.9rem;
       left: 0;
-
-      @media screen and (min-width: @large-phone) {}
     }
 
     &:first-child {
+      padding-left:0;
+
       &::before {
         content: none;
       }
     }
-
-    /*
-    &:last-child {
-      @media screen and (min-width: @large-phone) {
-        padding: 1.1rem 0 1.3rem;
-      }
-
-      &::before {
-        @media screen and (min-width: @large-phone) {
-          content: none;
-        }
-      }
-    }
-    */
   }
 
   a {
@@ -80,88 +45,6 @@ nav {
       @media screen and (min-width: @large-phone) {
         transform: scale(1.05);
       }
-    }
-  }
-  .donate {
-    @media screen and (min-width: @large-phone) {
-      color: @white;
-      border: 1px solid #fff;
-      border-radius: 2rem;
-      display: block;
-      height: 4rem;
-      padding: 0.9rem 2rem;
-    }
-
-    &:hover, &:active {
-      @media screen and (min-width: @large-phone) {
-        text-decoration: none;
-      }
-    }
-  }
-}
-
-.menu-expand {
-  background-color: lighten(@black, 18.75%);
-  border: none;
-  color: @white;
-  cursor: pointer;
-  opacity: 0.9;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  text-decoration: none;
-  width: 5rem;
-  z-index: 5;
-
-  &:hover {
-    opacity: 1;
-  }
-
-  @media screen and (min-width: @large-phone) {
-    display: none;
-  }
-}
-
-.menu-text {
-  .ir();
-  background-color: @white;
-  display: inline-block;
-  height: 2px;
-  position: absolute;
-  transform: translateX(-50%) translateY(-50%);
-  transition: background-color 300ms;
-  width: 1.8rem;
-
-  &::before, &::after {
-    background-color: @white;
-    content: '';
-    height: 100%;
-    position: absolute;
-    right: 0;
-    transition: transform 300ms, top 300ms, background-color 0s;
-    width: 100%;
-  }
-
-  &::before {
-    top: -0.5rem;
-  }
-
-  &::after {
-    top: 0.5rem;
-  }
-
-  .menu-open & {
-    background-color: fade(@white, 0);
-
-    &::before {
-      top: 0;
-      transform: rotate(135deg);
-    }
-
-    &::after {
-      top: 0;
-      transform: rotate(225deg);
     }
   }
 }
