@@ -13,18 +13,18 @@
 
   <section class="dissolve">
     {{ page.header_content | default: '' | markdownify }}
-
-    <nav>
-      <ul id="nav-items">
-        <li><a href="/#companies">Companies</a></li>
-        <li><a href="/#people">People</a></li>
-        <li><a href="/#orgs">Orgs</a></li>
-        <li><a href="/#faq">FAQ</a></li>
-      </ul>
-    </nav>
   </section>
 
   {% include form.html action=site.action_network_form %}
+
+  <nav class="dissolve">
+    <ul id="nav-items">
+      <li><a href="/#companies">Companies</a></li>
+      <li><a href="/#people">People</a></li>
+      <li><a href="/#orgs">Orgs</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+  </nav>
 </header>
 
 <section id="companies">
