@@ -24,13 +24,16 @@
     var employer = doc.createElement('input');
     employer.placeholder = "For who?";
 
+    
+    var submit = actionNetworkForm.querySelectorAll('input[type="submit"]')[0].cloneNode();
+
     extendedForm.classList.remove('dissolve');
     extendedForm.appendChild(actionNetworkForm.querySelectorAll('input.name')[0].cloneNode());
     extendedForm.appendChild(actionNetworkForm.querySelectorAll('input[type="email"]')[0].cloneNode());
     extendedForm.appendChild(zip);
     extendedForm.appendChild(tech);
     extendedForm.appendChild(employer);
-    extendedForm.appendChild(actionNetworkForm.querySelectorAll('input[type="submit"]')[0].cloneNode());
+    extendedForm.appendChild(submit);
     formContainer.appendChild(extendedForm);
 
     win.modals.generateModal({
@@ -41,7 +44,7 @@
     actionNetworkForm.commit.setAttribute('disabled', true);
 
     actionNetworkForm.removeEventListener('submit', preSubmit);
-    actionNetworkForm.add('submit', submitForm);
+    extendedForm.addEventListener('submit', submitForm);
   }
 
   function compilePayloadPetition() {
