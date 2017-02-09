@@ -4,54 +4,13 @@ body > footer {
   padding: 3rem 2rem;
   margin-bottom: 10rem;
 
+  @media screen and (min-width: @large-tablet) {
+    margin-bottom: 16rem;
+  }
+
   .title {
     font-variant: small-caps;
     text-transform: uppercase;
-  }
-
-  p, title {
     text-align: center;
-  }
-
-  dl {
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 40rem;
-    margin: 0 auto 1rem;
-    text-align: center;
-
-    @media screen and (min-width: @small-phone) {
-      display: flex;
-    }
-  }
-
-  dt, dd {
-    margin-bottom: 2rem;
-
-    @media screen and (min-width: @small-phone) {
-      margin: 1rem;
-    }
-  }
-
-  dt {
-    @media screen and (min-width: @small-phone) {
-      text-align: right;
-    }
-  }
-
-  dd {
-    @media screen and (min-width: @small-phone) {
-      text-align: left;
-    }
-  }
-
-  ul {
-    text-align: center;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: inherit;
   }
 }

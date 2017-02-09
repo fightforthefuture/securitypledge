@@ -84,12 +84,16 @@ img {
 }
 
 p {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   line-height: 2.3rem;
   margin: 0 auto 4rem;
   max-width: 56ch;
   width: 100%;
   color: @gray;
+
+  @media screen and (min-width: @large-phone) {
+    font-size: 1.8rem;
+  }
 }
 
 small {
