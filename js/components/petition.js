@@ -4,30 +4,44 @@
   var
     actionNetworkForm = doc.getElementById('action-network-form') || doc.createElement('div');
 
-  function preSubmit() {
+  function preSubmit(event) {
     /**
      * Fires up the loading modal and disables the form
      * @return {object} - modal with spinner
      * */
 
-    var
-      loadingContainer = doc.createElement('div'),
-      loadingCopy = doc.createElement('h2'),
-      loadingSpinner = doc.createElement('div');
+    event.preventDefault();
 
-    loadingSpinner.classList.add('circle-spinner', 'large');
-    loadingCopy.textContent = 'Please wait one moment…';
+    var formContainer = doc.createElement('div');
+    var extendedForm = actionNetworkForm.cloneNode();
 
-    loadingContainer.classList.add('loading');
-    loadingContainer.appendChild(loadingCopy);
-    loadingContainer.appendChild(loadingSpinner);
+    var zip = doc.createElement('input');
+    zip.placeholder = "Zip code";
+
+    var tech = doc.createElement('input');
+    tech.placeholder = "Do you work in tech?";
+
+    var employer = doc.createElement('input');
+    employer.placeholder = "For who?";
+
+    extendedForm.classList.remove('dissolve');
+    extendedForm.appendChild(actionNetworkForm.querySelectorAll('input.name')[0].cloneNode());
+    extendedForm.appendChild(actionNetworkForm.querySelectorAll('input[type="email"]')[0].cloneNode());
+    extendedForm.appendChild(zip);
+    extendedForm.appendChild(tech);
+    extendedForm.appendChild(employer);
+    extendedForm.appendChild(actionNetworkForm.querySelectorAll('input[type="submit"]')[0].cloneNode());
+    formContainer.appendChild(extendedForm);
 
     win.modals.generateModal({
-      contents: loadingContainer,
+      contents: formContainer,
       disableOverlayClick: true
     });
 
     actionNetworkForm.commit.setAttribute('disabled', true);
+
+    actionNetworkForm.removeEventListener('submit', preSubmit);
+    actionNetworkForm.add('submit', submitForm);
   }
 
   function compilePayloadPetition() {
@@ -136,10 +150,6 @@
     }
     */
 
-    if (!actionNetworkForm['member[phone_number]'] || actionNetworkForm['member[phone_number]'].value === '') {
-      preSubmit();
-    }
-
     function handleHelperError(e) {
       /**
        * Figures out what to say at just the right moment
@@ -195,6 +205,6 @@
     submission.send(compilePayloadPetition());
   }
 
-  actionNetworkForm.addEventListener('submit', submitForm);
+  actionNetworkForm.addEventListener('submit', preSubmit);
 
 })(document, window);
