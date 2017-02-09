@@ -9,7 +9,7 @@
 {% capture share_url %}https://{{ site.url }}{{ page.url }}{% endcapture %}
 
 <header{% unless page.page == 'home' %} class="{{ page.collection }}"{% endunless %}>
-  <h1>Be on the right side of history.</h1>
+  <h1>{{ site.name }}</h1>
 
   <section class="dissolve">
     {{ page.header_content | default: '' | markdownify }}
