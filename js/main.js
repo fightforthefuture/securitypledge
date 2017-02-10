@@ -9,7 +9,6 @@
   function getTimeRemaining() {
     var since = new Date() - launch;
     var remaining = deadline - new Date();
-    console.log(launch, deadline, since, remaining);
     var remainingDays = Math.floor( remaining / (1000 * 60 * 60 * 24) );
 
     return {
@@ -30,7 +29,16 @@
     i,
     form = doc.getElementById('petition-form'),
     endorsements = doc.getElementById('endorsements'),
-    endorsementToggle = doc.getElementById('toggle-list') || doc.createElement('button');
+    endorsementToggle = doc.getElementById('toggle-list') || doc.createElement('button'),
+    sideShareButtons = doc.getElementById('fixed-side-social-container');
+
+  win.addEventListener('scroll', function () {
+    if (win.scrollY > doc.querySelector('header').offsetTop) {
+      sideShareButtons.classList.add('fade-in');
+    } else {
+      sideShareButtons.classList.remove('fade-in')
+    }
+  });
 
   endorsementToggle.addEventListener('click', function (e) {
     e.preventDefault();
