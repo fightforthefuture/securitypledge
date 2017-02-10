@@ -39,8 +39,8 @@
       <h5>1B+ users</h5>
       <ul>
         {% for company in site.data.companies.unsigned %}
-        <li>
-          <div class="placeholder"></div>
+        <li class="company {{ company | slugify }}">
+          <img src="/images/companies/{{ company | slugify }}.png" alt="{{ company }}">
           <div class="caption">{{ company }}</div>
         </li>
         {% endfor %}
@@ -51,8 +51,8 @@
       <h5>1B+ users</h5>
       <ul>
         {% for company in site.data.companies.signed_big %}
-        <li>
-          <div class="placeholder"></div>
+        <li class="company {{ company | slugify }}">
+          <img src="/images/companies/{{ company | slugify }}.png" alt="{{ company }}">
           <div class="caption">{{ company }}</div>
         </li>
         {% endfor %}
@@ -60,8 +60,8 @@
       <h5>1M+ users</h5>
       <ul>
         {% for company in site.data.companies.signed_medium %}
-        <li>
-          <div class="placeholder"></div>
+        <li class="company {{ company | slugify }}">
+          <img src="/images/companies/{{ company | slugify }}.png" alt="{{ company }}">
           <div class="caption">{{ company }}</div>
         </li>
         {% endfor %}
@@ -114,9 +114,9 @@
 
   <ul class="org-logos">
     {% for org in site.data.orgs %}
-    <li class="logo {{ org | slugify }}">
+    <li class="org {{ org | slugify }}">
       {{ org }}
-      <img src="/images/endorsements/{{ org | slugify }}.png" alt="{{ org }}">
+      <img src="/images/orgs/{{ org | slugify }}.png" alt="{{ org }}">
     </li>
     {% endfor %}
   </ul>

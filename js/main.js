@@ -28,8 +28,8 @@
   var
     i,
     form = doc.getElementById('petition-form'),
-    endorsements = doc.getElementById('endorsements'),
-    endorsementToggle = doc.getElementById('toggle-list') || doc.createElement('button'),
+    orgs = doc.getElementById('orgs'),
+    orgToggle = doc.getElementById('toggle-list') || doc.createElement('button'),
     sideShareButtons = doc.getElementById('fixed-side-social-container');
 
   win.addEventListener('scroll', function () {
@@ -40,11 +40,11 @@
     }
   });
 
-  endorsementToggle.addEventListener('click', function (e) {
+  orgToggle.addEventListener('click', function (e) {
     e.preventDefault();
 
-    endorsements.classList.toggle('hidden');
-    endorsementToggle.remove();
+    orgs.classList.toggle('hidden');
+    orgToggle.remove();
   });
 
   var util = {

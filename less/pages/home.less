@@ -1,13 +1,32 @@
-.placeholder {
+.company {
   width: 6rem;
   height: 6rem;
-  margin-bottom: 0.5rem;
-  background-color: @grey;
+  margin: 1rem 1rem 3rem;
+  background-color: @white;
   border-radius: 10px;
+  position: relative;
 
   @media screen and (min-width: @large-phone) {
     width: 10rem;
     height: 10rem;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .caption {
+    width: 6rem;
+    margin-top: 6.5rem;
+    font-size: 1rem;
+
+    @media screen and (min-width: @large-phone) {
+      width: 10rem;
+      margin-top: 10.5rem;
+      font-size: 1.4rem;
+    }
   }
 }
 
@@ -17,7 +36,7 @@
   justify-content: center;
 }
 
-.logo {
+.org {
   background-color: @white;
   border-radius: 4px;
   color: transparent;
@@ -82,20 +101,6 @@
 
   @media screen and (min-width: @large-phone) {
     width: 24rem;
-  }
-}
-
-#companies ul li {
-  margin: 1rem;
-}
-
-#companies ul li .caption {
-  width: 6rem;
-  font-size: 1rem;
-
-  @media screen and (min-width: @large-phone) {
-    width: 10rem;
-    font-size: 1.4rem;
   }
 }
 
