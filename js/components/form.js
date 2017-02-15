@@ -4,47 +4,30 @@
   var
     actionNetworkForm = doc.getElementById('action-network-form') || doc.createElement('div');
 
-  function preSubmit(event) {
+  function preSubmit() {
     /**
      * Fires up the loading modal and disables the form
      * @return {object} - modal with spinner
      * */
 
-    event.preventDefault();
+    var
+      loadingContainer = doc.createElement('div'),
+      loadingCopy = doc.createElement('h2'),
+      loadingSpinner = doc.createElement('div');
 
-    var formContainer = doc.createElement('div');
-    var extendedForm = actionNetworkForm.cloneNode();
+    loadingSpinner.classList.add('circle-spinner', 'large');
+    loadingCopy.textContent = 'Please wait one moment…';
 
-    var zip = doc.createElement('input');
-    zip.placeholder = "Zip code";
-
-    var tech = doc.createElement('input');
-    tech.placeholder = "Do you work in tech?";
-
-    var employer = doc.createElement('input');
-    employer.placeholder = "For who?";
-
-    
-    var submit = actionNetworkForm.querySelectorAll('input[type="submit"]')[0].cloneNode();
-
-    extendedForm.classList.remove('dissolve');
-    extendedForm.appendChild(actionNetworkForm.querySelectorAll('input.name')[0].cloneNode());
-    extendedForm.appendChild(actionNetworkForm.querySelectorAll('input[type="email"]')[0].cloneNode());
-    extendedForm.appendChild(zip);
-    extendedForm.appendChild(tech);
-    extendedForm.appendChild(employer);
-    extendedForm.appendChild(submit);
-    formContainer.appendChild(extendedForm);
+    loadingContainer.classList.add('loading');
+    loadingContainer.appendChild(loadingCopy);
+    loadingContainer.appendChild(loadingSpinner);
 
     win.modals.generateModal({
-      contents: formContainer,
+      contents: loadingContainer,
       disableOverlayClick: true
     });
 
     actionNetworkForm.commit.setAttribute('disabled', true);
-
-    actionNetworkForm.removeEventListener('submit', preSubmit);
-    extendedForm.addEventListener('submit', submitForm);
   }
 
   function compilePayloadPetition() {
@@ -81,44 +64,134 @@
 
     var
       shareContent = doc.createElement('div'),
-      shareHeadline = doc.createElement('h3'),
-      shareCopy = doc.createElement('h4'),
-      shareTicket = doc.createElement('div'),
+      shareHeadline = doc.createElement('h1'),
+      shareCopy = doc.createElement('p'),
       shareThis = doc.createElement('div'),
-      donateCopy = doc.createElement('p'),
       thankYou = doc.createElement('p'),
       tweetButton = doc.getElementById('tweet-button').cloneNode(),
-      shareButton = doc.getElementById('share-button').cloneNode(),
-      phoneSignUp = doc.getElementById('phone-number-modal');
+      shareButton = doc.getElementById('share-button').cloneNode();
 
     win.modals.dismissModal();
 
     tweetButton.classList.add('share-icon');
     shareButton.classList.add('share-icon');
 
-    shareHeadline.textContent = "You're all set! We sent you an email.";  
-    shareCopy.textContent = 'Now can you help spread the word?';
+    shareHeadline.textContent = "Thank you!";  
+    shareCopy.textContent = "We'll send your signature along, but one more thing first:";
+
+    function createRadio(options) {
+      var groupbox = doc.createElement('groupbox');
+      var radiogroup = doc.createElement('radiogroup');
+      var radio;
+      var button;
+      
+      if (options.label) {
+        groupbox.appendChild(createLabel({
+          textContent: "Do you work in tech?"
+        }));
+      }
+
+      for (var i = 0; i < options.buttons.length; i++) {
+        radio = doc.createElement('input');
+        radio.type = "radio";
+
+        button = options.buttons[i];
+
+        if (button.id) radio.id = button.id;
+        if (options.name) radio.setAttribute('name', options.name);
+
+        if (button.label) {
+          radiogroup.appendChild(createLabel({
+            input: radio,
+            textContent: button.label
+          }));
+        }
+
+        radiogroup.appendChild(radio);
+      }
+
+      groupbox.appendChild(radiogroup);
+
+      return groupbox;
+    }
+
+    function createInput(options) {
+      var input = doc.createElement('input');
+
+      if (options.type) input.type = options.type;
+      if (options.id) input.id = options.id;
+      if (options.class) input.class = options.class;
+      if (options.name) input.name = options.name;
+      if (options.placeholder) input.placeholder = options.placeholder;
+      if (options.required) input.required = true;
+
+      return input;
+    }
+
+    function handleRadio(event) {
+      event.target.control.checked = true;
+    }
+
+    function createLabel(options) {
+      var label = doc.createElement('label');
+
+      if (options.input) label.setAttribute('for', options.input.getAttribute('id'));
+      if (options.class) label.classList.add(options.class);
+      if (options.textContent) label.textContent = options.textContent;
+
+     label.addEventListener('click', handleRadio);
+
+      return label;
+    }
+
+    var followupForm = doc.createElement('form');
+
+    var tech = createRadio({
+      id: "work-in-tech",
+      name: "signature[tech]",
+      label: "Do you work in tech?",
+      buttons: [
+        { id: "yes", label: "Yes", },
+        { id: "no", label: "No", }
+      ]
+    });
+
+    followupForm.appendChild(tech);
+
+    var employer = createInput({
+      type: "text",
+      id: "employer",
+      name: "signature[employer]",
+      placeholder: "Comapny Name",
+      class: "visually-hidden"
+    });
+
+    followupForm.appendChild(createLabel({
+      input: employer,
+      content: "For whom?",
+      class: "visually-hidden"
+    }));
+    followupForm.appendChild(employer);
+
+    var submit = doc.createElement('input');
+    submit.type = "submit";
+    submit.classList.add('submit');
+    followupForm.appendChild(submit);
+
+    // submission.open('PUT', 'https://queue.fightforthefuture.org/action', true);
+    // submission.send(compilePayloadPetition());
 
     shareThis.classList.add('share-icons');
     shareThis.appendChild(tweetButton);
     shareThis.appendChild(shareButton);
 
-    donateCopy.innerHTML = '&hellip;or, <a href="https://donate.fightforthefuture.org/campaigns/rock-against-tpp/?amount=5&frequency=just-once">chip in $5</a> to help us spread the message.';
-
     thankYou.textContent = 'Thanks for signing!';
     thankYou.classList.add('thanks');
 
     shareContent.appendChild(shareHeadline);
-    shareContent.appendChild(shareTicket);
     shareContent.appendChild(shareCopy);
+    shareContent.appendChild(followupForm);
     shareContent.appendChild(shareThis);
-
-    if (phoneSignUp) {
-      phoneSignUp.classList.add('visible');
-      shareContent.appendChild(phoneSignUp);
-    }
-
-    shareContent.appendChild(donateCopy);
 
     actionNetworkForm.commit.removeAttribute('disabled');
 
@@ -152,6 +225,10 @@
       return;
     }
     */
+
+    if (!actionNetworkForm['member[phone_number]'] || actionNetworkForm['member[phone_number]'].value === '') {
+      preSubmit();
+    }
 
     function handleHelperError(e) {
       /**
@@ -208,6 +285,6 @@
     submission.send(compilePayloadPetition());
   }
 
-  actionNetworkForm.addEventListener('submit', preSubmit);
+  actionNetworkForm.addEventListener('submit', submitForm);
 
 })(document, window);

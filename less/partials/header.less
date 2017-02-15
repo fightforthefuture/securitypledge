@@ -1,9 +1,7 @@
-body > header {
+header {
   padding: 0 0 1rem;
   position: relative;
   text-align: center;
-
-  @media screen and (min-width: @large-phone) {}
 
   h1 {
     max-width: 16ch;
@@ -14,6 +12,10 @@ body > header {
     @media screen and (min-width: @large-phone) {
       margin-bottom: 12rem;
       padding: 4rem 0;
+    }
+
+    &:after {
+      box-shadow: inset 6rem -4rem 24rem @black;
     }
   }
 
@@ -34,25 +36,3 @@ body > header {
   }
 }
 
-h1 {
-  font-family: @heading-font-bold;
-  font-size: 12vw;
-  font-weight: 700;
-  line-height: 1em;
-  text-align: center;
-  position: relative;
-
-  @media screen and (min-width: @large-phone) {
-    font-size: 8rem;
-  }
-}
-
-h1:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0px;
-  right: 0px;
-  box-shadow: inset 2em -1em 3em rgba(0, 0, 0, 0.47);
-}

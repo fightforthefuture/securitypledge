@@ -30,7 +30,7 @@
 }
 
 .modal-content {
-  background: #1d1d1d;
+  background-color: @darker-grey;
   border-radius: 0.5rem;
   box-shadow: 0 0.2rem 2rem fade(@black, 30%);
   display: block;
@@ -63,31 +63,6 @@
 
   a {
     color: @black;
-  }
-
-  h3 {
-    font-size: 4.5rem;
-    text-align: center;
-    color: @grey-450;
-    font-weight: 600;
-    text-shadow: none;
-    margin-bottom: 0rem;
-
-    @media screen and (min-width: @large-phone) {
-      font-size: 5rem;
-    }
-
-    @media screen and (min-width: @small-tablet) {
-      line-height: 1.4;
-    }
-  }
-
-  h4 {
-    font-size: 2.4rem;
-    text-shadow: none;
-    background: #eaeaea;
-    padding: 2rem;
-    margin: 1rem 0;
   }
 
   p {
@@ -164,42 +139,3 @@
     opacity: 1;
   }
 }
-
-#phone-number-modal {
-  display: none;
-
-  &.visible {
-    display: block;
-  }
-
-  hr {
-    margin: 4rem auto;
-    width: 75%;
-  }
-}
-
-.phone {
-  font-size: 2rem;
-  padding: 1.7rem 0.8rem;
-
-  &::placeholder {
-    text-transform: uppercase;
-  }
-}
-
-.download-ticket {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: #1951ca;
-    border-radius: .5rem;
-    border: none;
-    color: #fff;
-    font-size: 2.5rem;
-    font-weight: 700;
-    padding: 1.5rem;
-    position: relative;
-    text-transform: uppercase;
-    transition: top .15s;
-    cursor:pointer;
-    }

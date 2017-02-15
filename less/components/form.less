@@ -34,7 +34,7 @@
 
     .input-row {
       background-color: @black;
-      border-top: 1px #1d1d1d solid;
+      border-top: 1px @off-black solid;
     }
   }
 
@@ -48,10 +48,10 @@
 }
 
 .input-row {
-  background: #000;
+  background: @black;
   position: relative;
   margin: 0 auto;
-  border: 1px #1d1d1d solid;
+  border: 1px @off-black solid;
   border-radius: 1rem;
   padding: 2rem;
   display: flex;
@@ -99,11 +99,36 @@ input {
   }
 }
 
+input[type="radio"] {
+  display: none;
+}
+
+groupbox label {
+  color: #fff;
+  font-weight: 100;
+}
+
+groupbox > label {
+  margin: 4rem;
+  font-size: 2.8rem;
+  display: block;
+}
+
+radiogroup > label {
+  margin: 1rem;
+  padding: 0.75rem 4.25rem;
+  border: 1px solid #8f8f8f;
+  border-radius: 0.75rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
 .submit {
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
-  background: @red-800;
+  background: @red;
   border: none;
   color: @white;
   font-family: @heading-font;
@@ -112,7 +137,6 @@ input {
   position: relative;
   text-transform: uppercase;
   transition: top 150ms;
-  box-shadow: 0 2rem 8rem @black;
   width: 100%;
   padding: 1rem;
 
@@ -126,8 +150,18 @@ input {
   }
 
   &:disabled {
-    background: lighten(@red-800, 25%);
+    background: lighten(@red, 25%);
   }
+}
+
+.modal-content input[type="text"] {
+  width: 60%;
+  display: inline;
+}
+
+.modal-content .submit {
+  width: 30%;
+  display: inline;
 }
 
 [for="select-country"] {

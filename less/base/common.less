@@ -27,6 +27,29 @@ body {
   text-align: center;
 }
 
+h1 {
+  font-family: @heading-font-bold;
+  font-size: 12vw;
+  font-weight: 700;
+  line-height: 1em;
+  text-align: center;
+  position: relative;
+
+  @media screen and (min-width: @large-phone) {
+    font-size: 8rem;
+  }
+}
+
+h1:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0px;
+  right: 0px;
+  box-shadow: inset 7rem -2rem 8rem @darker-grey;
+}
+
 h2, h3, h4, h5, h6 {
   font-family: @heading-font;
   line-height: 1.1;
@@ -89,7 +112,7 @@ p {
   margin: 0 auto 4rem;
   max-width: 56ch;
   width: 100%;
-  color: @gray;
+  color: @grey;
 
   @media screen and (min-width: @large-phone) {
     font-size: 1.8rem;
