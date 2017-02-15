@@ -65,19 +65,21 @@
     var
       shareContent = doc.createElement('div'),
       shareHeadline = doc.createElement('h1'),
+      shareSubhead = doc.createElement('h4'),
       shareCopy = doc.createElement('p'),
       shareThis = doc.createElement('div'),
       thankYou = doc.createElement('p');
 
-      var tweetButton = doc.getElementById('footer-tweet').cloneNode();
-      tweetButton.textContent = "Share on Twitter";
+    var tweetButton = doc.getElementById('footer-tweet').cloneNode();
+    tweetButton.textContent = "Share on Twitter";
 
-      var shareButton = doc.getElementById('footer-share').cloneNode();
-      shareButton.textContent = "Share on Facebook";
+    var shareButton = doc.getElementById('footer-share').cloneNode();
+    shareButton.textContent = "Share on Facebook";
 
     win.modals.dismissModal();
 
     shareHeadline.textContent = "Thank you!";  
+    shareSubhead.textContent = "Help us spread the word.";  
     shareCopy.textContent = "We'll send your signature along, but one more thing first:";
 
     function createRadio(options) {
@@ -108,6 +110,8 @@
           }));
         }
 
+        if (button.value) radio.setAttribute('value', button.value);
+
         radiogroup.appendChild(radio);
       }
 
@@ -130,7 +134,14 @@
     }
 
     function handleRadio(event) {
-      event.target.control.checked = true;
+      event.currentTarget.control.checked = true;
+
+      tech.classList.add('hidden');
+      if (event.currentTarget.control.value === "yes") {
+        employerFieldset.classList.remove('hidden');
+      } else {
+        shareThis.classList.remove('hidden');
+      }
     }
 
     function createLabel(options) {
@@ -152,8 +163,8 @@
       name: "signature[tech]",
       label: "Do you work in tech?",
       buttons: [
-        { id: "yes", label: "Yes", },
-        { id: "no", label: "No", }
+        { id: "work-in-tech-yes", label: "Yes", value: "yes" },
+        { id: "work-in-tech-no", label: "No", value: "no" }
       ]
     });
 
@@ -167,23 +178,28 @@
       class: "visually-hidden"
     });
 
-    followupForm.appendChild(createLabel({
+    var employerFieldset = doc.createElement('fieldset');
+    employerFieldset.appendChild(createLabel({
       input: employer,
       content: "For whom?",
       class: "visually-hidden"
     }));
-    followupForm.appendChild(employer);
+    employerFieldset.appendChild(employer);
 
     var submit = doc.createElement('input');
     submit.type = "submit";
     submit.classList.add('submit');
-    followupForm.appendChild(submit);
+    employerFieldset.appendChild(submit);
+    employerFieldset.classList.add('hidden');
+    followupForm.appendChild(employerFieldset);
 
     // submission.open('PUT', 'https://queue.fightforthefuture.org/action', true);
     // submission.send(compilePayloadPetition());
 
+    shareThis.appendChild(shareSubhead);
     shareThis.appendChild(tweetButton);
     shareThis.appendChild(shareButton);
+    shareThis.classList.add('hidden');
 
     thankYou.textContent = 'Thanks for signing!';
     thankYou.classList.add('thanks');
