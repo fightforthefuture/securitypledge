@@ -53,9 +53,31 @@
     // formData.append('member[postcode]', actionNetworkForm['signature[zip_code]'].value);
     formData.append('member[country]', 'US');
 
-    if (actionNetworkForm['member[phone_number]'] && actionNetworkForm['member[phone_number]'].value !== '') {
-      formData.append('member[phone_number]', actionNetworkForm['member[phone_number]'].value);
-    }
+    return formData;
+  }
+
+  function compileFormData() {
+    /**
+     * Compiles FormData to send off to mothership queue
+     *
+     * @return {FormData} formData
+     * */
+
+    var
+      tags = JSON.parse(actionNetworkForm['signature[tag_list]'].value),
+      formData = new FormData();
+
+    formData.append('guard', '');
+    formData.append('hp_enabled', true);
+    formData.append('org', 'fftf');
+    formData.append('tag', actionNetworkForm.dataset.mothershipTag);
+    formData.append('an_tags', JSON.stringify(tags));
+    formData.append('an_url', win.location.href);
+    formData.append('an_petition', actionNetworkForm.action.replace(/\/signatures\/?/, ''));
+    formData.append('member[first_name]', actionNetworkForm['signature[first_name]'].value);
+    formData.append('member[email]', actionNetworkForm['signature[email]'].value);
+    // formData.append('member[postcode]', actionNetworkForm['signature[zip_code]'].value);
+    formData.append('member[country]', 'US');
 
     return formData;
   }
@@ -173,6 +195,11 @@
     }
 
     var followupForm = doc.createElement('form');
+    followupForm.setAttribute('accept-charset', actionNetworkForm.getAttribute('accept-charset'));
+    followupForm.setAttribute('action', actionNetworkForm.getAttribute('action'));
+    followupForm.setAttribute('method', 'put');
+    followupForm.setAttribute('data-petition-id', actionNetworkForm.getAttribute('data-petition-id'));
+    followupForm.setAttribute('data-mothership-tag', actionNetworkForm.getAttribute('data-mothership-tag'));
 
     var tech = createRadio({
       id: "work-in-tech",
@@ -209,8 +236,19 @@
     employerFieldset.classList.add('hidden');
     followupForm.appendChild(employerFieldset);
 
-    // submission.open('PUT', 'https://queue.fightforthefuture.org/action', true);
-    // submission.send(compilePayloadPetition());
+    followupForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var submission = new XMLHttpRequest();
+      submission.open('PUT', 'https://queue.fightforthefuture.org/action', true);
+
+      /*
+      submission.addEventListener('error', handleHelperError);
+      submission.addEventListener('load', loadHelperResponse);
+      */
+
+      submission.send(compileFormData());
+    });
 
     upperContent.appendChild(modalHeadline);
     upperContent.appendChild(modalCopy);
@@ -226,13 +264,6 @@
     win.modals.generateModal({contents: modalContent});
 
     actionNetworkForm.parentNode.insertBefore(thanks, actionNetworkForm);
-  }
-
-  function confirmSMSSubmission() {
-    actionNetworkForm.reset();
-    doc.getElementById('form-phone_number').setAttribute('value', 'All set!');
-    doc.getElementById('form-phone_number').setAttribute('disabled', true);
-    doc.getElementById('submit-phone').setAttribute('disabled', true);
   }
 
   function submitForm(event) {
@@ -253,9 +284,7 @@
     }
     */
 
-    if (!actionNetworkForm['member[phone_number]'] || actionNetworkForm['member[phone_number]'].value === '') {
-      preSubmit();
-    }
+    preSubmit();
     
     function handleHelperError(e) {
       /**
@@ -296,11 +325,7 @@
        * */
 
       if (submission.status >= 200 && submission.status < 400) {
-        if (actionNetworkForm['member[phone_number]'] && actionNetworkForm['member[phone_number]'].value !== '') {
-          confirmSMSSubmission();
-        } else {
-          fireThankYouModal();
-        }
+        fireThankYouModal();
       } else {
         handleHelperError(submission);
       }
