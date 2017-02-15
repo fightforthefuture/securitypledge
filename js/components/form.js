@@ -61,30 +61,46 @@
   }
 
   function fireThankYouModal() {
+    var modalContent = doc.createElement('div');
 
-    var
-      shareContent = doc.createElement('div'),
-      shareHeadline = doc.createElement('h1'),
-      shareSubhead = doc.createElement('h4'),
-      shareCopy = doc.createElement('p'),
-      shareThis = doc.createElement('div'),
-      thankYou = doc.createElement('p');
+    var upperContent = doc.createElement('div');
+    upperContent.classList.add('upper');
 
-    var tweetButton = doc.getElementById('footer-tweet').cloneNode();
-    tweetButton.textContent = "Share on Twitter";
+    var lowerContent = doc.createElement('div');
+    lowerContent.classList.add('lower');
 
-    var shareButton = doc.getElementById('footer-share').cloneNode();
-    shareButton.textContent = "Share on Facebook";
+    var modalHeadline = doc.createElement('h1');
+    modalHeadline.textContent = "Thank you!";  
+
+    var modalSubhead = doc.createElement('h4');
+    modalSubhead.textContent = "Help us spread the word.";  
+
+    var modalCopy = doc.createElement('p');
+    modalCopy.textContent = "We'll send your signature along, but one more thing first:";
+
+    var twitter = doc.getElementById('footer-tweet').cloneNode();
+    twitter.textContent = "Share on Twitter";
+
+    var facebook = doc.getElementById('footer-share').cloneNode();
+    facebook.textContent = "Share on Facebook";
+
+    var shareThis = doc.createElement('div');
+    shareThis.appendChild(modalSubhead);
+    shareThis.appendChild(twitter);
+    shareThis.appendChild(facebook);
+    shareThis.classList.add('hidden');
+
+    var thanks = doc.createElement('p');
+    thanks.textContent = 'Thanks for signing!';
+    thanks.classList.add('thanks');
 
     win.modals.dismissModal();
 
-    shareHeadline.textContent = "Thank you!";  
-    shareSubhead.textContent = "Help us spread the word.";  
-    shareCopy.textContent = "We'll send your signature along, but one more thing first:";
-
     function createRadio(options) {
-      var groupbox = doc.createElement('groupbox');
-      var radiogroup = doc.createElement('radiogroup');
+      var groupbox = doc.createElement('fieldset');
+      var radiogroup = doc.createElement('fieldset');
+      radiogroup.classList.add('radio');
+
       var radio;
       var button;
       
@@ -196,24 +212,20 @@
     // submission.open('PUT', 'https://queue.fightforthefuture.org/action', true);
     // submission.send(compilePayloadPetition());
 
-    shareThis.appendChild(shareSubhead);
-    shareThis.appendChild(tweetButton);
-    shareThis.appendChild(shareButton);
-    shareThis.classList.add('hidden');
+    upperContent.appendChild(modalHeadline);
+    upperContent.appendChild(modalCopy);
 
-    thankYou.textContent = 'Thanks for signing!';
-    thankYou.classList.add('thanks');
+    lowerContent.appendChild(followupForm);
+    lowerContent.appendChild(shareThis);
 
-    shareContent.appendChild(shareHeadline);
-    shareContent.appendChild(shareCopy);
-    shareContent.appendChild(followupForm);
-    shareContent.appendChild(shareThis);
+    modalContent.appendChild(upperContent);
+    modalContent.appendChild(lowerContent);
 
     actionNetworkForm.commit.removeAttribute('disabled');
 
-    win.modals.generateModal({contents: shareContent});
+    win.modals.generateModal({contents: modalContent});
 
-    actionNetworkForm.parentNode.insertBefore(thankYou, actionNetworkForm);
+    actionNetworkForm.parentNode.insertBefore(thanks, actionNetworkForm);
   }
 
   function confirmSMSSubmission() {
