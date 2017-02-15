@@ -69,28 +69,9 @@
     line-height: 1.375;
     margin-bottom: 1.5rem;
   }
-
-  .share-this {
-    display: block;
-    position: static;
-    width: ~'calc(100% - 4rem)';
-
-    a {
-      border-radius: 0.5rem;
-
-      &::after {
-        height: 2.9rem;
-        right: -2.7rem;
-      }
-
-      &:hover, &:active, &:focus {
-        background-color: darken(@white, 12%);
-      }
-    }
-  }
-
-  .share-this-button-links {
-    margin-bottom: 1.5rem;
+  
+  form {
+    background-color: @off-black;
   }
 
   .disclaimer {
@@ -118,6 +99,7 @@
   }
 
   .share-button {
+    width: 20rem;
     color: @white;
   }
 }

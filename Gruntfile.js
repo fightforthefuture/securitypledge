@@ -24,7 +24,7 @@ module.exports = function (grunt) {
       javascript: [
         'js/LICENSE',
         'js/components/modals.js',
-        'js/components/petition.js',
+        'js/components/form.js',
         'js/components/sticky-form.js',
         'js/main.js'
       ]

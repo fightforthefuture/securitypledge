@@ -67,14 +67,15 @@
       shareHeadline = doc.createElement('h1'),
       shareCopy = doc.createElement('p'),
       shareThis = doc.createElement('div'),
-      thankYou = doc.createElement('p'),
-      tweetButton = doc.getElementById('tweet-button').cloneNode(),
-      shareButton = doc.getElementById('share-button').cloneNode();
+      thankYou = doc.createElement('p');
+
+      var tweetButton = doc.getElementById('footer-tweet').cloneNode();
+      tweetButton.textContent = "Share on Twitter";
+
+      var shareButton = doc.getElementById('footer-share').cloneNode();
+      shareButton.textContent = "Share on Facebook";
 
     win.modals.dismissModal();
-
-    tweetButton.classList.add('share-icon');
-    shareButton.classList.add('share-icon');
 
     shareHeadline.textContent = "Thank you!";  
     shareCopy.textContent = "We'll send your signature along, but one more thing first:";
@@ -181,7 +182,6 @@
     // submission.open('PUT', 'https://queue.fightforthefuture.org/action', true);
     // submission.send(compilePayloadPetition());
 
-    shareThis.classList.add('share-icons');
     shareThis.appendChild(tweetButton);
     shareThis.appendChild(shareButton);
 
@@ -216,8 +216,7 @@
 
     event.preventDefault();
 
-    var
-      submission = new XMLHttpRequest();
+    var submission = new XMLHttpRequest();
 
     /*
     if (actionNetworkForm['signature[zip_code]'].value === '') {
@@ -229,7 +228,7 @@
     if (!actionNetworkForm['member[phone_number]'] || actionNetworkForm['member[phone_number]'].value === '') {
       preSubmit();
     }
-
+    
     function handleHelperError(e) {
       /**
        * Figures out what to say at just the right moment
@@ -286,5 +285,4 @@
   }
 
   actionNetworkForm.addEventListener('submit', submitForm);
-
 })(document, window);
