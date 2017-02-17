@@ -3,6 +3,8 @@
 
   var actionNetworkForm = doc.getElementById('action-network-form');
   var submitted = false;
+  var modal;
+  var timer;
 
   function compileFormData() {
     /**
@@ -43,13 +45,21 @@
      * */
 
     if (event) event.preventDefault();
+    
+    // If form has already been submitted, return early.
+    if (submitted) return;
+
+    // Start form submission.
+    submitted = true;
 
     var submission = new XMLHttpRequest();
 
-    doc.querySelectorAll('.modal-content .copy')[0].textContent = 'Thanks for signing!';
+    var modalCopyNode = doc.querySelectorAll('.modal-content .copy');
+    if (modalCopyNode.length) modalCopyNode[0].textContent = 'Thanks for signing!';
 
     function handleHelperSuccess() {
-      // no-op
+      timer.clearTimeout();
+      win.removeEventListener('beforeunload', submitForm);
     }
 
     function handleHelperError(e) {
@@ -59,7 +69,10 @@
        * from an XMLHttpRequest
        * */
 
-      win.modals.dismissModal();
+      modal.dismissModal();
+
+      // Form submission failed, allow new attempt.
+      submitted = false;
 
       var
         error = e || {},
@@ -103,6 +116,9 @@
 
   function fireThankYouModal(event) {
     event.preventDefault();
+
+    // New signup from home page form, reset submitted status.
+    submitted = false;
 
     var modalForm = actionNetworkForm.cloneNode(true);
     modalForm.classList.remove('dissolve');
@@ -173,7 +189,17 @@
     modalContent.appendChild(upperContent);
     modalContent.appendChild(lowerContent);
 
-    win.modals.generateModal({contents: modalContent});
+    modal = win.modals.generateModal({
+      contents: modalContent,
+      onClose: submitForm
+    });
+
+    // Submit form after two minutes if it has not already been submitted.
+    timer = setTimeout(function() {
+      submitForm();
+    }, 120000);
+
+    win.addEventListener('beforeunload', submitForm);
   }
 
   actionNetworkForm.addEventListener('submit', fireThankYouModal);

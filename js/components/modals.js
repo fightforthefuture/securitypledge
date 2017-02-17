@@ -5,32 +5,9 @@
 
   function detectEscKey(e) {
     if (e.code === 'Escape' || e.which === 27) {
-      dismissModal();
-      win.removeEventListener('keyup', detectEscKey)
+      win.removeEventListener('keyup', detectEscKey);
+      return true;
     }
-  }
-
-  function dismissModal() {
-    /**
-     * Removes modal from DOM
-     * */
-
-    var
-      overlay = doc.getElementsByClassName('overlay')[0],
-      modal = doc.getElementsByClassName('modal-content')[0];
-
-    overlay.classList.remove('visible');
-    modal.classList.remove('visible');
-    doc.querySelector('body').classList.remove('modal-present');
-
-    win.setTimeout(function () {
-      while (modal.firstChild) {
-        modal.removeChild(modal.firstChild);
-      }
-
-      modal.remove();
-      overlay.remove();
-    }, 420);
   }
 
   function generateModal(options) {
@@ -44,11 +21,15 @@
      * overlay.
      * @param {boolean} options.noFrame - if true, adds `no-frame` class to
      * modal content element.
+     * @param {boolean} options.noFrame - a function that will be called when the
+     * modal is closed.
+     * @return {Object} an object with a dismissModal method to close the modal
      * */
 
     var
       i,
       contents = options.contents,
+      onClose  = options.onClose,
       body     = doc.getElementsByTagName('body')[0],
       overlay  = doc.createElement('div'),
       modal    = doc.createElement('div'),
@@ -64,6 +45,27 @@
 
     overlay.classList.add('overlay');
     modal.classList.add('modal-content', 'visible');
+
+    function dismissModal() {
+      /**
+       * Removes modal from DOM
+       * */
+
+      overlay.classList.remove('visible');
+      modal.classList.remove('visible');
+      doc.querySelector('body').classList.remove('modal-present');
+
+      win.setTimeout(function () {
+        while (modal.firstChild) {
+          modal.removeChild(modal.firstChild);
+        }
+
+        modal.remove();
+        overlay.remove();
+
+        if (typeof options.onClose === 'function') options.onClose();
+      }, 420);
+    }
 
     if (options.noFrame) {
       modal.classList.add('no-frame');
@@ -90,10 +92,14 @@
       overlay.classList.add('visible');
     }, 50);
 
-    win.addEventListener('keyup', detectEscKey);
+    win.addEventListener('keyup', function(event) {
+      if (detectEscKey(event)) dismissModal();
+    });
+
+		return {
+      dismissModal: dismissModal
+    };
   }
 
-  win.modals.dismissModal = dismissModal;
   win.modals.generateModal = generateModal;
-
 }(document, window));
