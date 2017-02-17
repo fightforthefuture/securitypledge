@@ -60,9 +60,13 @@
     opacity: 1;
   }
 
-  h4 {
-    font-family: @body-font;
-    font-weight: 100;
+  h1 {
+    margin-bottom: 1rem;
+    font-size: 5rem;
+
+    &:after {
+      box-shadow: inset 14rem -1rem 6rem @darker-grey;
+    }
   }
 
   a {
@@ -70,18 +74,54 @@
   }
 
   p {
-    line-height: 1.375;
     margin-bottom: 1.5rem;
+    color: @white;
+    font-weight: 100;
+    line-height: 1.375;
+  }
+
+  form {
+    background-color: transparent;
+    border: none;
+
+    fieldset.employer {
+      padding: 0 2rem 2rem;
+
+      label {
+        margin: 1rem 0;
+        display: block;
+      }
+
+      input {
+        margin: 0.5rem;
+      }
+      
+      input[type="text"] {
+        width: 64%;
+        display: inline;
+      }
+
+      input[type="submit"] {
+        width: 32%;
+      }
+    }
+  }
+
+  #share-this {
+    margin-bottom: 2rem;
+
+    h4 {
+      margin-bottom: 2rem;
+    }
+  }
+
+  
+  .upper {
+    padding: 5rem 0 2rem;
   }
   
-  form {
-  }
-
-  .upper, .lower {
-    padding: 2rem;
-  }
-
   .lower {
+    padding: 3rem 0 2rem;
     background-color: @off-black;
   }
 
@@ -127,8 +167,9 @@
   text-decoration: none;
   top: 0;
 
-  &:hover {
-    background-color: @white;
+  &:hover, &:active {
+    outline: none;
+    color: @white;
     opacity: 1;
   }
 }

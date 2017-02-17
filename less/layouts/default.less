@@ -9,15 +9,163 @@ section {
   max-width: @large-tablet + 80px;
 }
 
-.two-column-list {
-  list-style-position: inside;
-  list-style-type: disc;
-  margin: 1rem auto 5rem;
-  text-align: left;
-  width: 30rem;
+.countdown {
+  font-size: 2rem;
+  margin-bottom: 4rem;
 
-  @media screen and (min-width: @large-phone) {
-    column-count: 2;
-    width: 60rem;
+  strong {
+    color: @red;
+  }
+}
+
+.two-column {
+  max-width: 80ch;
+  padding: 0;
+  display: flex;
+
+  section {
+    width: 50%;
+    padding: 0;
+    margin: 0;
+
+    @media screen and (min-width: @small-tablet) {
+        padding: 0 5rem;
+    }
+  }
+}
+
+#companies {
+  margin-bottom: 14rem;
+  padding: 0;
+
+  ul {
+    width: 16rem;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    @media screen and (min-width: @large-phone) {
+      width: 20rem;
+    }
+
+    li.company {
+      width: 6rem;
+      height: 6rem;
+      margin: 1rem 1rem 3rem;
+      background-color: @white;
+      border-radius: 10px;
+      position: relative;
+
+      @media screen and (min-width: @large-phone) {
+        width: 8rem;
+        height: 8rem;
+      }
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 1rem;
+      }
+
+      .caption {
+        width: 6rem;
+        margin-top: 6.5rem;
+        font-size: 1rem;
+        font-weight: 100;
+
+        @media screen and (min-width: @large-phone) {
+          width: 8rem;
+          margin-top: 8.5rem;
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+
+
+#people {
+  ul li {
+    max-width: 20rem;
+    margin: 0 auto;
+    color: @light-grey;
+    line-height: 3rem;
+    font-size: 1.6rem;
+    font-weight: 100;
+    border-bottom: 1px @near-black solid;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  a.more {
+    margin-top: 2rem;
+    display: block;
+    color: @white;
+    font-size: 1.4rem;
+  }
+}
+
+#faq {
+  margin-bottom: 0;
+
+  p.question {
+    margin-bottom: 2rem;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  p.answer {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid @near-black;
+
+    &:last-child {
+      margin-bottom: 5rem;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+}
+
+#orgs {
+  margin-bottom: 12rem;
+  max-width: 80ch;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  li.org {
+    background-color: @white;
+    border-radius: 4px;
+    color: transparent;
+    width: 8rem;
+    height: 4rem;
+    margin: 2rem;
+    overflow: hidden;
+    position: relative;
+    text-indent: 100%;
+    white-space: nowrap;
+    filter: grayscale(100%);
+
+    @media screen and (min-width: @small-tablet) {
+      width: 12rem;
+      height: 6rem;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
 }

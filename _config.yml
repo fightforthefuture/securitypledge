@@ -7,23 +7,24 @@
 # Meta info #
 #############
 
-name: 'Be on the right side of history.'
-description: ''
+name: Be on the right side of history.
+description:
 
-social_title: 'Be on the right side of history.'
-social_description: ''
-twittertext: 'Be on the right side of history. https://www.fightforthefuture.org/2017Pledge/'
-signup_button_text: "Sign the pledge"
+social_title: Be on the right side of history.
+social_description:
 
-action_network_form: "https://actionnetwork.org/petitions/be-on-the-right-side-of-history/signatures"
-action_network_petition_id: "action_network:63aaf145-ed87-49a2-a1fc-861d46fc7118"
-action_network_source: "rockagainstthetpp"
+twittertext: Be on the right side of history.
+signup_button_text: Sign the pledge
+
+action_network_form: https://actionnetwork.org/petitions/be-on-the-right-side-of-history/signatures
+action_network_petition_id: action_network:63aaf145-ed87-49a2-a1fc-861d46fc7118
+action_network_source: pledge
 action_network_tag_list:
-- "pledge"
-mothership_tag: "pledge"
+- pledge
+mothership_tag: pledge
 
-url: "https://www.fightforthefuture.org/2017Pledge"
-favicon: '/favicon.ico'
+url: https://www.fightforthefuture.org/2017Pledge
+favicon: /favicon.ico
 source: site
 
 timezone: America/New_York
@@ -46,7 +47,7 @@ defaults:
   - scope:
       path: ''
     values:
-      layout: 'default'
+      layout: default
 
 #############
 # Compiling #
@@ -60,4 +61,4 @@ gems: ['jekyll-redirect-from']
 markdown: kramdown
 kramdown:
   input: GFM
-  smart_quotes: ["apos", "apos", "quot", "quot"]
+  smart_quotes: ['apos', 'apos', 'quot', 'quot']
