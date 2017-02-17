@@ -3,6 +3,7 @@
 
   var sideShareButtons = doc.getElementById('fixed-side-social-container');
   var form = doc.getElementById('action-network-form');
+  var formBottom = form.offsetTop + form.clientHeight;
   var wrapper = doc.querySelectorAll('.form-wrapper')[0];
 
   win.addEventListener('scroll', function() {
@@ -14,7 +15,7 @@
     }
 
     // Sticky form
-    if (win.scrollY >= form.offsetTop + form.clientHeight) {
+    if (win.scrollY >= formBottom) {
       form.classList.add('stuck');
       wrapper.classList.add('stuck');
     } else {

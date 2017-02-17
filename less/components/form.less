@@ -1,6 +1,7 @@
 .form-wrapper {
   max-width: 100%;
   margin: 4rem 0 10rem;
+  padding: 0;
 
   &.stuck {
     min-height: 24rem;
@@ -26,27 +27,29 @@
     border: none;
     border-top: 1px @near-black solid;
 
-    input {
-      height: 4rem;
-      line-height: 4rem;
-      border-radius: 0.5rem;
-    }
+    @media screen and (min-width: @large-phone) {
+      input {
+        height: 4rem;
+        line-height: 4rem;
+        border-radius: 0.5rem;
+      }
 
-    .input-row {
-      max-width: 80ch;
-      margin: 0 auto;
+      .input-row {
+        max-width: 80ch;
+        margin: 0 auto;
 
-      .input-column {
-        width: 30%;
-
-        &:last-child {
+        .input-column {
           width: 30%;
+
+          &:last-child {
+            width: 30%;
+          }
         }
       }
-    }
 
-    .submit {
-      font-size: 1.8rem;
+      .submit {
+        font-size: 1.8rem;
+      }
     }
   }
 
@@ -61,11 +64,11 @@
   .input-row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
 
     .input-column {
-      width: 48%;
-      margin: 0.5rem;
+      width: 49%;
+      margin: 0.5rem 0;
 
       &:last-child {
         width: 100%;
@@ -75,15 +78,21 @@
 
   input {
     width: 100%;
-    height: 6rem;
+    height: 5rem;
     padding: 0 2rem;
     border: none;
     border-radius: 1rem;
     color: #767676;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-family: @heading-font;
     font-weight: 700;
-    line-height: 6rem;
+    line-height: 5rem;
+
+    @media screen and (min-width: @large-phone) {
+      height: 6rem;
+      font-size: 1.8rem;
+      line-height: 6rem;
+    }
 
     &::placeholder {
       color: #767676;
@@ -103,6 +112,10 @@
     font-weight: 900;
     text-transform: uppercase;
     transition: top 150ms;
+
+    @media screen and (min-width: @large-phone) {
+      font-size: 2rem;
+    }
 
     &:active, &:focus {
       outline: none;

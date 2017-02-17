@@ -2,7 +2,11 @@ body > footer {
   background-color: @black;
   color: fade(@white, 75%);
   padding: 3rem 2rem;
-  margin-bottom: 10rem;
+  margin-bottom: 16rem;
+
+  @media screen and (min-width: @large-phone) {
+    margin-bottom: 10rem;
+  }
 
   .title {
     margin-bottom: 0.5rem;

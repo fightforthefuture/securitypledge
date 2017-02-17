@@ -5,7 +5,7 @@ main {
 
 section {
   margin: 2.5rem auto 6rem;
-  padding: 0 1rem;
+  padding: 0 2rem;
   max-width: @large-tablet + 80px;
 }
 
@@ -39,10 +39,14 @@ section {
   padding: 0;
 
   ul {
-    width: 16rem;
+    width: 14rem;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+
+    @media screen and (min-width: @small-phone) {
+      width: 16rem;
+    }
 
     @media screen and (min-width: @large-phone) {
       width: 20rem;
@@ -51,10 +55,14 @@ section {
     li.company {
       width: 6rem;
       height: 6rem;
-      margin: 1rem 1rem 3rem;
+      margin: 1rem 0.5rem 2rem;
       background-color: @white;
       border-radius: 10px;
       position: relative;
+
+      @media screen and (min-width: @small-phone) {
+        margin: 1rem 1rem 3rem;
+      }
 
       @media screen and (min-width: @large-phone) {
         width: 8rem;
@@ -86,14 +94,21 @@ section {
 
 
 #people {
+  padding: 0;
+
   ul li {
-    max-width: 20rem;
+    max-width: 12rem;
     margin: 0 auto;
     color: @light-grey;
     line-height: 3rem;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 100;
     border-bottom: 1px @near-black solid;
+
+    @media screen and (min-width: @small-phone) {
+      max-width: 20rem;
+      font-size: 1.6rem;
+    }
 
     &:last-child {
       border-bottom: none;
@@ -146,9 +161,9 @@ section {
 
   li.org {
     color: transparent;
-    width: 8rem;
-    height: 4rem;
-    margin: 2rem;
+    width: 10rem;
+    height: 5rem;
+    margin: 1rem 2rem;
     overflow: hidden;
     position: relative;
     text-indent: 100%;
