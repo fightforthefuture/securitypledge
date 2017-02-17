@@ -58,7 +58,7 @@
     if (modalCopyNode.length) modalCopyNode[0].textContent = 'Thanks for signing!';
 
     function handleHelperSuccess() {
-      timer.clearTimeout();
+      clearTimeout(timer);
       win.removeEventListener('beforeunload', submitForm);
     }
 
