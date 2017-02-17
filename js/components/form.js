@@ -121,7 +121,7 @@
     submitted = false;
 
     var modalForm = actionNetworkForm.cloneNode(true);
-    modalForm.classList.remove('dissolve');
+    modalForm.classList.remove('dissolve', 'stuck');
     modalForm.querySelectorAll('fieldset.signature')[0].classList.add('hidden');
     modalForm.querySelectorAll('fieldset.tech-worker')[0].classList.remove('hidden');
 
