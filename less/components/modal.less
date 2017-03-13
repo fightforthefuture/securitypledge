@@ -62,10 +62,14 @@
 
   h1 {
     margin-bottom: 1rem;
-    font-size: 5rem;
+    font-size: 4rem;
 
     &:after {
-      box-shadow: inset 14rem -1rem 6rem @darker-grey;
+      box-shadow: inset 2rem -1rem 4rem @darker-grey;
+
+      @media screen and (min-width: @small-tablet) {
+        box-shadow: inset 14rem -1rem 5rem @darker-grey;
+      }
     }
   }
 
@@ -97,12 +101,20 @@
       }
       
       input[type="text"] {
-        width: 64%;
+        width: 100%;
         display: inline;
+
+      	@media screen and (min-width: @small-tablet) {
+          width: 64%;
+        }
       }
 
       input[type="submit"] {
-        width: 32%;
+        width: 100%;
+
+      	@media screen and (min-width: @small-tablet) {
+          width: 64%;
+        }
       }
     }
   }
