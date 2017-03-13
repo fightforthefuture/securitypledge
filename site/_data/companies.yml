@@ -1,15 +1,6 @@
 unsigned:
-  - Slack
-  - Apple
-  - Facebook
-  - YouTube
-  - Flipboard
-  - Skype
-  - Twitter
 
 signed_big:
-  - WhatsApp
+- Fight for the Future
 
 signed_medium:
-  - Open Whisper Systems
-  - SpiderOak
