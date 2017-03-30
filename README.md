@@ -1,5 +1,7 @@
 # 2017Pledge
 
+[![Build Status](https://travis-ci.org/fightforthefuture/2017Pledge.svg?branch=master)](https://travis-ci.org/fightforthefuture/2017Pledge)
+
 **CAMPAIGN AND WRITING PEOPLE READ HERE PLEASE**
 
 - Generally, content is written in Markdown format. You can find documentation
