@@ -4,3 +4,4 @@ public/
 _site/
 .env
 .jekyll-metadata
+Gemfile.lock
