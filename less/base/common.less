@@ -29,14 +29,14 @@ body {
 
 h1 {
   font-family: @heading-font-bold;
-  font-size: 12vw;
+  font-size: 40px;
   font-weight: 700;
   line-height: 1em;
   text-align: center;
   position: relative;
 
   @media screen and (min-width: @large-phone) {
-    font-size: 8rem;
+    font-size: 10rem;
   }
 
   &:after {
@@ -56,21 +56,36 @@ h2, h3, h4, h5, h6 {
   margin: 0 auto 2rem;
 }
 
+h1.faqq{
+  margin-bottom: 60px;
+  margin-top:40px;
+  font-size: 6rem;
+}
+
+h1.faqq:after{
+  box-shadow: none;
+  font-size: 6rem;
+}
+
+
+
+
 h2 {
-  margin: 8rem auto 3rem;
+  margin: 8rem auto 8rem;
   font-size: 3rem;
+  font-family: @heading-font-bold;
 
   @media screen and (min-width: @small-phone) {
-    font-size: 3.6rem;
+    font-size: 6rem;
   }
 }
 
 h3 {
   margin-bottom: 3rem;;
-  font-size: 2rem;
+  font-size: 3rem;
 
   @media screen and (min-width: @large-phone) {
-    font-size: 2.6rem;
+    font-size: 3rem;
   }
 }
 

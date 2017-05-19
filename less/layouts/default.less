@@ -56,7 +56,7 @@ section {
       width: 6rem;
       height: 6rem;
       margin: 1rem 0.5rem 2rem;
-      background-color: @white;
+      background-color: #;
       border-radius: 10px;
       position: relative;
 
@@ -85,7 +85,7 @@ section {
         @media screen and (min-width: @large-phone) {
           width: 8rem;
           margin-top: 8.5rem;
-          font-size: 1.4rem;
+          font-size: 1.2rem;
         }
       }
     }
@@ -99,15 +99,16 @@ section {
   ul li {
     max-width: 12rem;
     margin: 0 auto;
-    color: @light-grey;
+    color: @lighttext;
     line-height: 3rem;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: 100;
-    border-bottom: 1px @near-black solid;
+    border-bottom: 1px #1b2e37 solid;
+    padding:6px;
 
     @media screen and (min-width: @small-phone) {
       max-width: 20rem;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
     }
 
     &:last-child {
@@ -125,17 +126,19 @@ section {
 
 #faq {
   margin-bottom: 0;
+  max-width:800px;
 
   p.question {
     margin-bottom: 2rem;
     color: #fff;
     font-weight: 700;
+    font-size: 3.2rem;
   }
 
   p.answer {
     margin-bottom: 3rem;
     padding-bottom: 3rem;
-    border-bottom: 1px solid @near-black;
+    border-bottom: 1px solid @darkergreen;
 
     &:last-child {
       margin-bottom: 5rem;
@@ -182,3 +185,34 @@ section {
     }
   }
 }
+
+li.grey{
+  background-color: #000;
+}
+
+ul.pledged{
+  background-color: @lightgreen;
+  padding: 20px;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 17px 67px -4px rgba(13,22,26,0.41);
+-moz-box-shadow: 0px 17px 67px -4px rgba(13,22,26,0.41);
+box-shadow: 0px 17px 67px -4px rgba(13,22,26,0.41);
+margin-bottom: 40px;
+}
+
+ul.pledged li{
+  padding: 20px 20px 20px 20px;
+  font-size: 2.2rem;
+  text-align: left;
+}
+
+ul.pledged li span.number{
+  max-width:100%;
+  border-radius: 100px;
+  padding:5px 12px 5px 12px;
+  font-size: 2rem;
+  color: #b5d8e8;
+  background-color: #2f4a57;
+  margin-right: 10px;
+}
+

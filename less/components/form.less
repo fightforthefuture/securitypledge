@@ -9,11 +9,14 @@
 }
 
 .petition-form {
-  max-width: 64rem;
+  max-width: 74rem;
   margin: 0 auto;
-  background-color: @black;
-  border: 1px @near-black solid;
-  border-radius: 1rem;
+  background-color: #213a46;
+  -webkit-box-shadow: 0px 39px 67px -4px rgba(13,22,26,0.41);
+-moz-box-shadow: 0px 39px 67px -4px rgba(13,22,26,0.41);
+box-shadow: 0px 39px 67px -4px rgba(13,22,26,0.41);
+  border: 1px #213a46 solid;
+  border-radius: 0.5rem;
   transform: translateY(0);
 
   &.stuck {
@@ -29,7 +32,7 @@
 
     @media screen and (min-width: @large-phone) {
       input {
-        height: 4rem;
+        height: 5rem;
         line-height: 4rem;
         border-radius: 0.5rem;
       }
@@ -39,7 +42,8 @@
         margin: 0 auto;
 
         .input-column {
-          width: 30%;
+          width: 34%;
+
 
           &:last-child {
             width: 30%;
@@ -57,7 +61,7 @@
     padding: 2rem;
 
     @media screen and (min-width: @small-tablet) {
-      padding: 4rem;
+      padding: 2rem;
     }
   }
 
@@ -81,7 +85,7 @@
     height: 5rem;
     padding: 0 2rem;
     border: none;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     color: #767676;
     font-size: 1.6rem;
     font-family: @heading-font;
@@ -156,3 +160,73 @@
   bottom: -3.5rem;
   left: 0;
 }
+
+
+
+.petition-form input[type=submit] {
+  background: #ff2626;
+}
+
+
+
+
+
+@media screen and (min-width:640px) {
+
+
+
+p {
+  font-size: 2.2rem;
+}
+
+fieldset p.dis{
+  font-size: 1.2rem;
+  padding:0;
+  margin:0px;
+  color: #93a5ae;
+  text-align: center;
+  align:center;
+}
+
+fieldset p.dis a{
+  color: #b9d2df;
+}
+
+
+
+
+
+
+.petition-form input[type=submit] {
+  font-size: 3rem;
+}
+}
+
+
+
+
+
+
+p {
+  line-height: 2.8rem;
+  max-width: 69rem;
+}
+
+
+
+
+
+
+
+@media screen and (min-width: 640px) {
+
+
+
+
+
+
+.petition-form input[type="submit"] {
+  font-size: 3rem;
+}
+}
+

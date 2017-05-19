@@ -14,6 +14,7 @@
           <input type="submit" name="commit" value="{{ page.signup_button_text | default: site.signup_button_text }}" class="submit"/>
         </div>
       </div>
+       <p class="dis"><a href="https://www.fightforthefuture.org/">Fight for the Future</a> will send you campaign updates. You can unsubscribe at any time. <a href="https://www.fightforthefuture.org/privacy/">Privacy Policy</a></p>
     </fieldset>
 
     <fieldset class="tech-worker radio hidden">
@@ -39,6 +40,7 @@
     <input type="hidden" name="subscription[http_referer]" value="{{ site.url }}{{ page.url | remove: 'index.html' }}"/>
     <input type="hidden" name="subscription[source]" value="{{ page.action_network_source | default: site.action_network_source }}"/>
     <input type="hidden" name="signature[tag_list]" value='{{ page.action_network_tag_list | default: site.action_network_tag_list | jsonify }}'/>
+
   </form>
 
   <div class="share-this hidden">

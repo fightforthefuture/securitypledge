@@ -3,7 +3,7 @@
   position: fixed;
   top: 39.7rem;
   left: -6rem;
-  padding: 0 5px;
+  padding: 0px;
   transition: left 300ms;
   width: 5rem;
   z-index: 10;
@@ -17,7 +17,12 @@
 
   a {
     border: 0;
-    border-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -webkit-border-bottom-right-radius: 5px;
+      -moz-border-radius-topright: 5px;
+      -moz-border-radius-bottomright: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
     cursor: pointer;
   }
 
@@ -54,7 +59,7 @@
 }
 
 .share-button {
-  border-radius: 5px;
+  border-radius:5px;
   color: @white;
   display: inline-block;
   font-size: 1.4rem;
