@@ -1,11 +1,11 @@
-(function (doc, win) {
+(function () {
   "use strict";
 
-  var launch = new Date('February 1, 2017');
-  var deadline = new Date('January 1, 2018');
+  var launch = new Date('November 1, 2017');
+  var deadline = new Date('November 6, 2018');
 
-  var since = doc.getElementById('days-since');
-  var remaining = doc.getElementById('days-remaining');
+  var since = document.getElementById('days-since');
+  var remaining = document.getElementById('days-remaining');
 
   function getTimeRemaining() {
     var since = new Date() - launch;
@@ -25,4 +25,4 @@
   var time = getTimeRemaining();
   since.textContent = time.since + ' ' + pluralDays(time.since);
   remaining.textContent = time.remaining + ' ' + pluralDays(time.remaining);
-})(document, window);
+})();
