@@ -10,7 +10,7 @@ if  [ "$TRAVIS" = "true" -a "$TRAVIS_PULL_REQUEST" = "false"  -a "$TRAVIS_BRANCH
       git init
       git config user.name "Travis-CI"
       git config user.email "travis@example.org"
-      # cp ../CNAME ./CNAME
+      cp ../CNAME ./CNAME
       git add .
       git commit -m "Deployed to Github Pages"
       git push --force "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
