@@ -1,3 +1,7 @@
+# 2018 NOTE
+
+Don't use this branch anymore!
+
 # 2017Pledge
 
 [![Build Status](https://travis-ci.org/fightforthefuture/2017Pledge.svg?branch=master)](https://travis-ci.org/fightforthefuture/2017Pledge)
