@@ -31,4 +31,4 @@ deploy:
   acl: public_read
   on:
     repo: fightforthefuture/securitypledge
-    branch: production
+    branch: nonexistantbranch
