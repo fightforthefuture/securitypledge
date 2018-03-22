@@ -771,8 +771,11 @@ ul.pledged li span.number {
   .petition-form.stuck .input-row .input-column {
     width: 34%;
   }
-  .petition-form.stuck .input-row .input-column:last-child {
+  .petition-form.stuck .input-row .input-column-100 {
     width: 30%;
+  }
+  body.dp .petition-form.stuck .input-row .input-column {
+    width: 19%;
   }
   .petition-form.stuck .submit {
     font-size: 1.8rem;
@@ -795,7 +798,7 @@ ul.pledged li span.number {
   width: 49%;
   margin: 0.5rem 0;
 }
-.petition-form .input-row .input-column:last-child {
+.petition-form .input-row .input-column-100 {
   width: 100%;
 }
 .petition-form input {
@@ -973,6 +976,7 @@ p {
 .modal-content h1 {
   margin-bottom: 1rem;
   font-size: 4rem;
+  padding-bottom: 1rem;
 }
 .modal-content h1:after {
   box-shadow: inset 2rem -1rem 4rem #272727;
@@ -1019,7 +1023,7 @@ p {
 }
 @media screen and (min-width: 800px) {
   .modal-content form fieldset.employer input[type="submit"] {
-    width: 64%;
+    width: 32%;
   }
 }
 .modal-content #share-this {
@@ -1177,4 +1181,9 @@ p {
   background-color: #FC3660;
   background-image: url('../images/share/donate.png?1507757462553');
   background-position: 1rem 0.9rem;
+}
+
+body.dp .hidden-dp,
+body.fftf .hidden-fftf {
+  display: none !important;
 }
