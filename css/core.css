@@ -154,7 +154,7 @@ body {
 }
 html {
   background-color: #182931;
-  background-image: url('https://s3.fightforthefuture.org/2017pledge/images/line.png?1507757462553');
+  background-image: url('../images/line.png?1507757462553');
   background-repeat: no-repeat;
   background-position: center 7rem;
   background-size: 45px 100%;
@@ -293,7 +293,7 @@ strong {
   background-clip: content-box;
   border-style: solid;
   border-width: 1rem 0;
-  border-image-source: url('https://s3.fightforthefuture.org/2017pledge/images/dissolve.png?1507757462553');
+  border-image-source: url('../images/dissolve.png?1507757462553');
   border-image-width: 15rem 0;
   border-image-slice: 25% 0 30%;
   border-image-outset: 14rem 0;
@@ -315,9 +315,6 @@ body > footer .title {
   text-transform: uppercase;
   text-align: center;
 }
-header {
-  padding-bottom: 1rem;
-}
 header h1 {
   max-width: 15ch;
   margin: 0 auto 4rem;
@@ -325,10 +322,16 @@ header h1 {
   background-color: #182931;
   line-height: 1.1em;
 }
+header .dissolve {
+  margin-bottom: 0;
+}
+header .dissolve p {
+  margin-bottom: 0;
+}
 @media screen and (min-width: 640px) {
   header h1 {
-    margin-bottom: 8rem;
-    padding: 3rem 0;
+    margin-bottom: 7rem;
+    padding: 3rem 0 1.5rem;
   }
 }
 header h1:after {
@@ -727,7 +730,7 @@ ul.pledged li span.number {
 }
 .form-wrapper {
   max-width: 100%;
-  margin: 4rem 0 10rem;
+  margin: 0 0 10rem;
   padding: 0;
 }
 .form-wrapper.stuck {
@@ -873,20 +876,24 @@ ul.pledged li span.number {
 .petition-form input[type=submit] {
   background: #ff2626;
 }
+
+fieldset p.dis {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  padding: 0;
+  margin: .5rem auto 0;
+  color: #93a5ae;
+  text-align: center;
+  align: center;
+}
+
+fieldset p.dis a {
+  color: #b9d2df;
+}
+
 @media screen and (min-width: 640px) {
   p {
     font-size: 2.2rem;
-  }
-  fieldset p.dis {
-    font-size: 1.2rem;
-    padding: 0;
-    margin: 0px auto;
-    color: #93a5ae;
-    text-align: center;
-    align: center;
-  }
-  fieldset p.dis a {
-    color: #b9d2df;
   }
   .petition-form input[type=submit] {
     font-size: 3rem;
@@ -1102,7 +1109,7 @@ p {
   color: transparent;
   font: 0/0 a;
   text-shadow: none;
-  background-image: url('https://s3.fightforthefuture.org/2017pledge/images/share/social-media.png?1507757462553');
+  background-image: url('../images/share/social-media.png?1507757462553');
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -1158,17 +1165,16 @@ p {
 }
 .share-button.twitter {
   background-color: #55acee;
-  background-image: url('https://s3.fightforthefuture.org/2017pledge/images/share/twitter.png?1507757462553');
+  background-image: url('../images/share/twitter.png?1507757462553');
   background-position: 0.8rem 0.6rem;
 }
 .share-button.facebook {
   background-color: #3b5999;
-  background-image: url('https://s3.fightforthefuture.org/2017pledge/images/share/facebook.png?1507757462553');
+  background-image: url('../images/share/facebook.png?1507757462553');
   background-position: 0.5rem 0.6rem;
 }
 .share-button.donate {
   background-color: #FC3660;
-  background-image: url('https://s3.fightforthefuture.org/2017pledge/images/share/donate.png?1507757462553');
+  background-image: url('../images/share/donate.png?1507757462553');
   background-position: 1rem 0.9rem;
 }
-/*# sourceMappingURL=core.css.map */
