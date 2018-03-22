@@ -64,15 +64,16 @@ html {
   background-color: #182931;
   background-image: url('../images/line.png?1507757462553');
   background-repeat: no-repeat;
-  background-position: center 7rem;
+  background-position: center 7.5rem;
   background-size: 45px 100%;
 }
 
 @media screen and (min-width: 640px) {
   html {
-    background-position: center 15rem;
+    background-position: center 13rem;
   }
 }
+
 
 body {
   color: #fff;
@@ -81,21 +82,21 @@ body {
   font-weight: 400;
   position: relative;
   text-align: center;
-  padding-bottom: 10rem;
+  padding-bottom: 20rem;
 }
 
 h1 {
   font-family: 'futura', sans-serif;
   font-size: 40px;
   font-weight: 700;
-  line-height: 1em;
+  line-height: 1.2;
   text-align: center;
   position: relative;
 }
 
 @media screen and (min-width: 640px) {
   h1 {
-    font-size: 10rem;
+    font-size: 7rem;
   }
 }
 
@@ -110,13 +111,13 @@ h1:after {
 }
 
 h2,h3,h4,h5,h6 {
-  font-family: 'mr-eaves-sans', Helvetica, sans-serif;
+  font-family: 'open-sans', Helvetica, sans-serif;
   line-height: 1.1;
   margin: 0 auto 2rem;
 }
 
 h2 {
-  margin: 8rem auto 8rem;
+  margin: 1rem auto 8rem;
   font-size: 3rem;
   font-family: 'futura', sans-serif;
 }
@@ -230,14 +231,14 @@ body > footer .title {
 
 header h1 {
   max-width: 15ch;
-  margin: 0 auto 4rem;
+  margin: 0 auto;
   padding: 2rem 0;
-  background-color: #182931;
-  line-height: 1.1em;
+  /*background-color: #182931;*/
 }
 
 header .dissolve {
   margin-bottom: 0;
+  margin-top: 1rem;
 }
 
 header .dissolve p {
@@ -246,7 +247,6 @@ header .dissolve p {
 
 @media screen and (min-width: 640px) {
   header h1 {
-    margin-bottom: 7rem;
     padding: 3rem 0 1.5rem;
   }
 }
@@ -526,7 +526,7 @@ ul.pledged {
 
 ul.pledged li {
   padding: 20px 20px 20px 20px;
-  font-size: 2.2rem;
+  font-size: 2rem;
   text-align: left;
 }
 
@@ -782,7 +782,7 @@ fieldset p.dis a {
 
 @media screen and (min-width: 640px) {
   p {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   .petition-form input[type=submit] {
