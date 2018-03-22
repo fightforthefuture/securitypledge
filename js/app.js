@@ -396,6 +396,10 @@
   var since = document.getElementById('days-since');
   var remaining = document.getElementById('days-remaining');
 
+  if (!since || !remaining) {
+    return
+  }
+
   function getTimeRemaining() {
     var since = new Date() - launch;
     var remaining = deadline - new Date();
