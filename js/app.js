@@ -163,6 +163,7 @@
     formData.append('an_petition', actionNetworkForm.action.replace(/\/signatures\/?/, ''));
     formData.append('member[first_name]', actionNetworkForm['signature[first_name]'].value);
     formData.append('member[email]', actionNetworkForm['signature[email]'].value);
+    formData.append('member[postcode]', actionNetworkForm['signature[postal_code]'].value);
 
     if (actionNetworkForm['signature[tech_worker]'].value !== '') {
       formData.append('member[tech_worker]', actionNetworkForm['signature[tech_worker]'].value === 'yes' ? true : false);
@@ -253,97 +254,10 @@
   }
 
   function fireThankYouModal(event) {
-    event.preventDefault();
-
-    // New signup from home page form, reset submitted status.
-    submitted = false;
-
-    var modalForm = actionNetworkForm.cloneNode(true);
-    modalForm.classList.remove('dissolve', 'stuck');
-    modalForm.querySelectorAll('fieldset.signature')[0].classList.add('hidden');
-    modalForm.querySelectorAll('fieldset.tech-worker')[0].classList.remove('hidden');
-
-    var modalContent = doc.createElement('div');
-    var upperContent = doc.createElement('div');
-    upperContent.classList.add('upper');
-
-    var modalHeadline = doc.createElement('h1');
-    modalHeadline.textContent = 'Thank you!';  
-    upperContent.appendChild(modalHeadline);
-
-    var modalCopy = doc.createElement('p');
-    modalCopy.classList.add('copy');
-    modalCopy.textContent = "We'll send your signature along, but one more thing first:";
-    upperContent.appendChild(modalCopy);
-
-    var lowerContent = doc.createElement('div');
-    lowerContent.classList.add('lower');
-    lowerContent.appendChild(modalForm);
-
-    var shareThis = doc.querySelectorAll('.share-this')[0].cloneNode();
-
-    var twitter = doc.getElementById('footer-tweet').cloneNode();
-    twitter.textContent = 'Share on Twitter';
-    shareThis.appendChild(twitter);
-
-    var facebook = doc.getElementById('footer-share').cloneNode();
-    facebook.textContent = 'Share on Facebook';
-    shareThis.appendChild(facebook);
-
-    lowerContent.appendChild(shareThis);
-
-    function handleRadio(event) {
-      event.currentTarget.control.checked = true;
-
-      modalForm.querySelectorAll('fieldset.tech-worker')[0].classList.add('hidden');
-
-      if (event.currentTarget.control.value === 'yes') {
-        // Ask for tech industry employer before submitting.
-        modalForm.querySelectorAll('fieldset.employer')[0].classList.remove('hidden');
-
-        // Setup event listener for emplyoer submit button.
-        modalForm.addEventListener('submit', function(event) {
-          event.preventDefault();
-
-          modalForm.querySelectorAll('fieldset.employer')[0].classList.add('hidden');
-          shareThis.classList.remove('hidden');
-
-          submitForm();
-        });
-      } else {
-        shareThis.classList.remove('hidden');
-
-        // Does not work in tech, submit form now.
-        submitForm();
-      }
-    }
-
-    // Configure tech worker form interaction.
-    var labels = modalForm.querySelectorAll('fieldset.radio label');
-    for (var i = 0; i < labels.length; i++) {
-      labels[i].addEventListener('click', handleRadio);
-    }
-
-    modalContent.appendChild(upperContent);
-    modalContent.appendChild(lowerContent);
-
-    modal = win.modals.generateModal({
-      contents: modalContent,
-      onClose: submitForm
-    });
-
-    // Submit form after two minutes if it has not already been submitted.
-    timer = setTimeout(function() {
+    if (event.target.id === 'action-network-form') {
+      event.preventDefault();
       submitForm();
-    }, 120000);
-
-    win.addEventListener('beforeunload', submitForm);
-  }
-  actionNetworkForm.addEventListener('submit', fireThankYouModal);
-
-  // Submit Demand Progress form
-  demandProgressForm.addEventListener('submit', function(event) {
-    event.preventDefault();
+    }
 
     // New signup from home page form, reset submitted status.
     submitted = false;
@@ -358,7 +272,7 @@
 
     var modalCopy = doc.createElement('p');
     modalCopy.classList.add('copy');
-    modalCopy.textContent = "Thanks for signing!";
+    modalCopy.textContent = "Now, can you help spread the word?";
     upperContent.appendChild(modalCopy);
 
     var lowerContent = doc.createElement('div');
@@ -383,7 +297,9 @@
     modal = win.modals.generateModal({
       contents: modalContent
     });
-  });
+  }
+  actionNetworkForm.addEventListener('submit', fireThankYouModal);
+  demandProgressForm.addEventListener('submit', fireThankYouModal);
 })(document, window);
 
 // countdown.js

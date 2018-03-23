@@ -638,7 +638,7 @@ ul.pledged li span.number {
   }
 
   .petition-form.stuck .input-row .input-column {
-    width: 34%;
+    width: 22%;
   }
 
   .petition-form.stuck .input-row .input-column-100 {
@@ -671,7 +671,7 @@ ul.pledged li span.number {
 }
 
 .petition-form .input-row .input-column {
-  width: 49%;
+  width: 32%;
   margin: 0.5rem 0;
 }
 
