@@ -70,14 +70,14 @@ html {
 
 @media screen and (min-width: 640px) {
   html {
-    background-position: center 13rem;
+    background-position: center 22rem;
   }
 }
 
 
 body {
   color: #fff;
-  font-family: 'open-sans', sans-serif;
+  font-family: 'Open Sans', Helvetica, sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
   position: relative;
@@ -86,8 +86,8 @@ body {
 }
 
 h1 {
-  font-family: 'futura', sans-serif;
-  font-size: 40px;
+  /*font-family: 'futura', sans-serif;*/
+  font-size: 4rem;
   font-weight: 700;
   line-height: 1.2;
   text-align: center;
@@ -96,7 +96,7 @@ h1 {
 
 @media screen and (min-width: 640px) {
   h1 {
-    font-size: 7rem;
+    font-size: 10rem;
   }
 }
 
@@ -111,7 +111,7 @@ h1:after {
 }
 
 h2,h3,h4,h5,h6 {
-  font-family: 'open-sans', Helvetica, sans-serif;
+  /*font-family: 'open-sans', Helvetica, sans-serif;*/
   line-height: 1.1;
   margin: 0 auto 2rem;
 }
@@ -119,7 +119,7 @@ h2,h3,h4,h5,h6 {
 h2 {
   margin: 1rem auto 8rem;
   font-size: 3rem;
-  font-family: 'futura', sans-serif;
+  /*font-family: 'futura', sans-serif;*/
 }
 
 @media screen and (min-width: 480px) {
@@ -172,14 +172,14 @@ p {
   font-size: 1.4rem;
   line-height: 2.4rem;
   margin: 0 auto 6rem;
-  max-width: 58rem;
+  max-width: 75rem;
   width: 100%;
   color: #b4c6cf;
 }
 
 @media screen and (min-width: 640px) {
   p {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 }
 
@@ -233,12 +233,13 @@ header h1 {
   max-width: 15ch;
   margin: 0 auto;
   padding: 2rem 0;
-  /*background-color: #182931;*/
+  background-color: #182931;
+  line-height: 1.1;
 }
 
 header .dissolve {
   margin-bottom: 0;
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 header .dissolve p {
@@ -252,7 +253,7 @@ header .dissolve p {
 }
 
 header h1:after {
-  box-shadow: inset 2rem -2rem 18vw #182931;
+  box-shadow: inset 0 0 18vw #182931;
 }
 
 header p {
@@ -792,7 +793,6 @@ fieldset p.dis a {
 
 p {
   line-height: 2.8rem;
-  max-width: 69rem;
 }
 
 @media screen and (min-width: 640px) {
