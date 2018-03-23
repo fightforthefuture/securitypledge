@@ -169,7 +169,7 @@ img {
 }
 
 p {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   line-height: 2.4rem;
   margin: 0 auto 6rem;
   max-width: 75rem;
@@ -682,7 +682,7 @@ ul.pledged li span.number {
 .petition-form input {
   width: 100%;
   height: 5rem;
-  padding: 0 2rem;
+  padding: 0 1rem;
   border: none;
   border-radius: 0.5rem;
   color: #767676;
@@ -697,6 +697,7 @@ ul.pledged li span.number {
     height: 6rem;
     font-size: 1.8rem;
     line-height: 6rem;
+    padding: 0 2rem;
   }
 }
 
