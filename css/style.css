@@ -457,6 +457,7 @@ body.modal-open {
   form {
     width: 102%;
     margin-left: -1%;
+    padding: 10px;
   }
 
   form input {
@@ -470,7 +471,6 @@ body.modal-open {
 
   form.stuck {
     height: 190px;
-    bottom: -190px;
   }
 
   form.stuck .fields {
