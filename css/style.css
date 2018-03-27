@@ -25,7 +25,6 @@
 .flex-center {
   display: flex;
   align-items: center;
-  justify-content: center;
   height: 100%;
 }
 
@@ -281,7 +280,7 @@ form .error {
 }
 
 .social .share-button {
-  width: 136px;
+  min-width: 136px;
 }
 
 .share-button {
@@ -383,7 +382,7 @@ body.modal-open {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
-  overflow: scroll;
+  overflow: auto;
   animation: fade-in .2s;
   z-index: 1984;
 }

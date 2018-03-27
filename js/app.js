@@ -103,13 +103,16 @@ document.addEventListener("DOMContentLoaded", function() {
       },
 
       handleScroll: function() {
+        // IE11 uses pageYOffset. everything else uses scrollY
+        var scrollY = window.scrollY || window.pageYOffset;
+
         // Fixed side social container
-        this.socialSidebarVisible = (window.scrollY > this.$refs.header.offsetTop);
+        this.socialSidebarVisible = (scrollY > this.$refs.header.offsetTop);
 
         // Sticky form
         var form = this.$refs.form;
         var formBottom = form.offsetTop + form.clientHeight;
-        this.formIsStuck = window.scrollY >= formBottom;
+        this.formIsStuck = scrollY >= formBottom;
       },
 
       showModal: function() {
