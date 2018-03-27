@@ -51,7 +51,7 @@ body {
   background-image: url('../images/line.png');
   background-size: 45px 100%;
   background-repeat: repeat-y;
-  background-position: center 300px;
+  background-position: center 360px;
 }
 
 a {
@@ -73,13 +73,21 @@ form.stuck .fields {
 .dissolve {
   background-color: #182931;
   background-clip: content-box;
-  border-color: transparent;
   border-style: solid;
   border-width: 10px 0;
   border-image-source: url(../images/dissolve.png);
   border-image-width: 150px 0;
   border-image-slice: 25% 0 30%;
   border-image-outset: 140px 0;
+}
+
+/* The border images flash on Firefox if this isn't set, 
+   and they totally don't work on Safari if it is.
+   This creates a style that only FF will use. */
+@-moz-document url-prefix() {
+  .dissolve {
+    border-color: transparent;
+  }
 }
 
 #header {
@@ -256,7 +264,7 @@ form .error {
 }
 
 .pledge h4 {
-  margin-top: 40px;
+  margin: 40px 0 0;
 }
 
 .pledge h4:first-child {
@@ -265,14 +273,17 @@ form .error {
 
 .pledge h4 b {
   border-radius: 100%;
-  padding: 5px 12px 5px 12px;
-  width: 100px;
-  height: 100px;
+  width: 32px;
+  height: 32px;
   font-size: 20px;
-  font-weight: normal;
+  line-height: 32px;
   color: #b5d8e8;
   background-color: #2f4a57;
-  margin-right: 10px;
+  margin-right: 5px;
+  margin-left: -5px;
+  text-align: center;
+  display: inline-block;
+  font-weight: normal;
 }
 
 .social {
@@ -464,5 +475,9 @@ body.modal-open {
 
   form.stuck .fields {
     display: block;
+  }
+
+  .pledge {
+    padding: 10px 15px;
   }
 }
