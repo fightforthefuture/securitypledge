@@ -31,213 +31,247 @@
 
   <!-- /*** social meta *** -->
 
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="https://use.typekit.net/dzf3zor.css">
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/new-style.css">
+  <link rel="stylesheet" href="css/style.css?1522178237">
 
   <!-- Site JavaScript -->
-  <script src="https://www.battleforthenet.com/onemorevote/js/vue.js"></script>
-  <script type="text/javascript" src="js/app.js?v=2"></script>
-
+  <script src="js/vue.bundle.js"></script>
+  <script src="js/app.js?1522178237"></script>
 </head>
 
 <body>
 <div id="app">
-  <header>
+  <header id="header" ref="header">
     <h1>Tech companies need to change.</h1>
-    <div class="container">
+    <div class="dissolve container">
       <p>Every day we learn more about how our data is being harvested and used against us.  A group of technologists and human rights experts have developed this <a href="#pledge">Security Pledge</a>, a set of principles that &mdash; if enough companies adopted them &mdash; would ensure the Internet is used to expand democracy, not undermine it. <strong>Add your name to tell the companies you use to take the pledge.</strong></p>
     </div>
   </header>
 
   <div class="container">
 
-    <!-- FFTF form -->
-    <form id="fftf-form" class="petition-form" @submit.prevent="submitFFTFForm()">
-      <div class="row">
-        <div class="column">
-          <input v-model="name" type="text" placeholder="Name*" required>
+    <!-- hidden Demand Progress form -->
+    <div class="hidden">
+      <iframe class="hidden" name="actionkit-iframe"></iframe>
+      <form action="https://act.demandprogress.org/act/" method="post" target="actionkit-iframe" ref="dpForm">
+        <input type="hidden" name="name" :value="name">
+        <input type="hidden" name="phone" :value="phone">
+        <input type="hidden" name="email" :value="email">
+        <input type="hidden" name="zip" :value="zipCode">
+        <input type="hidden" name="page" value="** FILL THIS IN **">
+        <input type="hidden" name="form_name" value="** FILL THIS IN **">
+        <input type="hidden" name="country" value="united states">
+        <input type="hidden" name="source" value="website">
+        <input type="hidden" name="subscribed_user" value="1">
+        <input type="hidden" name="js" value="1">
+        <input type="hidden" name="opt_in" value="1">
+      </form>
+    </div>
+
+    <div class="dissolve form-wrapper">
+      <form class="petition-form" @submit.prevent="submitForm()" :class="{ 'stuck': formIsStuck }" ref="form">
+        <div class="fields">
+          <div class="row">
+            <div class="column">
+              <input v-model.trim="name" type="text" placeholder="Name*" required>
+            </div>
+            <div class="column">
+              <input v-model.trim="email" type="email" placeholder="Email*" required>
+            </div>
+            <div class="column">
+              <input v-model.trim="zipCode" type="tel" placeholder="Zip Code*" required v-if="isDemandProgressPage" v-cloak>
+              <input v-model.trim="zipCode" type="tel" placeholder="Zip Code" v-else>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column">
+              <button :disabled="isLoading">
+                <span v-if="isLoading" v-cloak>Saving...</span>
+                <span v-else>Demand Change</span>
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="column">
-          <input v-model="email" type="email" placeholder="Email*">
+        <small class="error" v-if="formMessage" v-cloak>{{ formMessage }}</small>
+        <div v-else>
+          <small class="disclaimer" v-if="isDemandProgressPage" v-cloak>
+            <a href="https://www.demandprogress.org/">Demand Progress</a> will email you updates, and you can unsubscribe at any time. <a href="https://www.battleforthenet.com/privacy/">Privacy Policy</a>
+          </small>
+          <small class="disclaimer" v-else>
+            <a href="https://www.fightforthefuture.org/">Fight for the Future</a> will send you campaign updates. You can unsubscribe at any time. <a href="https://www.fightforthefuture.org/privacy/">Privacy Policy</a>
+          </small>
         </div>
-        <div class="column">
-          <input v-model="zipCode" type="tel" placeholder="Zip Code">
-        </div>
+      </form>
+    </div>
+
+    <div id="faq" class="dissolve">
+      <h2>What's happening?</h2>
+
+      <h3>The Problem</h3>
+      <p>Corporate and government attacks on human rights to privacy, security, and liberty are increasing across the globe, and technology plays a central role in extending their reach. Technology can empower and grant freedoms to us all, but now our online data is empowering data brokers, ISP’s, surveillance companies, and runaway government agencies to discriminate, exploit, and limit our freedoms. If a company wanted to exploit, or an authoritarian government wanted to surveil everyone affiliated with a certain racial, religious, or political group, they could do so with the information collected on innocent people by technology and social media companies. Companies and governments can exploit the massive troves of data companies have on people and weak links in Internet security. They can twist the Internet into something it was never meant to be: a weapon against the public.</p>
+      <hr>
+
+      <h3>The Solution</h3>
+      <p>We can stop abuses of our data and authoritarian tools by demanding companies protect our privacy and by building a surveillance-resistant web. We're calling on companies to reaffirm the power of their users and to build proven security into every service, site, and technology. To achieve this, we are arming users with the information they need to make informed choices about what services to use. We're already part-way there, and what is left to do is within reach.</p>
+      <hr>
+
+      <h3>The Plan</h3>
+      <p>The goal is to get thousands of the sites &amp; apps we use every day to pledge to secure our data and get millions of people using secure services. As users, we are demanding companies on the web take this pledge and take these steps so that everyone can choose the services that protect their privacy and security. Those of us who are tech employees are pledging to work inside our companies to push them to do the right thing. Together we'll take online and offline action to shut off channels that allow for our exploitation and surveillance, whether it’s Cambridge Analytica or the NSA. Over the course of 2018, we will acknowledge those companies that have taken these steps and draw public awareness to those that have left us vulnerable.</p>
+      <hr>
+
+      <h3 id="pledge">The Pledge</h3>
+      <p>As technology companies, you recognize that you have a key role to play. You decide how the services you build collect, capture, and share our data. In 2018, companies that sign this pledge are committing to protecting their users’ data from exploitation and securing their users’ human rights, ensuring their products and services do not put human rights at risk by agreeing to:</p>
+   
+      <div class="pledge">
+        <h4><b>1</b> Ensure Users Have Control over Their Data</h4> 
+        <p>Companies must commit to meaningful transparency, including by publishing clear guidance on what information is available to whom, and requiring opt-in consent for the sale of information about them. Users must be individually notified if their information has been compromised, including use that is inconsistent with what the user has opted into, by a third party or by a government.</p>
+        <p>For instance, Facebook can only satisfy this pledge if the company notifies all 50 million or so users whose information was reportedly transferred to Cambridge Analytica. When users stop using a service, they should have the option to take their data with them.</p>
+
+        <h4><b>2</b> Protect Our Conversations</h4> 
+        <p> We use the Internet to communicate nearly everything, from sensitive banking information to political debates. Offer publicly accessible and auditable end-to-end encryption, by default wherever possible.</p>
+
+        <h4><b>3</b> Protect and Limit the Data You Collect</h4> 
+        <p>Data can last forever and harm people in unpredictable ways. The best way to guard against that harm is to not collect or store it. Review your data collection practices, and stop collecting and storing information that isn't necessary for your product or business. Commit to not requesting information about your customers’ and employees’ immigration status, national origin, nationality, or religion, unless required by law or strictly necessary for the service being provided.</p>
+        <p>Do not provide this sensitive information to the public or government officials unless required by a court order and challenge court orders that put rights at risk. By default, data that is not necessary for business practices should be purged immediately. If data is retained, customers should be clearly informed and have to opt-in to retention, sharing, or use of information.</p>
+
+        <h4><b>4</b> Protect Our Devices</h4>
+        <p>If our laptops, phones, and Internet-connected devices get hacked, our rights are put at risk. This risk increases when gadget and phone makers endanger their customers by failing to update connected devices to guard against evolving security threats. Commit to providing updates to your products when necessary, and notifying customers in the case of breach or identified vulnerabilities. When other companies you work with fail to keep devices updated, proactively warn users and potential buyers about them.</p>
+
+        <h4><b>5</b> Block Overly-Broad Corporate and Government Access</h4> 
+        <p>Prohibit the use of your products and services, especially your APIs, to collect information about your customers and users for corporate exploitation and governmental surveillance purposes. Pledge to fight overly broad, questionable, and illegal efforts to surveil your users, in the courts and in public. Publish your policies on what information you offer to third parties and transparency reports detailing requests from governments to the greatest extent allowed by law. Provide notice to individual customers or users whose records are sought or obtained by the government unless barred from doing so.</p>
+        <p>Commit to not voluntarily providing customer information to the government, unless clearly necessary in an emergency to safeguard life. Commit to advocating for reform of national security surveillance authorities, including by urging reform of laws and policies that allow for mass surveillance.</p>
+        <p>Support reforms that require a warrant before the government can demand content, location, and other sensitive data from companies. Support immigration policies that ensure immigrants (including your own employees) are treated humanely, receive due process, and are not discriminated against through travel bans.</p>
       </div>
-      <div class="row">
-        <div class="column">
-          <button>Demand Change</button>
-        </div>
+
+      <p>In 2018, we will be working with Internet users and employees across the tech industry to urge your companies to take this pledge. Over the course of 2018, we will celebrate those companies that have taken these steps and draw public awareness to those that have left us vulnerable.</p>
+      <hr>
+
+      <h3>The Companies</h3>
+      <p>Tech companies allow us to connect with our friends, share our experiences and learn more about the world from an endless supply of news sources in exciting, disruptive ways. But in doing so, tech companies gain control over our actions, our thoughts and our communications with our families and friends. It is imperative that these companies pledge to keep our data secure and use it for our benefit.</p>
+    </div>
+
+    <div id="companies" class="clearfix">
+      <div class="column">
+        <h3 class="lighter">Has not pledged:</h3>
+        <ul>
+          <li>
+            <b>Google</b><br>
+            7 products with over<br>
+            1 billion users
+          </li>
+          <li>
+            <b>Facebook</b><br>
+            2.2 billion users
+          </li>
+          <li>
+            <b>Microsoft</b><br>
+            1.5 billion Windows users
+          </li>
+          <li>
+            <b>Apple</b><br>
+            1.3 billion iPhone, iPad and Mac users
+          </li>
+          <li>
+            <b>WhatsApp</b><br>
+            980 million users
+          </li>
+          <li>
+            <b>Instagram</b><br>
+            800 million users
+          </li>
+          <li>
+            <b>Tumblr</b><br>
+            794 million users 
+          </li>
+          <li>
+            <b>Twitter</b><br>
+            330 million users
+          </li>
+          <li>
+            <b>Amazon</b><br>
+            310 million users
+          </li>
+          <li>
+            <b>Skype</b><br>
+            300 million users
+          </li>
+          <li>
+            <b>LinkedIn</b><br>
+            260 million users
+          </li>
+          <li>
+            <b>Snapchat</b><br>
+            250 million users
+          </li>
+          <li>
+            <b>Reddit</b><br>
+            250 million users
+          </li>
+          <li>
+            <b>Pinterest</b><br>
+            200 million users
+          </li>
+          <li>
+            <b>eBay</b><br>
+            170 million users
+          </li>
+          <li>
+            <b>Comcast</b><br>
+            24 million broadband subscribers
+          </li>
+          <li>
+            <b>Charter</b><br>
+            22 million broadband subscribers
+          </li>
+          <li>
+            <b>AT&amp;T</b><br>
+            16 million broadband subscribers
+          </li>
+          <li>
+            <b>Verizon</b><br>
+            7 million broadband subscribers
+          </li>
+          <li>
+            <b>CenturyLink</b><br>
+            6 million broadband subscribers
+          </li>
+        </ul>
       </div>
-      <small class="disclaimer">
-        <a href="https://www.fightforthefuture.org/">Fight for the Future</a> will send you campaign updates. You can unsubscribe at any time. <a href="https://www.fightforthefuture.org/privacy/">Privacy Policy</a>
-      </small>
-    </form>
-
-    <main>
-      <div id="faq" class="dissolve">
-        <h2>What's happening?</h2>
-
-        <h3>The Problem</h3>
-        <p>Corporate and government attacks on human rights to privacy, security, and liberty are increasing across the globe, and technology plays a central role in extending their reach. Technology can empower and grant freedoms to us all, but now our online data is empowering data brokers, ISP’s, surveillance companies, and runaway government agencies to discriminate, exploit, and limit our freedoms. If a company wanted to exploit, or an authoritarian government wanted to surveil everyone affiliated with a certain racial, religious, or political group, they could do so with the information collected on innocent people by technology and social media companies. Companies and governments can exploit the massive troves of data companies have on people and weak links in Internet security. They can twist the Internet into something it was never meant to be: a weapon against the public.</p>
-
-        <h3>The Solution</h3>
-        <p>We can stop abuses of our data and authoritarian tools by demanding companies protect our privacy and by building a surveillance-resistant web. We're calling on companies to reaffirm the power of their users and to build proven security into every service, site, and technology. To achieve this, we are arming users with the information they need to make informed choices about what services to use. We're already part-way there, and what is left to do is within reach.</p>
-
-        <h3>The Plan</h3>
-        <p>The goal is to get thousands of the sites &amp; apps we use every day to pledge to secure our data and get millions of people using secure services. As users, we are demanding companies on the web take this pledge and take these steps so that everyone can choose the services that protect their privacy and security. Those of us who are tech employees are pledging to work inside our companies to push them to do the right thing. Together we'll take online and offline action to shut off channels that allow for our exploitation and surveillance, whether it’s Cambridge Analytica or the NSA. Over the course of 2018, we will acknowledge those companies that have taken these steps and draw public awareness to those that have left us vulnerable.</p>
-
-        <h3 id="pledge">The Pledge</h3>
-        <p>As technology companies, you recognize that you have a key role to play. You decide how the services you build collect, capture, and share our data. In 2018, companies that sign this pledge are committing to protecting their users’ data from exploitation and securing their users’ human rights, ensuring their products and services do not put human rights at risk by agreeing to:</p>
-     
-        <div class="pledge">
-          <h4><b>1</b> Ensure Users Have Control over Their Data</h4> 
-          <p>Companies must commit to meaningful transparency, including by publishing clear guidance on what information is available to whom, and requiring opt-in consent for the sale of information about them. Users must be individually notified if their information has been compromised, including use that is inconsistent with what the user has opted into, by a third party or by a government.</p>
-          <p>For instance, Facebook can only satisfy this pledge if the company notifies all 50 million or so users whose information was reportedly transferred to Cambridge Analytica. When users stop using a service, they should have the option to take their data with them.</p>
-
-          <h4><b>2</b> Protect Our Conversations</h4> 
-          <p> We use the Internet to communicate nearly everything, from sensitive banking information to political debates. Offer publicly accessible and auditable end-to-end encryption, by default wherever possible.</p>
-
-          <h4><b>3</b> Protect and Limit the Data You Collect</h4> 
-          <p>Data can last forever and harm people in unpredictable ways. The best way to guard against that harm is to not collect or store it. Review your data collection practices, and stop collecting and storing information that isn't necessary for your product or business. Commit to not requesting information about your customers’ and employees’ immigration status, national origin, nationality, or religion, unless required by law or strictly necessary for the service being provided.</p>
-          <p>Do not provide this sensitive information to the public or government officials unless required by a court order and challenge court orders that put rights at risk. By default, data that is not necessary for business practices should be purged immediately. If data is retained, customers should be clearly informed and have to opt-in to retention, sharing, or use of information.</p>
-
-          <h4><b>4</b> Protect Our Devices</h4>
-          <p>If our laptops, phones, and Internet-connected devices get hacked, our rights are put at risk. This risk increases when gadget and phone makers endanger their customers by failing to update connected devices to guard against evolving security threats. Commit to providing updates to your products when necessary, and notifying customers in the case of breach or identified vulnerabilities. When other companies you work with fail to keep devices updated, proactively warn users and potential buyers about them.</p>
-
-          <h4><b>5</b> Block Overly-Broad Corporate and Government Access</h4> 
-          <p>Prohibit the use of your products and services, especially your APIs, to collect information about your customers and users for corporate exploitation and governmental surveillance purposes. Pledge to fight overly broad, questionable, and illegal efforts to surveil your users, in the courts and in public. Publish your policies on what information you offer to third parties and transparency reports detailing requests from governments to the greatest extent allowed by law. Provide notice to individual customers or users whose records are sought or obtained by the government unless barred from doing so.</p>
-          <p>Commit to not voluntarily providing customer information to the government, unless clearly necessary in an emergency to safeguard life. Commit to advocating for reform of national security surveillance authorities, including by urging reform of laws and policies that allow for mass surveillance.</p>
-          <p>Support reforms that require a warrant before the government can demand content, location, and other sensitive data from companies. Support immigration policies that ensure immigrants (including your own employees) are treated humanely, receive due process, and are not discriminated against through travel bans.</p>
-        </div>
-
-        <p>In 2018, we will be working with Internet users and employees across the tech industry to urge your companies to take this pledge. Over the course of 2018, we will celebrate those companies that have taken these steps and draw public awareness to those that have left us vulnerable.</p>
-
-        <h3>The Companies</h3>
-        <p>Tech companies allow us to connect with our friends, share our experiences and learn more about the world from an endless supply of news sources in exciting, disruptive ways. But in doing so, tech companies gain control over our actions, our thoughts and our communications with our families and friends. It is imperative that these companies pledge to keep our data secure and use it for our benefit.</p>
+      <div class="column">
+        <h3 class="lighter">Has pledged:</h3>
+        <ul>
+          <li>No pledges yet</li>
+<!--           <li>
+            <b>A Company</b><br>
+            100 million users
+          </li> -->
+        </ul>
       </div>
-
-      <div id="companies" class="clearfix">
-        <div class="column">
-          <h3>Has not pledged:</h3>
-          <ul>
-            <li>
-              <b>Google</b><br>
-              7 products with over<br>
-              1 billion users
-            </li>
-            <li>
-              <b>Facebook</b><br>
-              2.2 billion users
-            </li>
-            <li>
-              <b>Microsoft</b><br>
-              1.5 billion Windows users
-            </li>
-            <li>
-              <b>Apple</b><br>
-              1.3 billion iPhone, iPad and Mac users
-            </li>
-            <li>
-              <b>WhatsApp</b><br>
-              980 million users
-            </li>
-            <li>
-              <b>Instagram</b><br>
-              800 million users
-            </li>
-            <li>
-              <b>Tumblr</b><br>
-              794 million users 
-            </li>
-            <li>
-              <b>Twitter</b><br>
-              330 million users
-            </li>
-            <li>
-              <b>Amazon</b><br>
-              310 million users
-            </li>
-            <li>
-              <b>Skype</b><br>
-              300 million users
-            </li>
-            <li>
-              <b>LinkedIn</b><br>
-              260 million users
-            </li>
-            <li>
-              <b>Snapchat</b><br>
-              250 million users
-            </li>
-            <li>
-              <b>Reddit</b><br>
-              250 million users
-            </li>
-            <li>
-              <b>Pinterest</b><br>
-              200 million users
-            </li>
-            <li>
-              <b>eBay</b><br>
-              170 million users
-            </li>
-            <li>
-              <b>Comcast</b><br>
-              24 million broadband subscribers
-            </li>
-            <li>
-              <b>Charter</b><br>
-              22 million broadband subscribers
-            </li>
-            <li>
-              <b>AT&amp;T</b><br>
-              16 million broadband subscribers
-            </li>
-            <li>
-              <b>Verizon</b><br>
-              7 million broadband subscribers
-            </li>
-            <li>
-              <b>CenturyLink</b><br>
-              6 million broadband subscribers
-            </li>
-          </ul>
-        </div>
-        <div class="column">
-          <h3>Has pledged:</h3>
-          <ul>
-            <li>
-              <b>A Company</b><br>
-              100 million users
-            </li>
-          </ul>
-        </div>
-      </div>
-    </main>
+    </div>
 
     <div class="social">
-      <a href="http://shpg.org/103/186936/facebook" class="share-button facebook" target="_blank">Share this</a>
-      <a href="http://shpg.org/103/186933/twitter" class="share-button twitter" target="_blank">Tweet this</a>
+      <a href="#" class="share-button facebook" @click.prevent="shareOnFacebook()">Share this</a>
+      <a href="#" class="share-button twitter" @click.prevent="shareOnTwitter()">Tweet this</a>
       <a href="https://donate.fightforthefuture.org/" class="share-button donate" target="_blank">Donate</a>
     </div>
 
     <div class="organizations">
-      <h3>Supporting organizations:</h3>
-      <img src="images/orgs/demand-progress.png" alt="Demand Progress" class="dp">
-      <img src="images/orgs/private-internet-access.png" alt="Private Internet Access" class="pia">
+      <h3 class="lighter">Supporting organizations:</h3>
+      <img src="images/orgs/demand-progress.png" alt="Demand Progress">
+      <img src="images/orgs/private-internet-access.png" alt="Private Internet Access">
     </div>
 
-    <footer>
+    <footer class="credits">
       <p>Made by:</p>
       <a href="https://www.fightforthefuture.org" target="_blank"><img src="images/fight-for-the-future.png" alt="Fight for the Future"></a>
     </footer>
   </div>
 
-  <div class="social-sidebar">
-    <a class="twitter" href="#" @click.prevent="shareOnTwitter()"><img src="https://www.battleforthenet.com/images/share/twitter_white.svg" alt="Tweet"></a>
-    <a class="facebook" href="#" @click.prevent="shareOnFacebook()"><img src="https://www.battleforthenet.com/images/share/facebook_white.svg" alt="Share this"></a>
+  <div class="social-sidebar" :class="{ 'visible': socialSidebarVisible }">
+    <a class="twitter" href="#" @click.prevent="shareOnTwitter()"><img src="images/twitter_white.svg" alt="Tweet"></a>
+    <a class="facebook" href="#" @click.prevent="shareOnFacebook()"><img src="images/facebook_white.svg" alt="Share this"></a>
   </div>
 
   <div class="modal-wrapper" v-show="modalVisible" v-cloak>
