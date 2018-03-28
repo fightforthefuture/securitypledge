@@ -421,7 +421,7 @@ body.modal-open {
 
 @media screen and (max-width: 640px) {
   body {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   h1, .modal h1 {
@@ -490,6 +490,10 @@ body.modal-open {
 }
 
 @media screen and (max-width: 320px) {
+  body {
+    font-size: 16px;
+  }
+
   h1, .modal h1 {
     font-size: 30px;
   }
