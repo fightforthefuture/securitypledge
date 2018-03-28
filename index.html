@@ -34,7 +34,7 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://use.typekit.net/dzf3zor.css">
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css?1522178238">
+  <link rel="stylesheet" href="css/style.css?1522178243">
 
   <!-- Site JavaScript -->
   <script src="js/vue.bundle.js"></script>
@@ -45,7 +45,7 @@
 <div id="app">
   <header id="header" ref="header">
     <h1>Tech companies need to change.</h1>
-    <div class="dissolve container">
+    <div class="container">
       <p>Every day we learn more about how our data is being harvested and used against us.  A group of technologists and human rights experts have developed this <a href="#pledge">Security Pledge</a>, a set of principles that &mdash; if enough companies adopted them &mdash; would ensure the Internet is used to expand democracy, not undermine it. <strong>Add your name to tell the companies you use to take the pledge.</strong></p>
     </div>
   </header>
@@ -70,7 +70,7 @@
       </form>
     </div>
 
-    <div class="dissolve form-wrapper">
+    <div class="form-wrapper">
       <form class="petition-form" @submit.prevent="submitForm()" :class="{ 'stuck': formIsStuck }" ref="form">
         <div class="fields">
           <div class="row">
@@ -106,7 +106,7 @@
       </form>
     </div>
 
-    <div id="faq" class="dissolve">
+    <div id="faq">
       <h2>What's happening?</h2>
 
       <h3>The Problem</h3>
@@ -125,21 +125,21 @@
       <p>As technology companies, you recognize that you have a key role to play. You decide how the services you build collect, capture, and share our data. In 2018, companies that sign this pledge are committing to protecting their users’ data from exploitation and securing their users’ human rights, ensuring their products and services do not put human rights at risk by agreeing to:</p>
    
       <div class="pledge">
-        <h4><b>1</b> Ensure Users Have Control over Their Data</h4> 
+        <h4><b>1</b> <span>Ensure Users Have Control over Their Data</span></h4> 
         <p>Companies must commit to meaningful transparency, including by publishing clear guidance on what information is available to whom, and requiring opt-in consent for the sale of information about them. Users must be individually notified if their information has been compromised, including use that is inconsistent with what the user has opted into, by a third party or by a government.</p>
         <p>For instance, Facebook can only satisfy this pledge if the company notifies all 50 million or so users whose information was reportedly transferred to Cambridge Analytica. When users stop using a service, they should have the option to take their data with them.</p>
 
-        <h4><b>2</b> Protect Our Conversations</h4> 
+        <h4><b>2</b> <span>Protect Our Conversations</span></h4> 
         <p> We use the Internet to communicate nearly everything, from sensitive banking information to political debates. Offer publicly accessible and auditable end-to-end encryption, by default wherever possible.</p>
 
-        <h4><b>3</b> Protect and Limit the Data You Collect</h4> 
+        <h4><b>3</b> <span>Protect and Limit the Data You Collect</span></h4> 
         <p>Data can last forever and harm people in unpredictable ways. The best way to guard against that harm is to not collect or store it. Review your data collection practices, and stop collecting and storing information that isn't necessary for your product or business. Commit to not requesting information about your customers’ and employees’ immigration status, national origin, nationality, or religion, unless required by law or strictly necessary for the service being provided.</p>
         <p>Do not provide this sensitive information to the public or government officials unless required by a court order and challenge court orders that put rights at risk. By default, data that is not necessary for business practices should be purged immediately. If data is retained, customers should be clearly informed and have to opt-in to retention, sharing, or use of information.</p>
 
-        <h4><b>4</b> Protect Our Devices</h4>
+        <h4><b>4</b> <span>Protect Our Devices</span></h4>
         <p>If our laptops, phones, and Internet-connected devices get hacked, our rights are put at risk. This risk increases when gadget and phone makers endanger their customers by failing to update connected devices to guard against evolving security threats. Commit to providing updates to your products when necessary, and notifying customers in the case of breach or identified vulnerabilities. When other companies you work with fail to keep devices updated, proactively warn users and potential buyers about them.</p>
 
-        <h4><b>5</b> Block Overly-Broad Corporate and Government Access</h4> 
+        <h4><b>5</b> <span>Block Overly-Broad Corporate and Government Access</span></h4> 
         <p>Prohibit the use of your products and services, especially your APIs, to collect information about your customers and users for corporate exploitation and governmental surveillance purposes. Pledge to fight overly broad, questionable, and illegal efforts to surveil your users, in the courts and in public. Publish your policies on what information you offer to third parties and transparency reports detailing requests from governments to the greatest extent allowed by law. Provide notice to individual customers or users whose records are sought or obtained by the government unless barred from doing so.</p>
         <p>Commit to not voluntarily providing customer information to the government, unless clearly necessary in an emergency to safeguard life. Commit to advocating for reform of national security surveillance authorities, including by urging reform of laws and policies that allow for mass surveillance.</p>
         <p>Support reforms that require a warrant before the government can demand content, location, and other sensitive data from companies. Support immigration policies that ensure immigrants (including your own employees) are treated humanely, receive due process, and are not discriminated against through travel bans.</p>
@@ -152,121 +152,123 @@
       <p>Tech companies allow us to connect with our friends, share our experiences and learn more about the world from an endless supply of news sources in exciting, disruptive ways. But in doing so, tech companies gain control over our actions, our thoughts and our communications with our families and friends. It is imperative that these companies pledge to keep our data secure and use it for our benefit.</p>
     </div>
 
-    <div id="companies" class="clearfix">
-      <div class="column">
-        <h3 class="lighter">Has not pledged:</h3>
-        <ul>
-          <li>
-            <b>Google</b><br>
-            7 products with over<br>
-            1 billion users
-          </li>
-          <li>
-            <b>Facebook</b><br>
-            2.2 billion users
-          </li>
-          <li>
-            <b>Microsoft</b><br>
-            1.5 billion Windows users
-          </li>
-          <li>
-            <b>Apple</b><br>
-            1.3 billion iPhone, iPad and Mac users
-          </li>
-          <li>
-            <b>WhatsApp</b><br>
-            980 million users
-          </li>
-          <li>
-            <b>Instagram</b><br>
-            800 million users
-          </li>
-          <li>
-            <b>Tumblr</b><br>
-            794 million users 
-          </li>
-          <li>
-            <b>Twitter</b><br>
-            330 million users
-          </li>
-          <li>
-            <b>Amazon</b><br>
-            310 million users
-          </li>
-          <li>
-            <b>Skype</b><br>
-            300 million users
-          </li>
-          <li>
-            <b>LinkedIn</b><br>
-            260 million users
-          </li>
-          <li>
-            <b>Snapchat</b><br>
-            250 million users
-          </li>
-          <li>
-            <b>Reddit</b><br>
-            250 million users
-          </li>
-          <li>
-            <b>Pinterest</b><br>
-            200 million users
-          </li>
-          <li>
-            <b>eBay</b><br>
-            170 million users
-          </li>
-          <li>
-            <b>Comcast</b><br>
-            24 million broadband subscribers
-          </li>
-          <li>
-            <b>Charter</b><br>
-            22 million broadband subscribers
-          </li>
-          <li>
-            <b>AT&amp;T</b><br>
-            16 million broadband subscribers
-          </li>
-          <li>
-            <b>Verizon</b><br>
-            7 million broadband subscribers
-          </li>
-          <li>
-            <b>CenturyLink</b><br>
-            6 million broadband subscribers
-          </li>
-        </ul>
+    <div class="line-bg">
+      <div id="companies" class="clearfix">
+        <div class="column">
+          <h3 class="lighter">Has not pledged:</h3>
+          <ul>
+            <li>
+              <b>Google</b><br>
+              7 products with over<br>
+              1 billion users
+            </li>
+            <li>
+              <b>Facebook</b><br>
+              2.2 billion users
+            </li>
+            <li>
+              <b>Microsoft</b><br>
+              1.5 billion Windows users
+            </li>
+            <li>
+              <b>Apple</b><br>
+              1.3 billion iPhone, iPad and Mac users
+            </li>
+            <li>
+              <b>WhatsApp</b><br>
+              980 million users
+            </li>
+            <li>
+              <b>Instagram</b><br>
+              800 million users
+            </li>
+            <li>
+              <b>Tumblr</b><br>
+              794 million users 
+            </li>
+            <li>
+              <b>Twitter</b><br>
+              330 million users
+            </li>
+            <li>
+              <b>Amazon</b><br>
+              310 million users
+            </li>
+            <li>
+              <b>Skype</b><br>
+              300 million users
+            </li>
+            <li>
+              <b>LinkedIn</b><br>
+              260 million users
+            </li>
+            <li>
+              <b>Snapchat</b><br>
+              250 million users
+            </li>
+            <li>
+              <b>Reddit</b><br>
+              250 million users
+            </li>
+            <li>
+              <b>Pinterest</b><br>
+              200 million users
+            </li>
+            <li>
+              <b>eBay</b><br>
+              170 million users
+            </li>
+            <li>
+              <b>Comcast</b><br>
+              24 million broadband subscribers
+            </li>
+            <li>
+              <b>Charter</b><br>
+              22 million broadband subscribers
+            </li>
+            <li>
+              <b>AT&amp;T</b><br>
+              16 million broadband subscribers
+            </li>
+            <li>
+              <b>Verizon</b><br>
+              7 million broadband subscribers
+            </li>
+            <li>
+              <b>CenturyLink</b><br>
+              6 million broadband subscribers
+            </li>
+          </ul>
+        </div>
+        <div class="column">
+          <h3 class="lighter">Has pledged:</h3>
+          <ul>
+            <li>No pledges yet</li>
+  <!--           <li>
+              <b>A Company</b><br>
+              100 million users
+            </li> -->
+          </ul>
+        </div>
       </div>
-      <div class="column">
-        <h3 class="lighter">Has pledged:</h3>
-        <ul>
-          <li>No pledges yet</li>
-<!--           <li>
-            <b>A Company</b><br>
-            100 million users
-          </li> -->
-        </ul>
+
+      <div class="social">
+        <a href="#" class="share-button facebook" @click.prevent="shareOnFacebook()">Share this</a>
+        <a href="#" class="share-button twitter" @click.prevent="shareOnTwitter()">Tweet this</a>
+        <a href="https://donate.fightforthefuture.org/" class="share-button donate" target="_blank">Donate</a>
       </div>
-    </div>
 
-    <div class="social">
-      <a href="#" class="share-button facebook" @click.prevent="shareOnFacebook()">Share this</a>
-      <a href="#" class="share-button twitter" @click.prevent="shareOnTwitter()">Tweet this</a>
-      <a href="https://donate.fightforthefuture.org/" class="share-button donate" target="_blank">Donate</a>
-    </div>
+      <div class="organizations">
+        <h3 class="lighter">Supporting organizations:</h3>
+        <img src="images/orgs/demand-progress.png" alt="Demand Progress">
+        <img src="images/orgs/private-internet-access.png" alt="Private Internet Access">
+      </div>
 
-    <div class="organizations">
-      <h3 class="lighter">Supporting organizations:</h3>
-      <img src="images/orgs/demand-progress.png" alt="Demand Progress">
-      <img src="images/orgs/private-internet-access.png" alt="Private Internet Access">
+      <footer class="credits">
+        <p>Made by:</p>
+        <a href="https://www.fightforthefuture.org" target="_blank"><img src="images/fight-for-the-future.png" alt="Fight for the Future"></a>
+      </footer>
     </div>
-
-    <footer class="credits">
-      <p>Made by:</p>
-      <a href="https://www.fightforthefuture.org" target="_blank"><img src="images/fight-for-the-future.png" alt="Fight for the Future"></a>
-    </footer>
   </div>
 
   <div class="social-sidebar" :class="{ 'visible': socialSidebarVisible }">

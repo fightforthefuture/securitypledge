@@ -48,10 +48,6 @@ body {
   line-height: 1.5;
   text-align: center;
   padding-bottom: 250px;
-  background-image: url('../images/line.png');
-  background-size: 45px 100%;
-  background-repeat: repeat-y;
-  background-position: center 360px;
 }
 
 a {
@@ -70,35 +66,11 @@ form.stuck .fields {
   max-width: 96%;
 }
 
-.dissolve {
-  background-color: #182931;
-  background-clip: content-box;
-  border-style: solid;
-  border-width: 10px 0;
-  border-image-source: url(../images/dissolve.png);
-  border-image-width: 150px 0;
-  border-image-slice: 25% 0 30%;
-  border-image-outset: 140px 0;
-}
-
-/* The border images flash on Firefox if this isn't set, 
-   and they totally don't work on Safari if it is.
-   This creates a style that only FF will use. */
-@-moz-document url-prefix() {
-  .dissolve {
-    border-color: transparent;
-  }
-}
-
 #header {
   max-width: 900px;
   padding-top: 40px;
   margin: auto;
   background: #182931;
-}
-
-#header p {
-  margin-top: 0;
 }
 
 #header h1 {
@@ -232,12 +204,18 @@ form .error {
 }
 
 #faq {
-  margin-top: 100px;
-  border-image-outset: 100px 0
+  margin-top: 50px;
 }
 
 #faq h2 {
   margin-top: 0;
+}
+
+.line-bg {
+  background-image: url('../images/dissolved-line.png');
+  background-size: 45px 100%;
+  background-repeat: repeat-y;
+  background-position: center;
 }
 
 #companies .column {
@@ -265,6 +243,11 @@ form .error {
 
 .pledge h4 {
   margin: 40px 0 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  line-height: 1.2;
+  margin-left: -5px;
 }
 
 .pledge h4:first-child {
@@ -279,11 +262,14 @@ form .error {
   line-height: 32px;
   color: #b5d8e8;
   background-color: #2f4a57;
-  margin-right: 5px;
-  margin-left: -5px;
+  margin-right: 10px;
   text-align: center;
   display: inline-block;
   font-weight: normal;
+}
+
+.pledge h4 span {
+  flex: 5;
 }
 
 .social {
@@ -413,7 +399,7 @@ body.modal-open {
 }
 
 .modal h1:after {
-  box-shadow: inset 0 0 50px #182931;
+  box-shadow: inset 0 0 72px #182931;
 }
 
 .modal .close {
@@ -435,19 +421,32 @@ body.modal-open {
 
 @media screen and (max-width: 640px) {
   body {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   h1, .modal h1 {
     font-size: 40px;
   }
 
+  h1:after, .modal h1:after {
+    box-shadow: inset 0 0 40px #182931;
+  }
+
   h2 {
     font-size: 36px;
   }
 
+  h3 {
+    line-height: 1.2;
+    font-size: 28px;
+  }
+
   #header {
     padding-top: 20px;
+  }
+
+  #header p {
+    margin-top: 0;
   }
 
   .social-sidebar {
@@ -465,8 +464,8 @@ body.modal-open {
     padding-right: 5px;
   }
 
-  form input::placeholder {
-    text-align: center;
+  form input {
+    font-size: 14px;
   }
 
   form.stuck {
@@ -479,5 +478,27 @@ body.modal-open {
 
   .pledge {
     padding: 10px 15px;
+  }
+
+  .line-bg {
+    background-size: 22px 100%;
+  }
+
+  #companies .column {
+    padding: 0 15px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  h1, .modal h1 {
+    font-size: 30px;
+  }
+
+  h1:after, .modal h1:after {
+    box-shadow: inset 0 0 30px #182931;
+  }
+
+  form {
+    padding: 10px 5px;
   }
 }
