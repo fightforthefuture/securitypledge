@@ -488,6 +488,12 @@ body.modal-open {
   #companies .column {
     padding: 0 15px;
   }
+
+  .organizations img {
+    width: 100px;
+    height: 50px;
+    margin: 5px;
+  }
 }
 
 @media screen and (max-width: 320px) {
