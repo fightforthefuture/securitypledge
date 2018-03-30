@@ -3,6 +3,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var GENERIC_ERROR = "Sorry, but that didn't work. Could you try again in a minute?";
 
+  function getOrg() {
+    var orgs = ['dp', 'fftf'];
+
+    for (var i = 0; i < orgs.length; i++) {
+      if (window.location.href.indexOf('source=' + orgs[i]) !== -1) {
+        return orgs[i];
+      }
+    }
+
+    // random org
+    return orgs[Math.floor(Math.random()*orgs.length)];
+  }
+
   var app = new Vue({
     el: '#app',
 
@@ -24,13 +37,14 @@ document.addEventListener("DOMContentLoaded", function() {
         socialSidebarVisible: false,
         formIsStuck: false,
         isLoading: false,
-        formMessage: null
+        formMessage: null,
+        org: getOrg()
       }
     },
 
     computed: {
       isDemandProgressPage: function() {
-        return window.location.href.indexOf('source=dp') !== -1;
+        return this.org === 'dp';
       }
     },
 
@@ -71,11 +85,9 @@ document.addEventListener("DOMContentLoaded", function() {
           hp_enabled: 'true',
           guard: '',
           contact_congress: 0,
-          org: 'fftf',
+          org: self.org,
           an_tags: "[\"privacy\", \"security\"]",
-          an_petition_id: '63aaf145-ed87-49a2-a1fc-861d46fc7118',
-          // volunteer: self.hasLargeAudience,
-          // action_comment: self.actionComment
+          an_petition_id: '63aaf145-ed87-49a2-a1fc-861d46fc7118'
         }, { emulateJSON: true })
         .then(function(response){
           self.isLoading = false;
