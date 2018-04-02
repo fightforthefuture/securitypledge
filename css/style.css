@@ -334,11 +334,14 @@ form .error {
 .credits p {
   font-variant: small-caps;
   text-transform: uppercase;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .credits img {
-  width: 230px;
+  width: 250px;
+  height: 50px;
+  object-fit: contain;
+  margin: 0 10px;
 }
 
 .social-sidebar {
@@ -493,6 +496,11 @@ body.modal-open {
     width: 100px;
     height: 50px;
     margin: 5px;
+  }
+
+  .credits img {
+    width: 150px;
+    height: 35px;
   }
 }
 
