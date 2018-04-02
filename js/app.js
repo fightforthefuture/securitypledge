@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
           guard: '',
           contact_congress: 0,
           org: self.org,
-          an_tags: "[\"privacy\", \"security\"]",
+          an_tags: "[\"privacy\", \"security\", \"surveillance\"]",
           an_petition_id: '63aaf145-ed87-49a2-a1fc-861d46fc7118'
         }, { emulateJSON: true })
         .then(function(response){
