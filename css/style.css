@@ -167,7 +167,8 @@ form small {
 }
 
 form .disclaimer {
-  font-size: 90%;
+  margin-top: 4px;
+  font-size: 15px;
   color: #93a5ae;
   display: block;
 }
@@ -183,7 +184,7 @@ form.stuck {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 120px;
+  height: 130px;
   right: 0;
   border: none;
   border-top: 1px #111 solid;
@@ -483,6 +484,11 @@ body.modal-open {
 
   form.stuck .fields {
     display: block;
+  }
+
+  form.stuck .disclaimer {
+    font-size: 14px;
+    margin-top: 2px;
   }
 
   .pledge {
