@@ -38,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function() {
         formIsStuck: false,
         isLoading: false,
         formMessage: null,
-        org: getOrg()
+        org: getOrg(),
+        optedIn: false
       }
     },
 
@@ -87,7 +88,8 @@ document.addEventListener("DOMContentLoaded", function() {
           contact_congress: 0,
           org: self.org,
           an_tags: "[\"privacy\", \"security\", \"surveillance\"]",
-          an_petition_id: '63aaf145-ed87-49a2-a1fc-861d46fc7118'
+          an_petition_id: '63aaf145-ed87-49a2-a1fc-861d46fc7118',
+          opt_out: !self.optedIn
         }, { emulateJSON: true })
         .then(function(response){
           self.isLoading = false;
@@ -165,11 +167,11 @@ document.addEventListener("DOMContentLoaded", function() {
       },
 
       shareOnFacebook: function() {
-        this.openPopup('http://shpg.org/103/186936/facebook', 'facebook');
+        this.openPopup('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.securitypledge.com', 'facebook');
       },
 
       shareOnTwitter: function() {
-        this.openPopup('http://shpg.org/103/186933/twitter', 'twitter');
+        this.openPopup('https://twitter.com/intent/tweet?text=A%20group%20of%20technologists%20and%20human%20rights%20experts%20have%20developed%20a%20Security%20Pledge%20%E2%80%94%20a%20set%20of%20principles%20that%20tech%20companies%20can%20follow%20to%20ensure%20that%20our%20personal%20information%20will%20be%20kept%20safe.%20%20Tell%20tech%20companies%20you%20want%20them%20to%20sign%20the%20pledge%20NOW%21%20%20https%3A%2F%2Fwww.securitypledge.com', 'twitter');
       },
     }
   });

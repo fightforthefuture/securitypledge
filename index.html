@@ -32,13 +32,12 @@
   <!-- /*** social meta *** -->
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="https://use.typekit.net/dzf3zor.css">
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css?1522178247">
+  <link rel="stylesheet" href="css/style.css?1522178248">
 
   <!-- Site JavaScript -->
   <script src="js/vue.bundle.js"></script>
-  <script src="js/app.js?1522178239"></script>
+  <script src="js/app.js?1522178240"></script>
 </head>
 
 <body>
@@ -66,7 +65,7 @@
         <input type="hidden" name="source" value="website">
         <input type="hidden" name="subscribed_user" value="1">
         <input type="hidden" name="js" value="1">
-        <input type="hidden" name="opt_in" value="1">
+        <input type="hidden" name="opt_in" :value="optedIn">
       </form>
     </div>
 
@@ -96,12 +95,14 @@
         </div>
         <small class="error" v-if="formMessage" v-cloak>{{ formMessage }}</small>
         <div v-else>
-          <small class="disclaimer" v-if="isDemandProgressPage" v-cloak>
-            <a href="https://www.demandprogress.org/">Demand Progress</a> will email you updates, and you can unsubscribe at any time. <a href="https://www.battleforthenet.com/privacy/">Privacy Policy</a>
-          </small>
-          <small class="disclaimer" v-else>
-            <a href="https://www.fightforthefuture.org/">Fight for the Future</a> will send you campaign updates. You can unsubscribe at any time. <a href="https://www.fightforthefuture.org/privacy/">Privacy Policy</a>
-          </small>
+          <label class="disclaimer">
+            <input type="checkbox" v-model="optedIn">
+            <a href="https://www.demandprogress.org/" v-if="isDemandProgressPage" v-cloak>Demand Progress</a>
+            <a href="https://www.fightforthefuture.org/" v-else>Fight for the Future</a>
+            will email you updates, and you can unsubscribe at any time.
+            <br>
+            <a href="https://www.battleforthenet.com/privacy/">Privacy Policy</a>
+          </label>
         </div>
       </form>
     </div>
@@ -277,11 +278,6 @@
       <a href="https://www.fightforthefuture.org" target="_blank"><img class="fftf" src="images/fight-for-the-future.png" alt="Fight for the Future"></a>
       <a href="https://www.demandprogress.org" target="_blank"><img class="dp" src="images/orgs/demand-progress.png" alt="Demand Progress"></a>
     </footer>
-  </div>
-
-  <div class="social-sidebar" :class="{ 'visible': socialSidebarVisible }">
-    <a class="twitter" href="#" @click.prevent="shareOnTwitter()"><img src="images/twitter_white.svg" alt="Tweet"></a>
-    <a class="facebook" href="#" @click.prevent="shareOnFacebook()"><img src="images/facebook_white.svg" alt="Share this"></a>
   </div>
 
   <div class="modal-wrapper" v-show="modalVisible" v-cloak>
