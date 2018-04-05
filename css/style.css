@@ -469,12 +469,11 @@ body.modal-open {
     padding: 10px;
   }
 
-  form input {
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="tel"] {
     padding-left: 5px;
     padding-right: 5px;
-  }
-
-  form input {
     font-size: 14px;
   }
 
