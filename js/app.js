@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
   "use strict";
 
   var GENERIC_ERROR = "Sorry, but that didn't work. Could you try again in a minute?";
+  var AN_PETITION_ID = '63aaf145-ed87-49a2-a1fc-861d46fc7118';
 
   function getOrg() {
     var orgs = ['dp', 'fftf'];
@@ -76,31 +77,16 @@ document.addEventListener("DOMContentLoaded", function() {
         self.isLoading = true;
         self.formMessage = null;
 
-        self.$http.post('https://queue.fightforthefuture.org/action', {
-          member: {
-            first_name: self.name,
-            email: self.email,
-            postcode: self.zipCode,
-            country: 'US'
-          },
-          hp_enabled: 'true',
-          guard: '',
-          contact_congress: 0,
-          org: self.org,
-          an_tags: "[\"privacy\", \"security\", \"surveillance\"]",
-          an_petition_id: '63aaf145-ed87-49a2-a1fc-861d46fc7118',
+        self.$http.post('https://fv8xpw9hri.execute-api.us-east-1.amazonaws.com/v1/petitions/' + AN_PETITION_ID + '/signatures', {
+          name: self.name,
+          email: self.email,
+          zip_code: self.zipCode,
+          tags: 'privacy,security,surveillance',
           opt_out: !self.optedIn
-        }, { emulateJSON: true })
+        })
         .then(function(response){
-          self.isLoading = false;
-
-          if (response.ok) {
-            self.showModal();
-            self.resetForm();
-          }
-          else {
-            self.formMessage = GENERIC_ERROR;
-          }
+          self.showModal();
+          self.resetForm();
         })
         .catch(function(error){
           self.isLoading = false;
@@ -109,6 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
       },
 
       resetForm: function() {
+        this.isLoading = false;
         this.name = null;
         this.email = null;
         this.zipCode = null;
