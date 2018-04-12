@@ -167,7 +167,7 @@ form small {
 }
 
 form .disclaimer {
-  margin-top: 4px;
+  margin: 4px;
   font-size: 15px;
   color: #93a5ae;
   display: block;
@@ -184,15 +184,29 @@ form.stuck {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 130px;
+  height: 140px;
   right: 0;
   border: none;
   border-top: 1px #111 solid;
   border-radius: 0;
 }
 
+form.stuck .disclaimer-container {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+}
+
+form.stuck .disclaimer {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
 form.stuck .fields {
   display: flex;
+  height: 100%;
+  position: relative;
 }
 
 form.stuck .fields .row {
@@ -469,6 +483,10 @@ body.modal-open {
     padding: 10px;
   }
 
+  form .disclaimer {
+    font-size: 13px;
+  }
+
   form input[type="text"],
   form input[type="email"],
   form input[type="tel"] {
@@ -485,9 +503,14 @@ body.modal-open {
     display: block;
   }
 
+  form.stuck .disclaimer-container {
+    left: 0;
+    right: 0;
+  }
+
   form.stuck .disclaimer {
-    font-size: 14px;
     margin-top: 2px;
+    font-size: 12px;
   }
 
   .pledge {
